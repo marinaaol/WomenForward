@@ -2,7 +2,7 @@
 
 **Learn. Build. Lead.**
 
-Women Forward é o projeto de conclusão do curso de Programação. É uma plataforma web criada para tornar cursos, eventos, comunidades e estágios em tecnologia mais fáceis de descobrir, permitindo pesquisar oportunidades por categoria, tipo, país e cidade.
+Women Forward é o projeto de conclusão do Curso  de Especialização Tecnológica em Programação e Sistemas de Informação ofertado pelo IEFP e ministrado no ISLA Gaia. O projeto visa empoderar o acesso às informações de qualidade para mulheres que visam a carreira tech. É uma plataforma web criada para tornar cursos, eventos, comunidades e estágios em tecnologia mais fáceis de descobrir, permitindo pesquisar oportunidades por categoria, tipo, país e cidade.
 
 ## Problema
 
@@ -26,7 +26,7 @@ Pessoas a partir dos 16 anos, com foco em mulheres que procuram estudar, desenvo
 | Área | Entrega |
 | --- | --- |
 | Pesquisa | Filtros por categoria, oportunidade, país, cidade e formato |
-| Categorias | Web, Dados & IA, Jogos e Cibersegurança |
+| Categorias | Web, Dados & IA, Jogos e Cibersegurança, Liderança & Carreira |
 | Oportunidades | Cursos, eventos, comunidades e estágios |
 | Entidades | Registo, autenticação e CRUD das próprias oportunidades |
 | Privacidade | Consentimento explícito e tratamento mínimo de dados |
