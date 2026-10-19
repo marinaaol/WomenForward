@@ -1,12 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-PT">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Women Forward</title>
+    <title> Women Forward </title>
+    <link rel = "stylesheet" href="css/style.css">
+    <script src="js/app.js" defer></script>
+    <!-- O atributo defer na tag <script> indica ao navegador que o script externo deve ser descarregado em paralelo, mas executado apenas depois que a página HTML terminar de ser analisada -->
 </head>
 <body>
-    <header class=""
-    
+    <h1> Women Forward </h1>
+    <header class="topo">
+        <a href="index.html" aria-label="Women Forward - Início">Women Forward</a>
+        <nav aria-label="Navegação Principal">
+            <a href="#" class=" logo">Women Forward</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="pesquisar.html">Explorar Oportunidades</a></li>
+                <li><a href="stem.html">Stem e Participação</a></li>
+                <li><a href="#entidades">Para Entidades</a></li>
+            </ul>
+        </nav>
+
+        <div class="hero">
+            <h2>O seu caminho também começa aqui</h2>
+            <h1>Encontre Oportunidades para Avançar em STEM</h1>
+            <p>Cursos, eventos, comunidades e estágios em áreas STEM num só lugar. Pesquise por categoria, tipo de oportunidade, país, cidade ou formato.</p>
+            <input type="button" value="Pesquisar Oportunidades">
+            <input type="button" value="Divulgar uma Oportunidade">
+            <p>Não é preciso criar conta para pesquisar. Let's go!</p>
+            <p>*Consulte os detalhes e confirme os requisitos diretamente com a entidade responsável.</p>
+        </div>
+    </header>
+    <main>
+        <section id="inicio" class="inicio">
+            <h2>Sobre o projeto</h2>
+            <h3>Encontrar oportunidades não devia exigir uma pesquisa sem fim.</h3>
+            <p>A informação sobre cursos, eventos, comunidades e estágios pode estar espalhada por muitos sites e redes. Quando as opções são difíceis de localizar e comparar, torna-se mais complicado perceber por onde começar ou qual pode ser o próximo passo.</p>
+        </section>
+        <section id="problema">Cenário e Fonte STEM</section>
+            <h2>O cenário STEM</h2>
+            <h3>Mais acesso à informação também ajuda a abrir caminhos.</h3>
+            <p>A UNESCO indica que as mulheres representam 35% das pessoas graduadas em STEM no mundo — uma proporção que não se alterou em dez anos. Este é um dado global, não uma estatística específica de Portugal ou do Brasil. Ele ajuda a mostrar por que iniciativas que aproximam mulheres da informação, da aprendizagem e das oportunidades são importantes.</p> 
+            <p>A falta de representação não é falta de capacidade. O acesso a oportunidades, referências e informação clara também influencia quem consegue explorar e permanecer nestas áreas.</p>    
+        <section id="solucao">A solução</section>
+            <h2>A solução</h2>
+            <h2>O Women Forward aproxima você das oportunidades.</h2>
+            <p>Pesquise opções em áreas tecnológicas, compare informações essenciais e consulte a página da entidade que publicou cada oportunidade.</p>
+        
+        <section id="categorias" class="categorias">
+            <h3>Web</h3>
+            <h3>Dados & IA</h3>
+            <h3>Jogos</h3>
+            <h3>Cibersegurança</h3>
+            <h3>Carreira & Liderança</h3>
+        </section>
+        <section id="pesquisa"> <h2>O que você quer descobrir?</h2></section>
+        <h4>Categoria</h4>
+            <select name="categorias">
+                <option value="web">Web</option>
+                <opttion value="dados">Dados & IA</option>
+                <option value="jogos">Jogos</option>
+                <option value="cibersegurança">Cibersegurança</option>
+                <option value="liderança">Carreira & Liderança</option>
+            </select>
+            <h4>Oportunidades</h4>
+            <select name="oportunidades">
+                <option value="curso">Curso</option>
+                <option value="evento">Evento</option>
+                <option value="comunidade">Comunidade</option>
+                <option value="estagio">Estágio</option>
+            </select>
+            <h4>País</h4>
+            <select name="pais">
+                <option value="portugal">PT</option>
+                <option value="brasil">BR</option>
+                <option value="global">Global</option>
+            </select>
+            <h4>Formato</h4>
+                <input type="radio">Presencial
+                <input type="radio"> Online
+                <input type="radio">Híbrido
+            </select>
+            <input type="button" value="Pesquisar">
+        </section>
+        <section id="publicos">Rotas por descobrir</section>
+        <h3>Jovens . 16 - 24 anos</h3>
+        <input type="button" value="Bora lá!">
+        <h3>Mulheres . 25 +</h3>
+        <input type="button" value="Fazer acontecer"
+    </main>
+    <footer class="rodape">
+        <nav class="navbar">
+            <a href="#" class=" logo">Women Forward 2026</a>
+            <ul class="nav-links">
+                <li><a href="#pesquisa">Início</a></li>
+                <li><a href="#oportunidades">Explorar Oportunidades</a></li>
+                <li><a href="#stem">Sobre área STEM</a></li>
+                <li><a href="#entidades">Para Entidades</a></li>
+                <li><a href="privacidade">Privacidade</a></li>
+            </ul>
+        </nav>
+
+    </footer>
 </body>
 </html>

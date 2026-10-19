@@ -1,0 +1,337 @@
+@media (max-width: 600px){
+    .topo {
+        padding: 12px 16px;
+    }
+    .topo nav {
+        gap: 12px;
+        font-size: 0.95rem;
+    }
+    .topo .ola{
+        display: none;
+    }
+}
+
+/* Paleta Women Forward */
+:root {
+    --color1: #d1b68d;
+    --color2: #87555c;
+    --color3: #492d49;
+    --color4: #51445f;
+    --color5: #5a5c75;
+}
+
+/* ============================================================
+   Women Forward — folha de estilos 
+   ============================================================ */
+ 
+/* 1. Base: seletores de elemento */
+* {
+    box-sizing: border-box;
+}
+ 
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--color3);
+    background: var(--color1);
+    line-height: 1.5;
+}
+ 
+a {
+    color: var(--color3);
+}
+ 
+h1 {
+    margin-top: 0;
+    font-size: 1.7rem;
+}
+
+ 
+ /* 2. Cabeçalho e menu: flexbox em linha */
+ .topo {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     flex-wrap: wrap;
+     gap: 12px;
+     padding: 14px 32px;
+     background: var(--color3);
+ }
+  
+.topo .marca {
+    color: var(--color1);
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+ 
+.topo nav {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 18px;
+     align-items: center;
+}
+  
+.topo nav a {
+     color: var(--color1);
+     text-decoration: none;
+     white-space: nowrap;
+ 
+}
+ 
+.topo nav a:hover {
+    color: var(--color1);
+    text-decoration: underline;
+}
+ 
+.topo .ola {
+    color: var(--color1);
+}
+ 
+/* 3. Conteúdo */
+main {
+    max-width: 960px;
+     margin: 32px auto;
+    padding: 0 20px;
+}
+  
+ .rodape {
+     text-align: center;
+     padding: 24px;
+     color: var(--color4);
+     font-size: 0.9rem;
+ }
+ 
+/* 4. Mensagens de sucesso e de erro */
+ .msg {
+     padding: 12px 16px;
+     border-radius: 6px;
+     margin-bottom: 20px;
+     border-left: 5px solid var(--color5);
+ }
+  
+ .msg.sucesso {
+     background: var(--color1);
+    border-color: var(--color4);
+ }
+ 
+ .msg.erro {
+     background: var(--color1);
+     border-color: var(--color2);
+ }
+  
+ .msg ul {
+    margin: 6px 0 0;
+    padding-left: 20px;
+}
+
+ul.msg {
+    padding-left: 36px;   /* a própria caixa é uma lista */
+}
+ 
+/* 5. Formulários */
+.formulario {
+    background: var(--color1);
+    padding: 24px;
+    border-radius: 8px;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+ 
+.formulario label {
+   font-weight: 600;
+    margin-top: 8px;
+}
+ 
+.formulario input,
+.formulario select,
+.formulario textarea {
+    padding: 9px 10px;
+border: 1px solid var(--color5);
+    border-radius: 5px;
+    font: inherit;
+}
+ 
+.formulario .check {
+    font-weight: normal;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.formulario button {
+    margin-top: 16px;
+}
+ 
+/* 6. Botões: seletor de classe */
+.btn,
+button {
+    display: inline-block;
+    padding: 9px 18px;
+    border: none;
+    border-radius: 5px;
+    background: var(--color3);
+    color: var(--color1);
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+ 
+.btn:hover,
+button:hover {
+    background: var(--color4);
+}
+ 
+.btn.secundario {
+    background: var(--color1);
+    color: var(--color3);
+    border: 1px solid var(--color5);
+}
+ 
+.btn.perigo,
+button.perigo {
+    background: var(--color3);
+    color: var(--color1);
+    border: 2px solid var(--color2);
+}
+
+
+/* 7. Barra com pesquisa e botão "Novo" */
+.barra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+ 
+.pesquisa {
+    display: flex;
+    gap: 8px;
+}
+ 
+.pesquisa input {
+    padding: 9px 10px;
+    border: 1px solid var(--color5);
+    border-radius: 5px;
+    min-width: 240px;
+}
+
+
+/* 8. Cartões lado a lado: flex + flex-wrap */
+.cartoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+ 
+.cartao {
+    flex: 1 1 260px;
+    background: var(--color1);
+    border-radius: 8px;
+    padding: 18px;
+    border-top: 4px solid var(--color4);
+}
+
+.cartao h2 {
+    font-size: 1.1rem;
+    margin: 0 0 6px;
+}
+ 
+.cartao .meta {
+    color: var(--color4);
+    margin: 0 0 12px;
+}
+
+/* 9. Tabela simples (autores) */
+.tabela {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--color1);
+}
+ 
+.tabela th,
+.tabela td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--color5);
+}
+.tabela th {
+    background: var(--color1);
+}
+ 
+/* 10. Página de detalhe */
+.detalhe {
+    background: var(--color1);
+    border-radius: 8px;
+    padding: 24px;
+}
+ 
+.detalhe dl {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.detalhe dt {
+    width: 140px;
+    font-weight: 600;
+}
+ 
+.detalhe dd {
+    width: calc(100% - 140px);
+    margin: 0 0 8px;
+}
+ 
+.acoes {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+margin-top: 16px;
+}
+ 
+.acoes form {
+    margin: 0;
+}
+ 
+.tabela .acoes {
+    margin-top: 0;
+}
+ 
+/* 11. Id: só existe um elemento com este id em cada página */
+#erros-js {
+    display: none;
+}
+ 
+.vazio {
+    color: var(--color4);
+    font-style: italic;
+}
+ 
+/* 12. Ecrãs pequenos (telemóvel): media query */
+@media (max-width: 600px) {
+    .topo {
+        padding: 12px 16px;
+    }
+ 
+    .topo nav {
+        gap: 12px;
+        font-size: 0.95rem;
+    }
+ 
+    .topo .ola {
+        display: none;      /* no telemóvel não há espaço para o "Olá" */
+    }
+ 
+    .pesquisa input {
+        min-width: 0;
+        flex: 1;
+    }
+ 
+    .detalhe dt,
+    .detalhe dd {
+        width: 100%;
+    }
+}
