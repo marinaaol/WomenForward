@@ -28,7 +28,7 @@ Pessoas a partir dos 16 anos, com foco em mulheres que procuram estudar, desenvo
 | Pesquisa | Filtros por categoria, oportunidade, país, cidade e formato |
 | Categorias | Web, Dados & IA, Jogos, Cibersegurança e Carreira & Liderança |
 | Oportunidades | Cursos, eventos, comunidades e estágios |
-| Entidades | Registo, autenticação e CRUD das próprias oportunidades |
+| Entidades | Registo e autenticação; CRUD das próprias oportunidades em desenvolvimento |
 | Privacidade | Consentimento explícito e tratamento mínimo de dados |
 
 ## Modelo de dados
@@ -47,7 +47,7 @@ Não existe relação direta entre categorias e entidades: ambas relacionam-se a
 
 ## Execução em servidor local
 
-O produto final será executado apenas em ambiente local durante o desenvolvimento e a avaliação. O código PHP ainda não está incluído nesta proposta; os requisitos e o procedimento abaixo são o contrato técnico para a versão implementada.
+O projeto combina páginas públicas em HTML, processamento em PHP e uma base de dados MySQL/MariaDB. A pesquisa é pública; o registo e a gestão de oportunidades destinam-se às entidades.
 
 ### Requisitos obrigatórios
 
@@ -62,8 +62,18 @@ O produto final será executado apenas em ambiente local durante o desenvolvimen
 ### Estrutura obrigatória do repositório implementado
 
     public/index.php
-    app/config/database.php
-    database/schema.sql
+    public/pesquisar.html
+    public/oportunidades.php
+    public/oportunidade_ver.php
+    public/login.php
+    public/registar.php
+    public/dashboard.php
+    public/css/style.css
+    public/js/app.js
+    public/images/
+    app/config/db.php
+    app/includes/
+    database/base_dados.sql
     .env.example
     .env
 
@@ -71,7 +81,8 @@ O ficheiro .env é local, não é versionado e contém apenas os dados de ligaç
 
 ### Configuração de ligação
 
-    DB_HOST=localhost
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
     DB_NAME=womenforward
     DB_USER=root
     DB_PASSWORD=
@@ -79,14 +90,13 @@ O ficheiro .env é local, não é versionado e contém apenas os dados de ligaç
 ### Procedimento único de arranque
 
 1. Instalar e iniciar MySQL ou MariaDB.
-2. Criar a base de dados womenforward e o utilizador womenforward com acesso apenas a essa base.
-3. Importar database/schema.sql pelo phpMyAdmin ou pela linha de comandos.
-4. Copiar .env.example para .env e preencher os valores de ligação.
-5. No diretório raiz do repositório, executar:
+2. Copiar `.env.example` para `.env` e preencher os dados locais de ligação. O `.env` não deve ser enviado ao GitHub.
+3. Importar `database/base_dados.sql` pelo phpMyAdmin. O script cria a base `womenforward`, as tabelas e dados demonstrativos; importe-o uma única vez numa base ainda não criada.
+4. No diretório raiz do repositório, executar:
 
     php -S 127.0.0.1:8000 -t public
 
-Abrir http://127.0.0.1:8000 no navegador. Este comando é igual em Linux, macOS e Windows, desde que php -v funcione no terminal. No Windows, executar o comando em PowerShell ou Prompt de Comando depois de adicionar o diretório do PHP à variável PATH.
+Abrir http://127.0.0.1:8000 no navegador. Este comando é igual em Linux, macOS e Windows, desde que `php -v` funcione no terminal. No Windows, executar o comando em PowerShell ou Prompt de Comando depois de adicionar o diretório do PHP à variável PATH.
 
 Antes de arrancar, confirmar php -v, php -m (deve listar pdo_mysql e mbstring) e que a base de dados aceita ligações em 127.0.0.1:3306.
 
