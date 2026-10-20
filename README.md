@@ -79,7 +79,7 @@ O ficheiro .env é local, não é versionado e contém apenas os dados de ligaç
 ### Procedimento único de arranque
 
 1. Instalar e iniciar MySQL ou MariaDB.
-2. Criar a base de dados women_forward e o utilizador women_forward com acesso apenas a essa base.
+2. Criar a base de dados womenforward e o utilizador womenforward com acesso apenas a essa base.
 3. Importar database/schema.sql pelo phpMyAdmin ou pela linha de comandos.
 4. Copiar .env.example para .env e preencher os valores de ligação.
 5. No diretório raiz do repositório, executar:
