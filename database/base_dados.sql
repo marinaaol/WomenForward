@@ -25,7 +25,7 @@ CREATE TABLE categorias (
   id_categoria INT AUTO_INCREMENT PRIMARY KEY,
   nome VARCHAR(50) NOT NULL,
   CONSTRAINT chk_categorias_nome
-    CHECK (nome IN ('Web', 'Dados & IA', 'Jogos', 'Cibersegurança', 'Liderança & Carreira')),
+    CHECK (nome IN ('Web', 'Dados & IA', 'Jogos', 'Cibersegurança', 'Carreira & Liderança')),
   CONSTRAINT uq_categorias_nome UNIQUE (nome)
 );
 
@@ -65,10 +65,11 @@ INSERT INTO categorias (nome) VALUES
   ('Dados & IA'),
   ('Jogos'),
   ('Cibersegurança'),
-  ('Liderança & Carreira');
+  ('Carreira & Liderança');
 
 -- Entidades de exemplo com email fictício e password comum (Demo1234)
 INSERT INTO entidades (nome, email, password_hash, consentimento_em) VALUES
+  ('Entidade de Teste', 'womenforward@demo.test', '$2y$12$wtvyr7Br21NfSwx8lFD1EujFE1Q/5l4NumFPTF4aZ5OVbvUr4/V2m', '2025-10-08 10:00:00'),
   ('Harvard Online', 'harvard@womenforward.test', '$2y$12$wtvyr7Br21NfSwx8lFD1EujFE1Q/5l4NumFPTF4aZ5OVbvUr4/V2m', '2025-10-03 09:14:22'),
   ('TryHackMe', 'tryhackme@womenforward.test', '$2y$12$wtvyr7Br21NfSwx8lFD1EujFE1Q/5l4NumFPTF4aZ5OVbvUr4/V2m', '2025-10-19 16:47:05'),
   ('Cisco Networking Academy', 'cisconetacad@womenforward.test', '$2y$12$wtvyr7Br21NfSwx8lFD1EujFE1Q/5l4NumFPTF4aZ5OVbvUr4/V2m', '2025-11-07 11:32:40'),
@@ -97,7 +98,7 @@ INSERT INTO entidades (nome, email, password_hash, consentimento_em) VALUES
   ('Raparigas do Código', 'raparigasdocodigo@womenforward.test', '$2y$12$wtvyr7Br21NfSwx8lFD1EujFE1Q/5l4NumFPTF4aZ5OVbvUr4/V2m', '2026-09-09 12:41:29'),
   ('PrograMaria', 'programaria@womenforward.test', '$2y$12$wtvyr7Br21NfSwx8lFD1EujFE1Q/5l4NumFPTF4aZ5OVbvUr4/V2m', '2026-09-22 15:26:47'),
   ('Tech Girls', 'techgirls@womenforward.test', '$2y$12$wtvyr7Br21NfSwx8lFD1EujFE1Q/5l4NumFPTF4aZ5OVbvUr4/V2m', '2026-10-04 09:03:11'),
-  ('42 São Paulo', '42sp@womenforward.test', '$2y$12$wtvyr7Br21NfSwx8lFD1EujFE1Q/5l4NumFPTF4aZ5OVbvUr4/V2m', '2026-10-13 17:48:55')
+  ('42 São Paulo', '42sp@womenforward.test', '$2y$12$wtvyr7Br21NfSwx8lFD1EujFE1Q/5l4NumFPTF4aZ5OVbvUr4/V2m', '2026-10-13 17:48:55');
 
 -- Oportunidades de Exemplo
 INSERT INTO oportunidades (id_categoria, id_entidade, titulo, descricao, tipo, pais, cidade, formato, url) VALUES
@@ -131,7 +132,7 @@ INSERT INTO oportunidades (id_categoria, id_entidade, titulo, descricao, tipo, p
   (4, 2, 'TryHackMe — Cyber Security Learning Roadmap', 'Plataforma de aprendizagem prática com percursos e laboratórios de cibersegurança no navegador.', 'curso', 'GLOBAL', NULL, 'online', 'https://tryhackme.com/hacktivities'),
   (4, 1, 'Harvard Online — Cybersecurity Courses', 'Catálogo de cursos de cibersegurança, incluindo opções online; consultar disponibilidade de cada curso.', 'curso', 'GLOBAL', NULL, 'online', 'https://pll.harvard.edu/subject/cybersecurity'),
 
-  -- Liderança & Carreira
+  -- Carreira & Liderança
   (5, 20, 'Ladies in Tech — Liderança feminina em tecnologia', 'Comunidade brasileira voltada à liderança feminina em tecnologia; consultar atividades e inscrições no site.', 'comunidade', 'BR', NULL, 'online', 'https://ladiesintech.com.br/'),
   (5, 19, 'Portuguese Women in Tech — Comunidade profissional', 'Comunidade e iniciativas de carreira para mulheres no ecossistema tecnológico português.', 'comunidade', 'PT', NULL, 'online', 'https://www.portuguesewomenintech.com/'),
   (5, 18, 'Women in Tech Portugal — Comunidade e oportunidades', 'Comunidade profissional para mulheres em tecnologia; consultar eventos e iniciativas disponíveis.', 'comunidade', 'PT', NULL, 'online', 'https://www.womenintech.pt/'),

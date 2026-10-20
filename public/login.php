@@ -1,5 +1,5 @@
 <?php
-require 'includes/inicio.php';
+require dirname(__DIR__) . '/app/includes/inicio.php';
  
 $erros = [];
 $email = '';
@@ -24,14 +24,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
  
-    $erros[] = 'Email ou password errados.';
+    $erros[] = 'O email ou a palavra-passe não correspondem. Tente novamente.';
 }
  
-$titulo = 'Iniciar sessão';
-require 'includes/cabecalho.php';
+$titulo = 'Iniciar sessão · Women Forward';
+require dirname(__DIR__) . '/app/includes/cabecalho.php';
 ?>
  
-<h1>Iniciar sessão</h1>
+<h1>Aceda à área da sua entidade</h1>
+<p>Entre para gerir as oportunidades divulgadas pela sua entidade.</p>
  
 <?php if ($erros): ?>
     <ul class="erros">
@@ -47,13 +48,13 @@ require 'includes/cabecalho.php';
                value="<?= htmlspecialchars($email) ?>">
     </label>
  
-    <label>Password
+    <label>Palavra-passe
         <input type="password" name="password" required>
     </label>
  
-    <button type="submit">Entrar</button>
+    <button type="submit">Iniciar sessão</button>
 </form>
  
-<p>Ainda não tens conta? <a href="registar.php">Criar conta</a></p>
+<p>Ainda não tem conta de entidade? <a href="registar.php">Registe-se aqui</a>.</p>
  
-<?php require 'includes/rodape.php'; ?>
+<?php require dirname(__DIR__) . '/app/includes/rodape.php'; ?>
