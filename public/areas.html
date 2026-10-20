@@ -3,20 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Áreas de Interesse </title>
-    <link rel = "stylesheet" href="css/style.css">
+    <title>Áreas tech · Women Forward</title>
+    <link rel="stylesheet" href="css/style.css">
     <script src="js/app.js" defer></script>
 </head>
 <body>
-    <h1>Web</h1>
-    <p>A área web envolve criar e manter sites, aplicações e serviços utilizados através da internet. Explore oportunidades de aprendizagem e prática nesta área.</p>
-    <h1>Daods & IA</h1>
-    <p>Dados ajudam a compreender informação. A inteligência artificial reúne técnicas usadas para criar sistemas que identificam padrões ou apoiam tarefas. Explore cursos, eventos e comunidades relacionados com estas áreas.</p>
-    <h1>Jogos</h1>
-    <p>O desenvolvimento de jogos combina programação, design, narrativa, som e testes. Há diferentes formas de contribuir para a criação de um jogo.</p>
-    <h1>Cibersegurança</h1>
-    <p>A cibersegurança procura proteger sistemas, redes e informação. Conheça oportunidades para aprender sobre segurança digital e os desafios desta área.</p>
-    <h1>Carreira & Liderança</h1>
-    <p>Esta categoria reúne oportunidades de desenvolvimento profissional, partilha de experiências e liderança em tecnologia.</p>
+    <header class="topo">
+    <nav class="topo-menu topo-menu-esquerda" aria-label="Navegação principal — início e pesquisa">
+        <a href="index.php">Início</a>
+        <a href="pesquisar.html">Pesquisar</a>
+    </nav>
+    <a class="marca" href="index.php" aria-label="Women Forward — início">
+        <img src="images/logo-women-forward.svg" alt="Women Forward">
+    </a>
+    <nav class="topo-menu topo-menu-direita" aria-label="Navegação principal — áreas e entidades">
+        <a href="areas.html">Áreas Tech</a>
+        <a href="stem.html">Mulheres na STEM</a>
+        <a href="entidades.html">Para Entidades</a>
+    </nav>
+</header>
+    <main>
+    <h1>Explore áreas tech</h1>
+    <h2 id="web">Web</h2>
+    <p>Sites, aplicações e serviços online começam com ideias e ganham forma na web. Explore oportunidades para aprender, criar e pôr projetos em prática.</p>
+    <p><a class="btn secundario" href="oportunidades.php?categoria=Web">Pesquisar oportunidades</a></p>
+    <h2 id="dados-ia">Dados &amp; IA</h2>
+    <p>Os dados ajudam-nos a compreender informação. A inteligência artificial usa técnicas que identificam padrões e apoiam tarefas. Explore cursos, eventos e comunidades ligados a estas áreas.</p>
+    <p><a class="btn secundario" href="oportunidades.php?categoria=Dados%20%26%20IA">Pesquisar oportunidades</a></p>
+    <h2 id="jogos">Jogos</h2>
+    <p>Um jogo pode juntar programação, design, narrativa, som e testes. Há muitos talentos envolvidos — descubra onde o seu pode entrar em jogo.</p>
+    <p><a class="btn secundario" href="oportunidades.php?categoria=Jogos">Pesquisar oportunidades</a></p>
+    <h2 id="ciberseguranca">Cibersegurança</h2>
+    <p>Proteger sistemas, redes e informação é essencial num mundo conectado. Conheça oportunidades para aprender sobre segurança digital e os desafios da área.</p>
+    <p><a class="btn secundario" href="oportunidades.php?categoria=Ciberseguran%C3%A7a">Pesquisar oportunidades</a></p>
+    <h2 id="carreira-lideranca">Carreira &amp; Liderança</h2>
+    <p>Crescer também é trocar experiências, abrir espaço para novas ideias e liderar. Explore oportunidades de desenvolvimento profissional em tecnologia.</p>
+    <p><a class="btn secundario" href="oportunidades.php?categoria=Carreira%20%26%20Lideran%C3%A7a">Pesquisar oportunidades</a></p>
+    </main>
+<footer class="rodape">
+    <div class="rodape-assinatura">
+        <h2 class="rodape-wordmark">Women Forward</h2>
+        <p class="rodape-slogan">Learn. Build. Lead.</p>
+    </div>
+    <div class="rodape-colunas">
+        <section class="rodape-coluna rodape-nota-oportunidades">
+            <h3>Women Forward</h3>
+            <p class="rodape-disclaimer">As oportunidades são divulgadas pelas entidades responsáveis. Confirme os detalhes na fonte oficial.</p>
+        </section>
+        <nav class="rodape-coluna" aria-label="Explorar">
+            <h3>Explorar</h3>
+            <a href="pesquisar.html">Pesquisar oportunidades</a>
+            <a href="areas.html">Áreas tech</a>
+            <a href="stem.html">STEM</a>
+        </nav>
+        <nav class="rodape-coluna" aria-label="Para entidades">
+            <h3>Para entidades</h3>
+            <a href="entidades.html">Sobre a plataforma</a>
+            <a href="registar.php">Criar conta</a>
+            <a href="login.php">Iniciar sessão</a>
+        </nav>
+        <nav class="rodape-coluna" aria-label="Projeto">
+            <h3>Projeto</h3>
+            <a href="index.php">Página inicial</a>
+            <a href="privacidade.html">Política de privacidade</a>
+        </nav>
+    </div>
+    <div class="rodape-base">
+        <p class="rodape-academico"><small>Women Forward trata-se de projeto de conclusão do Curso de Especialização Tecnológica em Programação e Sistemas de Informação ofertado pelo IEFP e ministrado no ISLA Gaia. Ano de desenvolvimento do site: 2026.</small></p>
+    </div>
+</footer>
 </body>
 </html>

@@ -1,0 +1,619 @@
+/* ============================================================
+   Women Forward — folha de estilos
+   ============================================================ */
+
+   /* Responsividade */
+
+    .grelha-oportunidades {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    }
+
+    @media (max-width: 800px) {
+    .grelha-oportunidades { grid-template-columns: repeat(2, 1fr); }
+    nav { display: flex; flex-wrap: wrap; gap: .75rem; }
+    }
+
+    @media (max-width: 560px) {
+    .grelha-oportunidades { grid-template-columns: 1fr; }
+    }
+
+/* Paleta Women Forward */
+:root {
+    --color1: #e0d5c6;
+    --color2: #87555c;
+    --color3: #492d41;
+    --color4: #51445f;
+    --color5: #5e8080;
+    --largura-conteudo: 1120px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--color3);
+    background: var(--color1);
+    line-height: 1.6;
+}
+
+
+header, main, footer {
+    padding: 1rem 5vw;
+}
+
+a {
+    color: var(--color5);
+}
+
+h1 {
+    margin-top: 0;
+    font-size: 1.7rem;
+    color: var(--color3);
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 1.4rem;
+    color: var(--color5);
+}
+
+h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: var(--color4);
+}
+
+.topo {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     flex-wrap: wrap;
+     gap: 12px;
+     padding: 14px 32px;
+     background: var(--color2);
+ }
+
+.topo .marca {
+    color: var(--color1);
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.topo nav {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 18px;
+     align-items: center;
+}
+
+.topo nav a {
+     color: var(--color1);
+     text-decoration: none;
+     white-space: nowrap;
+
+}
+
+.topo nav a:hover {
+    color: var(--color1);
+    text-decoration: underline;
+}
+
+.topo .ola {
+    color: var(--color1);
+}
+
+main {
+    max-width: 960px;
+     margin: 32px auto;
+    padding: 0 20px;
+}
+
+.footer {
+     text-align: center;
+     padding: 24px;
+     color: var(--color4);
+     font-size: 0.9rem;
+ }
+
+
+ .msg {
+     padding: 12px 16px;
+     border-radius: 6px;
+     margin-bottom: 20px;
+     border-left: 5px solid var(--color5);
+ }
+
+ .msg.sucesso {
+     background: var(--color1);
+    border-color: var(--color4);
+ }
+
+ .msg.erro {
+     background: var(--color1);
+     border-color: var(--color2);
+ }
+
+ .msg ul {
+    margin: 6px 0 0;
+    padding-left: 20px;
+}
+
+ul.msg {
+    padding-left: 36px;
+}
+
+
+.formulario {
+    background: var(--color1);
+    padding: 24px;
+    border-radius: 8px;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.formulario input,
+.formulario select,
+.form-auth input,
+.form-auth select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--color5);
+    border-radius: 6px;
+    font: inherit;
+}
+
+.form-auth {
+    display: grid;
+    gap: 14px;
+    max-width: 520px;
+    padding: 24px;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.form-auth label,
+.formulario label {
+    display: grid;
+    gap: 6px;
+}
+
+.btn,
+button {
+    display: inline-block;
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 6px;
+    background: var(--color3);
+    color: #fff;
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn.secundario {
+    background: transparent;
+    color: var(--color3);
+    border: 1px solid var(--color3);
+}
+
+.acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.grelha-oportunidades {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+}
+
+.cartao,
+.detalhe {
+    padding: 20px;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.cartao h3 {
+    margin-bottom: 8px;
+}
+
+.detalhe dl {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 8px 16px;
+}
+
+.detalhe dt {
+    font-weight: 700;
+}
+
+.detalhe dd {
+    margin: 0;
+}
+
+.rodape {
+    margin-top: 48px;
+    padding: 24px 5vw;
+    text-align: center;
+    color: var(--color4);
+}
+
+.rodape nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+@media (max-width: 560px) {
+    .detalhe dl {
+        grid-template-columns: 1fr;
+    }
+}
+
+.formulario label {
+   font-weight: 600;
+    margin-top: 8px;
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea {
+    padding: 9px 10px;
+    border: 1px solid var(--color5);
+    border-radius: 5px;
+    font: inherit;
+}
+
+.formulario .check {
+    font-weight: normal;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.formulario button {
+    margin-top: 16px;
+}
+
+.rodape nav a {
+    color: inherit;
+}
+
+.rodape-academico {
+    max-width: 960px;
+    margin: 18px auto 0;
+    font-size: 0.65rem;
+    line-height: 1.4;
+}
+
+.rodape-marca {
+    margin-bottom: 0;
+    font-size: 1.05rem;
+}
+
+.rodape-slogan {
+    margin-top: 0;
+    font-size: 0.9rem;
+}
+
+.rodape-disclaimer {
+    font-size: 0.75rem;
+    font-style: italic;
+}
+
+/* Rodapé em grelha, inspirado no modelo de referência */
+.rodape {
+    margin-top: 48px;
+    padding: 0 5vw 22px;
+    color: var(--color3);
+    background: var(--color1);
+    text-align: left;
+}
+
+.rodape-assinatura {
+    padding: clamp(38px, 7vw, 90px) 0 28px;
+    border-top: 1px solid rgba(73, 45, 65, 0.22);
+    border-bottom: 1px solid rgba(73, 45, 65, 0.22);
+    text-align: center;
+}
+
+.rodape-wordmark {
+    margin: 0;
+    color: var(--color3);
+    font-size: clamp(3rem, 11vw, 9rem);
+    font-weight: 600;
+    letter-spacing: -0.075em;
+    line-height: 0.95;
+}
+
+.rodape-slogan {
+    margin: 12px 0 0;
+    color: var(--color4);
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+}
+
+.rodape-colunas {
+    display: grid;
+    grid-template-columns: 1.2fr repeat(3, minmax(0, 1fr));
+    gap: clamp(20px, 3vw, 48px);
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 34px 0 38px;
+    border-bottom: 1px solid rgba(73, 45, 65, 0.22);
+}
+
+.rodape-coluna {
+    min-width: 0;
+}
+
+nav.rodape-coluna {
+    display: block;
+}
+
+.rodape-coluna h3 {
+    margin: 0 0 14px;
+    padding-bottom: 9px;
+    border-bottom: 1px solid rgba(73, 45, 65, 0.18);
+    color: var(--color4);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.rodape-coluna a {
+    display: block;
+    width: fit-content;
+    margin: 7px 0;
+    color: var(--color3);
+    text-decoration: none;
+}
+
+.rodape-coluna a:hover,
+.rodape-coluna a:focus-visible {
+    text-decoration: underline;
+}
+
+.rodape-disclaimer {
+    max-width: 280px;
+    margin: 0;
+    color: var(--color4);
+    font-size: 0.75rem;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+.rodape-base {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding-top: 15px;
+}
+
+.rodape-academico {
+    margin: 0;
+    color: var(--color4);
+    font-size: 0.65rem;
+    line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+    .rodape-colunas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 560px) {
+    .rodape-colunas {
+        grid-template-columns: 1fr;
+        gap: 26px;
+    }
+
+    .rodape-assinatura {
+        text-align: left;
+    }
+
+    .rodape-wordmark {
+        font-size: clamp(2.8rem, 14vw, 5rem);
+    }
+}
+
+/* Barra superior alinhada à identidade do Women Forward */
+.topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 18px 28px;
+    padding: 16px clamp(20px, 4vw, 64px);
+    background: var(--color1);
+}
+
+.topo .marca {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    color: var(--color3);
+    text-decoration: none;
+}
+
+.topo .marca img {
+    display: block;
+    width: clamp(150px, 16vw, 220px);
+    height: auto;
+}
+
+.topo .topo-menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-left: auto;
+    padding: 6px;
+    border: 1px solid rgba(73, 45, 65, 0.12);
+    border-radius: 999px;
+    background: #fff;
+}
+
+.topo .topo-menu a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 9px 15px;
+    border-radius: 999px;
+    color: var(--color3);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 160ms ease, color 160ms ease;
+}
+
+.topo .topo-menu a:hover,
+.topo .topo-menu a:focus-visible {
+    background: var(--color1);
+    color: var(--color3);
+    text-decoration: none;
+}
+
+.topo .topo-menu a:last-child {
+    padding-inline: 19px;
+    background: var(--color3);
+    color: #fff;
+}
+
+.topo .topo-menu a:last-child:hover,
+.topo .topo-menu a:last-child:focus-visible {
+    background: var(--color2);
+    color: #fff;
+}
+
+.topo .topo-menu a:focus-visible,
+.topo .marca:focus-visible {
+    outline: 3px solid var(--color5);
+    outline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+    .topo {
+        align-items: flex-start;
+    }
+
+    .topo .topo-menu {
+        justify-content: flex-start;
+        margin-left: 0;
+        border-radius: 18px;
+    }
+}
+
+@media (max-width: 560px) {
+    .topo {
+        padding: 14px 20px;
+    }
+
+    .topo .marca img {
+        width: 160px;
+    }
+
+    .topo .topo-menu {
+        width: 100%;
+        gap: 2px;
+        padding: 5px;
+    }
+
+    .topo .topo-menu a {
+        min-height: 38px;
+        padding: 8px 10px;
+        font-size: 0.82rem;
+    }
+}
+
+
+
+/* Navegação com a marca centrada entre os dois grupos de links */
+.topo {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: 18px;
+}
+
+.topo .topo-menu {
+    flex-wrap: nowrap;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+}
+
+.topo .topo-menu-esquerda {
+    justify-content: flex-start;
+}
+
+.topo .topo-menu-direita {
+    justify-content: flex-end;
+}
+
+.topo .topo-menu a {
+    padding-inline: clamp(8px, 1.1vw, 15px);
+}
+
+@media (max-width: 900px) {
+    .topo {
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        row-gap: 12px;
+    }
+
+    .topo .marca {
+        grid-column: 1 / -1;
+        grid-row: 1;
+    }
+
+    .topo .topo-menu-esquerda,
+    .topo .topo-menu-direita {
+        grid-row: 2;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 560px) {
+    .topo {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .topo .marca {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .topo .topo-menu-esquerda {
+        grid-row: 2;
+    }
+
+    .topo .topo-menu-direita {
+        grid-row: 3;
+    }
+
+    .topo .topo-menu a {
+        min-height: 36px;
+        padding: 7px 9px;
+        font-size: 0.8rem;
+    }
+}
