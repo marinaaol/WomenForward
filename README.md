@@ -26,7 +26,7 @@ Pessoas a partir dos 16 anos, com foco em mulheres que procuram estudar, desenvo
 | Área | Entrega |
 | --- | --- |
 | Pesquisa | Filtros por categoria, oportunidade, país, cidade e formato |
-| Categorias | Web, Dados & IA, Jogos e Cibersegurança, Liderança & Carreira |
+| Categorias | Web, Dados & IA, Jogos, Cibersegurança e Carreira & Liderança |
 | Oportunidades | Cursos, eventos, comunidades e estágios |
 | Entidades | Registo, autenticação e CRUD das próprias oportunidades |
 | Privacidade | Consentimento explícito e tratamento mínimo de dados |
@@ -71,11 +71,10 @@ O ficheiro .env é local, não é versionado e contém apenas os dados de ligaç
 
 ### Configuração de ligação
 
-    DB_HOST=127.0.0.1
-    DB_PORT=3306
-    DB_NAME=women_forward
-    DB_USER=women_forward
-    DB_PASSWORD=definir_uma_palavra_passe_local
+    DB_HOST=localhost
+    DB_NAME=womenforward
+    DB_USER=root
+    DB_PASSWORD=
 
 ### Procedimento único de arranque
 
