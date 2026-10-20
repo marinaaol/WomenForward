@@ -1,0 +1,21 @@
+# Ficheiros do macOS
+.DS_Store
+._*
+
+# Configuração local e credenciais
+.env
+.env.*
+!.env.example
+
+# Dependências instaladas localmente
+/vendor/
+/node_modules/
+
+# Configurações pessoais de editores
+.vscode/
+.idea/
+
+# Registos e ficheiros temporários
+*.log
+*.tmp
+*.swp
