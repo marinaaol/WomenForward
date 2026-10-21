@@ -1,5 +1,5 @@
 <?php
-require dirname(__DIR__) . '/includes/inicio.php';
+require_once __DIR__ . '/../includes/inicio.php';
 
 $erros = [];
 $nome  = '';
@@ -53,19 +53,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $titulo = 'Registar entidade · Women Forward';
-require dirname(__DIR__) . '/includes/cabecalho.php';
+require __DIR__ . '/../includes/cabecalho.php';
 ?>
 
 <h1>Registe a sua entidade</h1>
 <p>Divulgue cursos, eventos, comunidades e estágios em tecnologia. Mantenha as informações atualizadas para que mais pessoas encontrem a sua iniciativa.</p>
 
-<?php if ($erros): ?>
-    <ul class="erros">
-        <?php foreach ($erros as $e): ?>
-            <li><?= htmlspecialchars($e) ?></li>
-        <?php endforeach; ?>
-    </ul>
-<?php endif; ?>
+<?php require __DIR__ . '/../includes/erros.php'; ?>
 
 <form method="post" action="registar.php" class="form-auth">
     <label>Nome da entidade
@@ -88,7 +82,7 @@ require dirname(__DIR__) . '/includes/cabecalho.php';
 
     <label class="check">
         <input type="checkbox" name="consentimento" value="1" required>
-        Aceito a política de privacidade e o tratamento dos meus dados.
+        Aceito a <a href="privacidade.php">política de privacidade</a> e o tratamento dos meus dados.
     </label>
 
     <button type="submit">Registar entidade</button>
@@ -96,4 +90,4 @@ require dirname(__DIR__) . '/includes/cabecalho.php';
 
 <p>Já tem conta? <a href="login.php">Inicie sessão</a>.</p>
 
-<?php require dirname(__DIR__) . '/includes/rodape.php'; ?>
+<?php require __DIR__ . '/../includes/rodape.php'; ?>

@@ -1,21 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const pais = document.querySelector('#pais');
+    const pais   = document.querySelector('#pais');
     const cidade = document.querySelector('#cidade');
 
     if (!pais || !cidade) return;
 
     const atualizarCidades = () => {
         const paisSelecionado = pais.value;
-        const opcoesCidade = Array.from(cidade.options);
 
-        opcoesCidade.forEach((opcao) => {
+        Array.from(cidade.options).forEach((opcao) => {
             const paisDaOpcao = opcao.dataset.pais;
-            opcao.disabled = Boolean(paisSelecionado && paisDaOpcao && paisDaOpcao !== paisSelecionado);
+            opcao.disabled = Boolean(
+                paisSelecionado && paisDaOpcao && paisDaOpcao !== paisSelecionado
+            );
         });
 
-        const opcaoAtual = cidade.selectedOptions[0];
-        if (opcaoAtual?.disabled) cidade.value = '';
-        cidade.disabled = paisSelecionado === 'GLOBAL';
+        const atual = cidade.selectedOptions[0];
+        if (atual?.disabled) cidade.value = '';
+
+        if (paisSelecionado === 'GLOBAL') {
+            cidade.value = '';
+            cidade.disabled = true;
+        } else {
+            cidade.disabled = false;
+        }
     };
 
     pais.addEventListener('change', atualizarCidades);

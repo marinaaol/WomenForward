@@ -1,5 +1,5 @@
 <?php
-require dirname(__DIR__) . '/includes/inicio.php';
+require_once __DIR__ . '/../includes/inicio.php';
  
 // Apaga os dados da sessão e destrói-a
 $_SESSION = [];

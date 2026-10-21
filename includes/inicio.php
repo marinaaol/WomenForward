@@ -1,5 +1,4 @@
-<?php // Lista de erros da validação no servidor (se houver) ?>
-<?php
+<?php // Lista de erros da validação no servidor (se houver) 
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();

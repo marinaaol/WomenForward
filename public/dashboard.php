@@ -1,16 +1,13 @@
 <?php
-require dirname(__DIR__) . '/includes/inicio.php';
+require_once __DIR__ . '/../includes/inicio.php';
 
-if (!esta_autenticado()) {
-    mensagem('erro', 'Inicie sessão para aceder à área da sua entidade.');
-    header('Location: login.php');
-    exit;
-}
+exigir_login();
 
 $id = entidade_id();
 
 $stmt = $pdo->prepare(
-    'SELECT o.id_oportunidade, o.titulo, o.tipo, o.pais, o.ativo, c.nome AS categoria
+    'SELECT o.id_oportunidade, o.titulo, o.tipo, o.pais, o.ativo,
+            o.criado_em, c.nome AS categoria
      FROM oportunidades o
      JOIN categorias c ON c.id_categoria = o.id_categoria
      WHERE o.id_entidade = ?
@@ -19,21 +16,32 @@ $stmt = $pdo->prepare(
 $stmt->execute([$id]);
 $minhas = $stmt->fetchAll();
 
-$titulo = 'Área da entidade · Women Forward';
-require dirname(__DIR__) . '/includes/cabecalho.php';
+$titulo = 'Área da entidade';
+require __DIR__ . '/../includes/cabecalho.php';
 ?>
 
 <h1>Olá, <?= htmlspecialchars(entidade_nome() ?? '') ?>!</h1>
-<p><a href="logout.php">Terminar sessão</a></p>
+
+<p class="acoes">
+    <a class="btn" href="oportunidade_form.php">+ Nova oportunidade</a>
+    <a class="btn secundario" href="logout.php">Terminar sessão</a>
+</p>
 
 <h2>Oportunidades da sua entidade</h2>
 
 <?php if (!$minhas): ?>
-    <p>Ainda não publicou oportunidades. Quando estiver disponível, poderá gerir aqui as iniciativas da sua entidade.</p>
+    <p>Ainda não publicou oportunidades. Crie a primeira com o botão acima.</p>
 <?php else: ?>
-    <table>
+    <table class="tabela">
         <thead>
-            <tr><th>Título</th><th>Categoria</th><th>Tipo</th><th>País</th><th>Ativo</th></tr>
+            <tr>
+                <th>Título</th>
+                <th>Categoria</th>
+                <th>Tipo</th>
+                <th>País</th>
+                <th>Ativo</th>
+                <th>Ações</th>
+            </tr>
         </thead>
         <tbody>
             <?php foreach ($minhas as $op): ?>
@@ -43,12 +51,17 @@ require dirname(__DIR__) . '/includes/cabecalho.php';
                     <td><?= htmlspecialchars($op['tipo']) ?></td>
                     <td><?= htmlspecialchars($op['pais']) ?></td>
                     <td><?= $op['ativo'] ? 'Sim' : 'Não' ?></td>
+                    <td class="acoes-tabela">
+                        <a href="oportunidade_ver.php?id=<?= (int) $op['id_oportunidade'] ?>">Ver</a>
+                        <a href="oportunidade_form.php?id=<?= (int) $op['id_oportunidade'] ?>">Editar</a>
+                        <a href="oportunidade_apagar.php?id=<?= (int) $op['id_oportunidade'] ?>" class="perigo">Apagar</a>
+                    </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
 <?php endif; ?>
 
-<p><a href="index.php">Voltar à página inicial</a></p>
+<p><a href="index.php">← Voltar à página inicial</a></p>
 
-<?php require dirname(__DIR__) . '/includes/rodape.php'; ?>
+<?php require __DIR__ . '/../includes/rodape.php'; ?>

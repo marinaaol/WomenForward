@@ -11,26 +11,25 @@
         </section>
         <nav class="rodape-coluna" aria-label="Explorar">
             <h3>Explorar</h3>
-            <a href="pesquisar.html">Pesquisar oportunidades</a>
-            <a href="areas.html">Áreas tech</a>
-            <a href="stem.html">STEM</a>
+            <a href="pesquisar.php">Pesquisar oportunidades</a>
+            <a href="areas.php">Áreas tech</a>
+            <a href="stem.php">STEM</a>
         </nav>
         <nav class="rodape-coluna" aria-label="Para entidades">
             <h3>Para entidades</h3>
-            <a href="entidades.html">Sobre a plataforma</a>
+            <a href="entidades.php">Sobre a plataforma</a>
             <a href="registar.php">Criar conta</a>
             <a href="login.php">Iniciar sessão</a>
         </nav>
         <nav class="rodape-coluna" aria-label="Projeto">
             <h3>Projeto</h3>
             <a href="index.php">Página inicial</a>
-            <a href="privacidade.html">Política de privacidade</a>
+            <a href="privacidade.php">Política de privacidade</a>
         </nav>
     </div>
     <div class="rodape-base">
         <p class="rodape-academico"><small>Women Forward trata-se de projeto de conclusão do Curso de Especialização Tecnológica em Programação e Sistemas de Informação ofertado pelo IEFP e ministrado no ISLA Gaia. Ano de desenvolvimento do site: 2026.</small></p>
     </div>
 </footer>
-<script src="assets/js/app.js" defer></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/inicio.php';
+require_once __DIR__ . '/inicio.php';
 
 $autenticado  = esta_autenticado();
 $nomeEntidade = entidade_nome();
@@ -10,37 +10,41 @@ $msg          = ler_mensagem();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars($titulo ?? 'Women Forward', ENT_QUOTES, 'UTF-8') ?></title>
+    <meta name="description" content="Women Forward — oportunidades em STEM para mulheres. Cursos, eventos, comunidades e estágios num só lugar.">
+    <title><?= isset($titulo) ? htmlspecialchars($titulo) . ' · Women Forward' : 'Women Forward' ?></title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/app.js" defer></script>
 </head>
 <body>
 <header class="topo">
-    <h1 class="logo">
-        <a href="index.php" aria-label="Women Forward - Início">Women Forward</a>
-    </h1>
-
-    <nav aria-label="Navegação Principal">
-        <ul class="nav-links">
-            <li><a href="index.php">Início</a></li>
-            <li><a href="pesquisar.php">Explorar Oportunidades</a></li>
-            <li><a href="stem.php">Stem e Participação</a></li>
-            <li><a href="index.php#entidades">Para Entidades</a></li>
-        </ul>
+    <nav class="topo-menu topo-menu-esquerda" aria-label="Navegação — início e pesquisa">
+        <a href="index.php">Início</a>
+        <a href="pesquisar.php">Pesquisar</a>
     </nav>
-
     <a class="marca" href="index.php" aria-label="Women Forward — início">
         <img src="assets/images/logo-women-forward.svg" alt="Women Forward">
     </a>
-    <nav class="topo-menu topo-menu-direita" aria-label="Navegação principal — áreas e entidades">
-        <a href="areas.html">Áreas Tech</a>
-        <a href="stem.html">Mulheres na STEM</a>
-        <a href="entidades.html">Para Entidades</a>
+    <nav class="topo-menu topo-menu-direita" aria-label="Navegação — áreas e entidades">
+        <a href="areas.php">Áreas Tech</a>
+        <a href="stem.php">Mulheres na STEM</a>
+        <a href="entidades.php">Para Entidades</a>
     </nav>
 </header>
-<main>
-<?php if (isset($_SESSION['msg'])): ?>
-    <div class="msg <?= htmlspecialchars($_SESSION['msg']['tipo'], ENT_QUOTES, 'UTF-8') ?>">
-        <?= htmlspecialchars($_SESSION['msg']['texto'], ENT_QUOTES, 'UTF-8') ?>
 
+<div class="barra-conta">
+    <?php if ($autenticado): ?>
+        <span>Olá, <?= htmlspecialchars($nomeEntidade ?? '') ?>!</span>
+        <a href="dashboard.php">O meu painel</a>
+        <a href="logout.php">Sair</a>
+    <?php else: ?>
+        <a href="registar.php">Criar conta</a>
+        <a href="login.php">Iniciar sessão</a>
+    <?php endif; ?>
+</div>
+
+<main>
+<?php if ($msg): ?>
+    <div class="msg <?= htmlspecialchars($msg['tipo']) ?>">
+        <?= htmlspecialchars($msg['texto']) ?>
     </div>
 <?php endif; ?>

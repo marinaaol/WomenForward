@@ -616,4 +616,82 @@ nav.rodape-coluna {
         padding: 7px 9px;
         font-size: 0.8rem;
     }
+
+    .barra-conta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        align-items: center;
+        padding: .75rem clamp(20px, 4vw, 64px);
+        background: var(--color2);
+        color: var(--color1);
+        font-size: .95rem;
+    }
+    .barra-conta a {
+        color: var(--color1);
+        text-decoration: none;
+        font-weight: 600;
+    }
+    .barra-conta a:hover { text-decoration: underline; }
+    
+    /* Botões genéricos (para <a class="btn">) */
+    .btn {
+        display: inline-block;
+        padding: 10px 16px;
+        border: 0;
+        border-radius: 6px;
+        background: var(--color3);
+        color: #fff;
+        text-decoration: none;
+        font: inherit;
+        cursor: pointer;
+    }
+    .btn:hover { background: var(--color2); }
+    .btn.secundario {
+        background: transparent;
+        color: var(--color3);
+        border: 1px solid var(--color3);
+    }
+    .btn.secundario:hover { background: var(--color1); }
+    .btn.perigo, button.perigo {
+        background: var(--color2);
+        color: #fff;
+    }
+    
+    /* Tabela do dashboard */
+    .tabela {
+        width: 100%;
+        border-collapse: collapse;
+        background: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    .tabela th, .tabela td {
+        padding: .75rem 1rem;
+        text-align: left;
+        border-bottom: 1px solid var(--color1);
+    }
+    .tabela th { background: var(--color1); color: var(--color3); }
+    .tabela tr:last-child td { border-bottom: 0; }
+    
+    .acoes-tabela {
+        display: flex;
+        gap: .75rem;
+        flex-wrap: wrap;
+    }
+    .acoes-tabela a { text-decoration: none; font-weight: 600; }
+    .acoes-tabela a.perigo { color: var(--color2); }
+    
+    /* Textarea */
+    .formulario textarea {
+        width: 100%;
+        padding: 9px 10px;
+        border: 1px solid var(--color5);
+        border-radius: 5px;
+        font: inherit;
+        resize: vertical;
+    }
+    
+    /* Mensagens flash (garantir espaçamento) */
+    .msg { background: #fff; }
 }
