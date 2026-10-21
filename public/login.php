@@ -48,7 +48,14 @@ require __DIR__ . '/../includes/cabecalho.php';
     </label>
 
     <label>Palavra-passe
-        <input type="password" name="password" required>
+        <span class="password-field">
+            <input type="password" id="password" name="password"
+                   placeholder="Introduza a palavra-passe" required>
+            <span class="password-toggle" role="button" tabindex="0"
+                  aria-label="Mostrar ou esconder a palavra-passe">
+                <i id="toggler" class="far fa-eye" aria-hidden="true"></i>
+            </span>
+        </span>
     </label>
 
     <button type="submit">Iniciar sessão</button>

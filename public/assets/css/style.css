@@ -1,25 +1,10 @@
 /* ============================================================
-   Women Forward — folha de estilos
+   Women Forward — folha de estilos (final unificada)
    ============================================================ */
 
-   /* Responsividade */
-
-    .grelha-oportunidades {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
-    }
-
-    @media (max-width: 800px) {
-    .grelha-oportunidades { grid-template-columns: repeat(2, 1fr); }
-    nav { display: flex; flex-wrap: wrap; gap: .75rem; }
-    }
-
-    @media (max-width: 560px) {
-    .grelha-oportunidades { grid-template-columns: 1fr; }
-    }
-
-/* Paleta Women Forward */
+/* ------------------------------------------------------------
+   1. Paleta e base
+   ------------------------------------------------------------ */
 :root {
     --color1: #e0d5c6;
     --color2: #87555c;
@@ -40,7 +25,6 @@ body {
     background: var(--color1);
     line-height: 1.6;
 }
-
 
 header, main, footer {
     padding: 1rem 5vw;
@@ -68,78 +52,205 @@ h3 {
     color: var(--color4);
 }
 
-.topo {
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     flex-wrap: wrap;
-     gap: 12px;
-     padding: 14px 32px;
-     background: var(--color2);
- }
-
-.topo .marca {
-    color: var(--color1);
-    font-weight: bold;
-    font-size: 1.2rem;
-    text-decoration: none;
-}
-
-.topo nav {
-     display: flex;
-     flex-wrap: wrap;
-     gap: 18px;
-     align-items: center;
-}
-
-.topo nav a {
-     color: var(--color1);
-     text-decoration: none;
-     white-space: nowrap;
-
-}
-
-.topo nav a:hover {
-    color: var(--color1);
-    text-decoration: underline;
-}
-
-.topo .ola {
-    color: var(--color1);
-}
-
 main {
     max-width: 960px;
-     margin: 32px auto;
+    margin: 32px auto;
     padding: 0 20px;
 }
 
-.footer {
-     text-align: center;
-     padding: 24px;
-     color: var(--color4);
-     font-size: 0.9rem;
- }
+
+/* ------------------------------------------------------------
+   2. Cabeçalho (topo) — grelha com marca centrada
+   ------------------------------------------------------------ */
+.topo {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: 18px;
+    padding: 16px clamp(20px, 4vw, 64px);
+    background: var(--color1);
+    flex-wrap: wrap;
+}
+
+.topo .marca {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    color: var(--color3);
+    text-decoration: none;
+}
+
+.topo .marca img {
+    display: block;
+    width: clamp(160px, 14vw, 220px);
+    height: auto;
+}
+
+.topo .topo-menu {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: nowrap;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+}
+
+.topo .topo-menu-esquerda {
+    justify-content: flex-start;
+}
+
+.topo .topo-menu-direita {
+    justify-content: flex-end;
+}
+
+.topo .topo-menu a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 9px clamp(8px, 1.1vw, 15px);
+    border-radius: 999px;
+    color: var(--color3);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 160ms ease, color 160ms ease;
+}
+
+.topo .topo-menu a:hover,
+.topo .topo-menu a:focus-visible {
+    background: var(--color2);
+    color: #fff;
+    text-decoration: none;
+}
+
+.topo .topo-menu a:focus-visible,
+.topo .marca:focus-visible {
+    outline: 3px solid var(--color5);
+    outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+    .topo {
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        row-gap: 12px;
+    }
+
+    .topo .marca {
+        grid-column: 1 / -1;
+        grid-row: 1;
+    }
+
+    .topo .topo-menu-esquerda,
+    .topo .topo-menu-direita {
+        grid-row: 2;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 560px) {
+    .topo {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 14px 20px;
+    }
+
+    .topo .marca {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .topo .marca img {
+        width: 200px;
+    }
+
+    .topo .topo-menu-esquerda {
+        grid-row: 2;
+    }
+
+    .topo .topo-menu-direita {
+        grid-row: 3;
+    }
+
+    .topo .topo-menu a {
+        min-height: 36px;
+        padding: 7px 9px;
+        font-size: 0.8rem;
+    }
+}
 
 
- .msg {
-     padding: 12px 16px;
-     border-radius: 6px;
-     margin-bottom: 20px;
-     border-left: 5px solid var(--color5);
- }
+/* ------------------------------------------------------------
+   3. Barra de conta (login/registo)
+   ------------------------------------------------------------ */
+.barra-conta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    padding: .75rem clamp(20px, 4vw, 64px);
+    background: var(--color2);
+    color: var(--color1);
+    font-size: .95rem;
+}
 
- .msg.sucesso {
-     background: var(--color1);
+.barra-conta a {
+    color: var(--color1);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.barra-conta a:hover {
+    text-decoration: underline;
+}
+
+
+/* ------------------------------------------------------------
+   4. Hero + imagem
+   ------------------------------------------------------------ */
+.hero {
+    max-width: var(--largura-conteudo);
+    margin: 0 auto;
+}
+
+.hero-image img.responsive,
+.responsive {
+    display: block;
+    width: 100%;
+    max-width: var(--largura-conteudo);
+    height: auto;
+    margin: 0 auto 1.5rem;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+
+/* ------------------------------------------------------------
+   5. Mensagens flash
+   ------------------------------------------------------------ */
+.msg {
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--color5);
+    background: #fff;
+}
+
+.msg.sucesso {
     border-color: var(--color4);
- }
+}
 
- .msg.erro {
-     background: var(--color1);
-     border-color: var(--color2);
- }
+.msg.erro {
+    border-color: var(--color2);
+}
 
- .msg ul {
+.msg ul {
     margin: 6px 0 0;
     padding-left: 20px;
 }
@@ -149,6 +260,9 @@ ul.msg {
 }
 
 
+/* ------------------------------------------------------------
+   6. Formulários genéricos
+   ------------------------------------------------------------ */
 .formulario {
     background: var(--color1);
     padding: 24px;
@@ -157,17 +271,6 @@ ul.msg {
     display: flex;
     flex-direction: column;
     gap: 6px;
-}
-
-.formulario input,
-.formulario select,
-.form-auth input,
-.form-auth select {
-    width: 100%;
-    padding: 10px 12px;
-    border: 1px solid var(--color5);
-    border-radius: 6px;
-    font: inherit;
 }
 
 .form-auth {
@@ -183,8 +286,83 @@ ul.msg {
 .formulario label {
     display: grid;
     gap: 6px;
+    font-weight: 600;
 }
 
+.formulario label {
+    margin-top: 8px;
+}
+
+.form-auth input,
+.form-auth select,
+.form-auth textarea,
+.formulario input,
+.formulario select,
+.formulario textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--color5);
+    border-radius: 6px;
+    font: inherit;
+    background: #fff;
+}
+
+.formulario textarea {
+    resize: vertical;
+}
+
+.formulario .check,
+.form-auth .check {
+    font-weight: normal;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.formulario button {
+    margin-top: 16px;
+}
+
+
+/* ------------------------------------------------------------
+   7. Campo de password com toggle
+   ------------------------------------------------------------ */
+.password-field {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.password-field input {
+    width: 100%;
+    padding: 10px 44px 10px 12px;
+    border: 1px solid var(--color5);
+    border-radius: 6px;
+    font: inherit;
+    background: #fff;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--color4);
+    background: transparent;
+    border: 0;
+    padding: 4px;
+}
+
+.password-toggle:focus-visible {
+    outline: 2px solid var(--color5);
+    border-radius: 4px;
+}
+
+
+/* ------------------------------------------------------------
+   8. Botões
+   ------------------------------------------------------------ */
 .btn,
 button {
     display: inline-block;
@@ -196,6 +374,12 @@ button {
     font: inherit;
     text-decoration: none;
     cursor: pointer;
+    transition: background-color 160ms ease;
+}
+
+.btn:hover,
+button:hover {
+    background: var(--color2);
 }
 
 .btn.secundario {
@@ -204,16 +388,36 @@ button {
     border: 1px solid var(--color3);
 }
 
+.btn.secundario:hover {
+    background: var(--color1);
+}
+
+.btn.perigo,
+button.perigo {
+    background: var(--color2);
+    color: #fff;
+}
+
+.btn.perigo:hover,
+button.perigo:hover {
+    background: var(--color3);
+}
+
 .acoes {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
+    align-items: center;
 }
 
+
+/* ------------------------------------------------------------
+   9. Grelha de cartões (oportunidades)
+   ------------------------------------------------------------ */
 .grelha-oportunidades {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
 }
 
 .cartao,
@@ -241,78 +445,97 @@ button {
     margin: 0;
 }
 
-.rodape {
-    margin-top: 48px;
-    padding: 24px 5vw;
-    text-align: center;
-    color: var(--color4);
-}
-
-.rodape nav {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 16px;
+@media (max-width: 900px) {
+    .grelha-oportunidades {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 @media (max-width: 560px) {
+    .grelha-oportunidades {
+        grid-template-columns: 1fr;
+    }
+
     .detalhe dl {
         grid-template-columns: 1fr;
     }
 }
 
-.formulario label {
-   font-weight: 600;
-    margin-top: 8px;
+
+/* ------------------------------------------------------------
+   10. Tabelas (dashboard)
+   ------------------------------------------------------------ */
+.tabela {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-.formulario input,
-.formulario select,
-.formulario textarea {
-    padding: 9px 10px;
-    border: 1px solid var(--color5);
-    border-radius: 5px;
-    font: inherit;
+.tabela th,
+.tabela td {
+    padding: .75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color1);
 }
 
-.formulario .check {
-    font-weight: normal;
+.tabela th {
+    background: var(--color1);
+    color: var(--color3);
+}
+
+.tabela tr:last-child td {
+    border-bottom: 0;
+}
+
+.acoes-tabela {
     display: flex;
-    gap: 8px;
-    align-items: flex-start;
+    gap: .75rem;
+    flex-wrap: wrap;
 }
 
-.formulario button {
-    margin-top: 16px;
+.acoes-tabela a {
+    text-decoration: none;
+    font-weight: 600;
 }
 
-.rodape nav a {
-    color: inherit;
+.acoes-tabela a.perigo {
+    color: var(--color2);
 }
 
-.rodape-academico {
-    max-width: 960px;
-    margin: 18px auto 0;
-    font-size: 0.65rem;
-    line-height: 1.4;
+
+/* ------------------------------------------------------------
+   11. Botão "Voltar ao topo"
+   ------------------------------------------------------------ */
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 100;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: var(--color3);
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(73, 45, 65, 0.35);
+    transition: background-color 160ms ease, transform 160ms ease;
 }
 
-.rodape-marca {
-    margin-bottom: 0;
-    font-size: 1.05rem;
+#myBtn:hover {
+    background: var(--color2);
+    transform: translateY(-2px);
 }
 
-.rodape-slogan {
-    margin-top: 0;
-    font-size: 0.9rem;
-}
 
-.rodape-disclaimer {
-    font-size: 0.75rem;
-    font-style: italic;
-}
-
-/* Rodapé em grelha, inspirado no modelo de referência */
+/* ------------------------------------------------------------
+   12. Rodapé
+   ------------------------------------------------------------ */
 .rodape {
     margin-top: 48px;
     padding: 0 5vw 22px;
@@ -404,7 +627,7 @@ nav.rodape-coluna {
 .rodape-academico {
     margin: 0;
     color: var(--color4);
-    font-size: 0.65rem;
+    font-size: 0.8rem;
     line-height: 1.4;
 }
 
@@ -427,271 +650,4 @@ nav.rodape-coluna {
     .rodape-wordmark {
         font-size: clamp(2.8rem, 14vw, 5rem);
     }
-}
-
-/* Barra superior alinhada à identidade do Women Forward */
-.topo {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 18px 28px;
-    padding: 16px clamp(20px, 4vw, 64px);
-    background: var(--color1);
-}
-
-.topo .marca {
-    display: inline-flex;
-    flex: 0 0 auto;
-    align-items: center;
-    color: var(--color3);
-    text-decoration: none;
-}
-
-.topo .marca img {
-    display: block;
-    width: clamp(150px, 16vw, 220px);
-    height: auto;
-}
-
-.topo .topo-menu {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex-wrap: wrap;
-    gap: 4px;
-    margin-left: auto;
-    padding: 6px;
-    border: 1px solid rgba(73, 45, 65, 0.12);
-    border-radius: 999px;
-    background: #fff;
-}
-
-.topo .topo-menu a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 42px;
-    padding: 9px 15px;
-    border-radius: 999px;
-    color: var(--color3);
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-decoration: none;
-    white-space: nowrap;
-    transition: background-color 160ms ease, color 160ms ease;
-}
-
-.topo .topo-menu a:hover,
-.topo .topo-menu a:focus-visible {
-    background: var(--color1);
-    color: var(--color3);
-    text-decoration: none;
-}
-
-.topo .topo-menu a:last-child {
-    padding-inline: 19px;
-    background: var(--color3);
-    color: #fff;
-}
-
-.topo .topo-menu a:last-child:hover,
-.topo .topo-menu a:last-child:focus-visible {
-    background: var(--color2);
-    color: #fff;
-}
-
-.topo .topo-menu a:focus-visible,
-.topo .marca:focus-visible {
-    outline: 3px solid var(--color5);
-    outline-offset: 3px;
-}
-
-@media (max-width: 760px) {
-    .topo {
-        align-items: flex-start;
-    }
-
-    .topo .topo-menu {
-        justify-content: flex-start;
-        margin-left: 0;
-        border-radius: 18px;
-    }
-}
-
-@media (max-width: 560px) {
-    .topo {
-        padding: 14px 20px;
-    }
-
-    .topo .marca img {
-        width: 160px;
-    }
-
-    .topo .topo-menu {
-        width: 100%;
-        gap: 2px;
-        padding: 5px;
-    }
-
-    .topo .topo-menu a {
-        min-height: 38px;
-        padding: 8px 10px;
-        font-size: 0.82rem;
-    }
-}
-
-
-
-/* Navegação com a marca centrada entre os dois grupos de links */
-.topo {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-    align-items: center;
-    gap: 18px;
-}
-
-.topo .topo-menu {
-    flex-wrap: nowrap;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    border-radius: 0;
-    background: transparent;
-}
-
-.topo .topo-menu-esquerda {
-    justify-content: flex-start;
-}
-
-.topo .topo-menu-direita {
-    justify-content: flex-end;
-}
-
-.topo .topo-menu a {
-    padding-inline: clamp(8px, 1.1vw, 15px);
-}
-
-@media (max-width: 900px) {
-    .topo {
-        grid-template-columns: 1fr 1fr;
-        justify-items: center;
-        row-gap: 12px;
-    }
-
-    .topo .marca {
-        grid-column: 1 / -1;
-        grid-row: 1;
-    }
-
-    .topo .topo-menu-esquerda,
-    .topo .topo-menu-direita {
-        grid-row: 2;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-}
-
-@media (max-width: 560px) {
-    .topo {
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
-
-    .topo .marca {
-        grid-column: 1;
-        grid-row: 1;
-    }
-
-    .topo .topo-menu-esquerda {
-        grid-row: 2;
-    }
-
-    .topo .topo-menu-direita {
-        grid-row: 3;
-    }
-
-    .topo .topo-menu a {
-        min-height: 36px;
-        padding: 7px 9px;
-        font-size: 0.8rem;
-    }
-
-    .barra-conta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        align-items: center;
-        padding: .75rem clamp(20px, 4vw, 64px);
-        background: var(--color2);
-        color: var(--color1);
-        font-size: .95rem;
-    }
-    .barra-conta a {
-        color: var(--color1);
-        text-decoration: none;
-        font-weight: 600;
-    }
-    .barra-conta a:hover { text-decoration: underline; }
-    
-    /* Botões genéricos (para <a class="btn">) */
-    .btn {
-        display: inline-block;
-        padding: 10px 16px;
-        border: 0;
-        border-radius: 6px;
-        background: var(--color3);
-        color: #fff;
-        text-decoration: none;
-        font: inherit;
-        cursor: pointer;
-    }
-    .btn:hover { background: var(--color2); }
-    .btn.secundario {
-        background: transparent;
-        color: var(--color3);
-        border: 1px solid var(--color3);
-    }
-    .btn.secundario:hover { background: var(--color1); }
-    .btn.perigo, button.perigo {
-        background: var(--color2);
-        color: #fff;
-    }
-    
-    /* Tabela do dashboard */
-    .tabela {
-        width: 100%;
-        border-collapse: collapse;
-        background: #fff;
-        border-radius: 8px;
-        overflow: hidden;
-    }
-    .tabela th, .tabela td {
-        padding: .75rem 1rem;
-        text-align: left;
-        border-bottom: 1px solid var(--color1);
-    }
-    .tabela th { background: var(--color1); color: var(--color3); }
-    .tabela tr:last-child td { border-bottom: 0; }
-    
-    .acoes-tabela {
-        display: flex;
-        gap: .75rem;
-        flex-wrap: wrap;
-    }
-    .acoes-tabela a { text-decoration: none; font-weight: 600; }
-    .acoes-tabela a.perigo { color: var(--color2); }
-    
-    /* Textarea */
-    .formulario textarea {
-        width: 100%;
-        padding: 9px 10px;
-        border: 1px solid var(--color5);
-        border-radius: 5px;
-        font: inherit;
-        resize: vertical;
-    }
-    
-    /* Mensagens flash (garantir espaçamento) */
-    .msg { background: #fff; }
 }

@@ -5,7 +5,17 @@ $titulo = 'Início';
 require __DIR__ . '/../includes/cabecalho.php';
 ?>
 
+<button onclick="topFunction()" id="myBtn" title="Voltar ao topo" aria-label="Voltar ao topo">
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+</button>
+
 <section class="hero" aria-labelledby="titulo-hero">
+    <div class="hero-image">
+        <img src="assets/images/young_girls1.png"
+             alt="Jovens mulheres em contexto de tecnologia"
+             class="responsive">
+    </div>
+
     <h1 id="titulo-hero">A entrada em tech não devia depender de sorte.</h1>
     <p>Encontre num só lugar conteúdos para conhecer áreas tech, fazer transição de carreira ou atualizar a sua stack. Explore cursos, eventos, comunidades e oportunidades de entidades que promovem diversidade e ampliam o acesso de grupos sub-representados — incluindo mulheres — à tecnologia.</p>
     <p>O Women Forward é um espaço acolhedor de troca e apoio, com conteúdo feito por quem também vive experiências parecidas. Descubra novos caminhos com informação clara, referências próximas e acesso direto à entidade responsável por cada oportunidade.</p>
