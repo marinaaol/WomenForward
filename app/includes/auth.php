@@ -36,6 +36,7 @@ function exigir_login(): void
     }
 }
 
+// Impede que outro site envie formulários em nome do utilizador
 function token_csrf(): string
 {
     if (empty($_SESSION['csrf_token'])) {
