@@ -59,23 +59,27 @@ O projeto combina páginas públicas em HTML, processamento em PHP e uma base de
 | Ferramenta de base de dados | phpMyAdmin para importar e testar o script SQL |
 | Servidor de desenvolvimento | Servidor embutido do PHP; não requer Apache, Nginx, Node.js ou Composer na primeira versão |
 
-### Estrutura obrigatória do repositório implementado
+### Estrutura do repositório
 
-    public/index.php
-    public/pesquisar.html
-    public/oportunidades.php
-    public/oportunidade_ver.php
-    public/login.php
-    public/registar.php
-    public/dashboard.php
-    public/css/style.css
-    public/js/app.js
-    public/images/
-    app/config/db.php
-    app/includes/
-    database/base_dados.sql
-    .env.example
-    .env
+    config/db.php             # ligação PDO e leitura local do .env
+    includes/                 # autenticação e partes reutilizáveis das páginas
+    database/base_dados.sql   # esquema e dados iniciais
+    public/                   # única pasta servida pelo servidor web
+      index.php
+      pesquisar.html
+      oportunidades.php
+      oportunidade_ver.php
+      login.php
+      registar.php
+      logout.php
+      areas.html, entidades.html, stem.html, privacidade.html
+      assets/css/style.css
+      assets/js/app.js
+      assets/images/           # imagens e logótipo usados nas páginas
+    .env.example               # exemplo sem credenciais reais
+    .env                      # configuração local, ignorada pelo Git
+
+`dashboard.php` está na pasta pública por legado, mas a sua função fica fora do desenvolvimento ativo até o CRUD estar pronto. As pastas `config/`, `includes/` e `database/` não devem ser servidas diretamente pelo navegador.
 
 O ficheiro .env é local, não é versionado e contém apenas os dados de ligação. O ficheiro .env.example é versionado sem palavras-passe.
 
