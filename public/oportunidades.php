@@ -1,5 +1,5 @@
 <?php
-require dirname(__DIR__) . '/app/includes/inicio.php';
+require dirname(__DIR__) . '/includes/inicio.php';
 
 $filtros = [
     'q' => trim($_GET['q'] ?? ''),
@@ -53,7 +53,7 @@ $oportunidades = $consulta->fetchAll();
 $categorias = $pdo->query('SELECT nome FROM categorias ORDER BY nome')->fetchAll(PDO::FETCH_COLUMN);
 
 $titulo = 'Pesquisar oportunidades · Women Forward';
-require dirname(__DIR__) . '/app/includes/cabecalho.php';
+require dirname(__DIR__) . '/includes/cabecalho.php';
 ?>
 
 <h1>Oportunidades para explorar</h1>
@@ -133,4 +133,4 @@ require dirname(__DIR__) . '/app/includes/cabecalho.php';
     <?php endif; ?>
 </section>
 
-<?php require dirname(__DIR__) . '/app/includes/rodape.php'; ?>
+<?php require dirname(__DIR__) . '/includes/rodape.php'; ?>

@@ -1,5 +1,5 @@
 <?php
-require dirname(__DIR__) . '/app/includes/inicio.php';
+require dirname(__DIR__) . '/includes/inicio.php';
 
 $erros = [];
 $nome  = '';
@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $titulo = 'Registar entidade · Women Forward';
-require dirname(__DIR__) . '/app/includes/cabecalho.php';
+require dirname(__DIR__) . '/includes/cabecalho.php';
 ?>
 
 <h1>Registe a sua entidade</h1>
@@ -96,4 +96,4 @@ require dirname(__DIR__) . '/app/includes/cabecalho.php';
 
 <p>Já tem conta? <a href="login.php">Inicie sessão</a>.</p>
 
-<?php require dirname(__DIR__) . '/app/includes/rodape.php'; ?>
+<?php require dirname(__DIR__) . '/includes/rodape.php'; ?>

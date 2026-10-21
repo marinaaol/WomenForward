@@ -1,5 +1,5 @@
 <?php
-require dirname(__DIR__) . '/app/includes/inicio.php';
+require dirname(__DIR__) . '/includes/inicio.php';
 
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 if (!$id || $id < 1) {
@@ -26,7 +26,7 @@ if (!$id || $id < 1) {
 $titulo = $oportunidade
     ? $oportunidade['titulo'] . ' · Women Forward'
     : 'Oportunidade não encontrada · Women Forward';
-require dirname(__DIR__) . '/app/includes/cabecalho.php';
+require dirname(__DIR__) . '/includes/cabecalho.php';
 ?>
 
 <?php if (!$oportunidade): ?>
@@ -57,4 +57,4 @@ require dirname(__DIR__) . '/app/includes/cabecalho.php';
     </article>
 <?php endif; ?>
 
-<?php require dirname(__DIR__) . '/app/includes/rodape.php'; ?>
+<?php require dirname(__DIR__) . '/includes/rodape.php'; ?>

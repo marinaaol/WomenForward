@@ -1,5 +1,5 @@
 <?php
-require dirname(__DIR__) . '/app/includes/inicio.php';
+require dirname(__DIR__) . '/includes/inicio.php';
 
 if (!esta_autenticado()) {
     mensagem('erro', 'Inicie sessão para aceder à área da sua entidade.');
@@ -20,7 +20,7 @@ $stmt->execute([$id]);
 $minhas = $stmt->fetchAll();
 
 $titulo = 'Área da entidade · Women Forward';
-require dirname(__DIR__) . '/app/includes/cabecalho.php';
+require dirname(__DIR__) . '/includes/cabecalho.php';
 ?>
 
 <h1>Olá, <?= htmlspecialchars(entidade_nome() ?? '') ?>!</h1>
@@ -51,4 +51,4 @@ require dirname(__DIR__) . '/app/includes/cabecalho.php';
 
 <p><a href="index.php">Voltar à página inicial</a></p>
 
-<?php require dirname(__DIR__) . '/app/includes/rodape.php'; ?>
+<?php require dirname(__DIR__) . '/includes/rodape.php'; ?>

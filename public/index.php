@@ -1,5 +1,5 @@
 <?php
-require dirname(__DIR__) . '/app/includes/inicio.php';
+require dirname(__DIR__) . '/includes/inicio.php';
 
 $autenticado  = esta_autenticado();
 $nomeEntidade = entidade_nome();
@@ -10,8 +10,8 @@ $nomeEntidade = entidade_nome();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Women Forward</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/app.js" defer></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/app.js" defer></script>
     <!-- O atributo defer na tag <script> indica ao navegador que o script externo deve ser descarregado em paralelo, mas executado apenas depois que a página HTML terminar de ser analisada -->
 </head>
 <body>
@@ -21,7 +21,7 @@ $nomeEntidade = entidade_nome();
         <a href="pesquisar.html">Pesquisar</a>
     </nav>
     <a class="marca" href="index.php" aria-label="Women Forward — início">
-        <img src="images/logo-women-forward.svg" alt="Women Forward">
+        <img src="assets/images/logo-women-forward.svg" alt="Women Forward">
     </a>
     <nav class="topo-menu topo-menu-direita" aria-label="Navegação principal — áreas e entidades">
         <a href="areas.html">Áreas Tech</a>
@@ -143,39 +143,4 @@ $nomeEntidade = entidade_nome();
             <h3>A dar o próximo passo</h3>
             <a class="btn secundario" href="oportunidades.php" id="btn-mulheres">Pesquisar oportunidades</a>
         </section>
-    </main>
-
-    <footer class="rodape">
-    <div class="rodape-assinatura">
-        <h2 class="rodape-wordmark">Women Forward</h2>
-        <p class="rodape-slogan">Learn. Build. Lead.</p>
-    </div>
-    <div class="rodape-colunas">
-        <section class="rodape-coluna rodape-nota-oportunidades">
-            <h3>Women Forward</h3>
-            <p class="rodape-disclaimer">As oportunidades são divulgadas pelas entidades responsáveis. Confirme os detalhes na fonte oficial.</p>
-        </section>
-        <nav class="rodape-coluna" aria-label="Explorar">
-            <h3>Explorar</h3>
-            <a href="pesquisar.html">Pesquisar oportunidades</a>
-            <a href="areas.html">Áreas tech</a>
-            <a href="stem.html">STEM</a>
-        </nav>
-        <nav class="rodape-coluna" aria-label="Para entidades">
-            <h3>Para entidades</h3>
-            <a href="entidades.html">Sobre a plataforma</a>
-            <a href="registar.php">Criar conta</a>
-            <a href="login.php">Iniciar sessão</a>
-        </nav>
-        <nav class="rodape-coluna" aria-label="Projeto">
-            <h3>Projeto</h3>
-            <a href="index.php">Página inicial</a>
-            <a href="privacidade.html">Política de privacidade</a>
-        </nav>
-    </div>
-    <div class="rodape-base">
-        <p class="rodape-academico"><small>Women Forward trata-se de projeto de conclusão do Curso de Especialização Tecnológica em Programação e Sistemas de Informação ofertado pelo IEFP e ministrado no ISLA Gaia. Ano de desenvolvimento do site: 2026.</small></p>
-    </div>
-</footer>
-</body>
-</html>
+    <?php require_once dirname(__DIR__) . '/includes/rodape.php'; ?>

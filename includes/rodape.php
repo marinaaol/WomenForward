@@ -31,6 +31,6 @@
         <p class="rodape-academico"><small>Women Forward trata-se de projeto de conclusão do Curso de Especialização Tecnológica em Programação e Sistemas de Informação ofertado pelo IEFP e ministrado no ISLA Gaia. Ano de desenvolvimento do site: 2026.</small></p>
     </div>
 </footer>
-<script src="js/app.js" defer></script>
+<script src="assets/js/app.js" defer></script>
 </body>
 </html>
