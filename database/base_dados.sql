@@ -69,7 +69,6 @@ INSERT INTO categorias (nome) VALUES
 
 -- Entidades de exemplo com email fictício e password comum (Demo1234)
 INSERT INTO entidades (nome, email, password_hash, consentimento_em) VALUES
-  ('Entidade de Teste', 'womenforward@demo.test', '$2y$12$wtvyr7Br21NfSwx8lFD1EujFE1Q/5l4NumFPTF4aZ5OVbvUr4/V2m', '2025-10-08 10:00:00'),
   ('Harvard Online', 'harvard@womenforward.test', '$2y$12$wtvyr7Br21NfSwx8lFD1EujFE1Q/5l4NumFPTF4aZ5OVbvUr4/V2m', '2025-10-03 09:14:22'),
   ('TryHackMe', 'tryhackme@womenforward.test', '$2y$12$wtvyr7Br21NfSwx8lFD1EujFE1Q/5l4NumFPTF4aZ5OVbvUr4/V2m', '2025-10-19 16:47:05'),
   ('Cisco Networking Academy', 'cisconetacad@womenforward.test', '$2y$12$wtvyr7Br21NfSwx8lFD1EujFE1Q/5l4NumFPTF4aZ5OVbvUr4/V2m', '2025-11-07 11:32:40'),
@@ -98,7 +97,8 @@ INSERT INTO entidades (nome, email, password_hash, consentimento_em) VALUES
   ('Raparigas do Código', 'raparigasdocodigo@womenforward.test', '$2y$12$wtvyr7Br21NfSwx8lFD1EujFE1Q/5l4NumFPTF4aZ5OVbvUr4/V2m', '2026-09-09 12:41:29'),
   ('PrograMaria', 'programaria@womenforward.test', '$2y$12$wtvyr7Br21NfSwx8lFD1EujFE1Q/5l4NumFPTF4aZ5OVbvUr4/V2m', '2026-09-22 15:26:47'),
   ('Tech Girls', 'techgirls@womenforward.test', '$2y$12$wtvyr7Br21NfSwx8lFD1EujFE1Q/5l4NumFPTF4aZ5OVbvUr4/V2m', '2026-10-04 09:03:11'),
-  ('42 São Paulo', '42sp@womenforward.test', '$2y$12$wtvyr7Br21NfSwx8lFD1EujFE1Q/5l4NumFPTF4aZ5OVbvUr4/V2m', '2026-10-13 17:48:55');
+  ('42 São Paulo', '42sp@womenforward.test', '$2y$12$wtvyr7Br21NfSwx8lFD1EujFE1Q/5l4NumFPTF4aZ5OVbvUr4/V2m', '2026-10-13 17:48:55'),
+  ('Entidade de Teste', 'womenforward@demo.test', '$2y$12$wtvyr7Br21NfSwx8lFD1EujFE1Q/5l4NumFPTF4aZ5OVbvUr4/V2m', '2025-10-08 10:00:00');
 
 -- Oportunidades de Exemplo
 INSERT INTO oportunidades (id_categoria, id_entidade, titulo, descricao, tipo, pais, cidade, formato, url) VALUES
