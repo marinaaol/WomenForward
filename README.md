@@ -23,13 +23,13 @@ Pessoas a partir dos 16 anos, com foco em mulheres que procuram estudar, desenvo
 
 ## Funcionalidades da primeira versão
 
-| Área | Entrega |
-| --- | --- |
-| Pesquisa | Filtros por categoria, oportunidade, país, cidade e formato |
-| Categorias | Web, Dados & IA, Jogos, Cibersegurança e Carreira & Liderança |
+| Área          | Entrega |
+
+| Pesquisa      | Filtros por categoria, oportunidade, país, cidade e formato |
+| Categorias    | Web, Dados & IA, Jogos, Cibersegurança e Carreira & Liderança |
 | Oportunidades | Cursos, eventos, comunidades e estágios |
-| Entidades | Registo e autenticação; CRUD das próprias oportunidades em desenvolvimento |
-| Privacidade | Consentimento explícito e tratamento mínimo de dados |
+| Entidades     | Registo e autenticação; CRUD das próprias oportunidades em desenvolvimento |
+| Privacidade   | Consentimento explícito e tratamento mínimo de dados |
 
 ## Modelo de dados
 
@@ -51,11 +51,11 @@ O projeto combina páginas públicas em HTML, processamento em PHP e uma base de
 
 ### Requisitos obrigatórios
 
-| Componente | Requisito |
-| --- | --- |
-| Sistema operativo | Linux, macOS ou Windows 10/11 |
-| PHP | PHP 8.2 ou superior, disponível no terminal, com pdo_mysql e mbstring ativos |
-| Base de dados | MySQL 8.0 ou superior, ou MariaDB 10.6 ou superior, na porta 3306 |
+| Componente                  | Requisito |
+
+| Sistema operativo           | Linux, macOS ou Windows 10/11 |
+| PHP                         | PHP 8.2 ou superior, disponível no terminal, com pdo_mysql e mbstring ativos |
+| Base de dados               | MySQL 8.0 ou superior, ou MariaDB 10.6 ou superior, na porta 3306 |
 | Ferramenta de base de dados | phpMyAdmin para importar e testar o script SQL |
 | Servidor de desenvolvimento | Servidor embutido do PHP; não requer Apache, Nginx, Node.js ou Composer na primeira versão |
 
