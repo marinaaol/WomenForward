@@ -14,3 +14,13 @@ function mensagem(string $tipo, string $texto): void
 {
     $_SESSION['msg'] = ['tipo' => $tipo, 'texto' => $texto];
 }
+
+function ler_mensagem(): ?array
+{
+    if (empty($_SESSION['msg'])) {
+        return null;
+    }
+    $msg = $_SESSION['msg'];
+    unset($_SESSION['msg']);
+    return $msg;
+}
