@@ -1,9 +1,9 @@
 <?php
 require_once __DIR__ . '/../includes/inicio.php';
 
-$id      = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-$origem  = $_GET['origem'] ?? '';
-$op      = null;
+$id     = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+$origem = $_GET['origem'] ?? '';
+$op     = null;
 
 if ($id && $id > 0) {
     $consulta = $pdo->prepare(
@@ -20,17 +20,36 @@ if ($id && $id > 0) {
     $op = $consulta->fetch();
 }
 
-$titulo = $op ? $op['titulo'] : 'Oportunidade não encontrada';
-require __DIR__ . '/../includes/cabecalho.php';
-
-// Link de regresso — depende da origem
-$voltar_url   = 'pesquisar.php';
+// ------- Constrói o link de regresso com base na origem -------
+$voltar_url   = 'pesquisar.php#resultados';
 $voltar_label = 'Voltar aos resultados';
 
 if ($origem === 'dashboard' && esta_autenticado()) {
+    // Entidade logada, veio do painel
     $voltar_url   = 'dashboard.php#resultados';
     $voltar_label = 'Voltar ao meu painel';
+} elseif ($origem === 'pesquisar') {
+    // Veio da pesquisa — repõe os filtros que vieram no URL
+    $filtros = [
+        'q'         => $_GET['q']         ?? '',
+        'categoria' => $_GET['categoria'] ?? '',
+        'tipo'      => $_GET['tipo']      ?? '',
+        'pais'      => $_GET['pais']      ?? '',
+        'cidade'    => $_GET['cidade']    ?? '',
+        'formato'   => $_GET['formato']   ?? '',
+    ];
+    $filtros = array_filter($filtros, fn($v) => $v !== '');
+
+    $voltar_url = 'pesquisar.php';
+    if ($filtros) {
+        $voltar_url .= '?' . http_build_query($filtros);
+    }
+    $voltar_url   .= '#resultados';
+    $voltar_label  = 'Voltar aos resultados';
 }
+
+$titulo = $op ? $op['titulo'] : 'Oportunidade não encontrada';
+require __DIR__ . '/../includes/cabecalho.php';
 ?>
 
 <?php if (!$op): ?>
@@ -62,6 +81,7 @@ if ($origem === 'dashboard' && esta_autenticado()) {
         </p>
 
         <p><small>Esta informação foi fornecida pela entidade responsável. Antes de se inscrever ou participar, confirme requisitos, datas e condições na fonte oficial.</small></p>
+
         <p><a href="<?= htmlspecialchars($voltar_url) ?>">← <?= htmlspecialchars($voltar_label) ?></a></p>
     </article>
 <?php endif; ?>
