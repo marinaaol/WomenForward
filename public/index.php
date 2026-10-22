@@ -10,14 +10,21 @@ require __DIR__ . '/../includes/cabecalho.php';
 </button>
 
 <section class="hero" aria-labelledby="titulo-hero">
-    <div class="hero-image">
-        <img src="assets/images/young_girls1.png"
-             alt="Jovens mulheres em contexto de tecnologia"
+    <div class="container">
+        <div class="hero-image">
+        <div class="text-block">
+            <h1>A entrada em tech não devia depender de sorte.</h1>
+        </div>
+        <img src="assets/images/women_hero.png"
+             alt="Grupo de mulheres em contexto de tecnologia"
              class="responsive">
+        </div>     
+
+        <p class="slogan">Learn. Build. Lead.</p>
     </div>
 
-    <h1 id="titulo-hero">A entrada em tech não devia depender de sorte.</h1>
-    <p>Encontre num só lugar conteúdos para conhecer áreas tech, fazer transição de carreira ou atualizar a sua stack. Explore cursos, eventos, comunidades e oportunidades de entidades que promovem diversidade e ampliam o acesso de grupos sub-representados — incluindo mulheres — à tecnologia.</p>
+
+    <p>Encontre num só lugar conteúdos para conhecer áreas tech, fazer transição de carreira ou atualizar a sua stack. Explore cursos, eventos, comunidades e oportunidades de entidades que promovem diversidade e ampliam o acesso de mulheres à tecnologia.</p>
     <p>O Women Forward é um espaço acolhedor de troca e apoio, com conteúdo feito por quem também vive experiências parecidas. Descubra novos caminhos com informação clara, referências próximas e acesso direto à entidade responsável por cada oportunidade.</p>
     <p>Aproveite e já faça sua pesquisa! Nem precisa criar conta.</p>
     <a class="btn" href="pesquisar.php" id="btn-pesquisar">Pesquisar oportunidades</a>
@@ -28,19 +35,6 @@ require __DIR__ . '/../includes/cabecalho.php';
     <h2>Um espaço para percursos diferentes</h2>
     <h3>Menos procura sem fim. Mais caminhos para explorar.</h3>
     <p>Cursos num site, eventos noutro, comunidades espalhadas pelas redes… Encontrar o que pode ajudar a avançar não devia parecer uma caça ao tesouro. O Women Forward aproxima informação, experiências e oportunidades para tornar a descoberta mais simples e dar clareza ao próximo passo.</p>
-</section>
-
-<section id="problema">
-    <h2>O cenário STEM</h2>
-    <h3>Mais informação pode abrir novos caminhos.</h3>
-    <p>A UNESCO indica que as mulheres representam 35% das pessoas graduadas em STEM no mundo — uma proporção que não se alterou em dez anos. Este é um dado global, não uma estatística específica de Portugal ou do Brasil. Ele ajuda a mostrar por que iniciativas que aproximam mulheres da informação, da aprendizagem e das oportunidades são importantes.</p>
-    <p>A falta de representação não é falta de capacidade. O acesso a oportunidades, referências e informação clara também influencia quem consegue explorar e permanecer nestas áreas.</p>
-</section>
-
-<section id="solucao">
-    <h2>A solução</h2>
-    <h2>Informação, experiências e oportunidades num só lugar.</h2>
-    <p>Explore conteúdos para conhecer áreas tech, fazer transição de carreira ou atualizar a sua stack. Compare cursos, eventos, comunidades e oportunidades divulgadas por entidades que promovem diversidade e ampliam o acesso de grupos sub-representados, incluindo mulheres, à tecnologia. Confirme os requisitos e as condições diretamente com a entidade responsável.</p>
 </section>
 
 <section id="categorias" class="categorias">
@@ -111,25 +105,17 @@ require __DIR__ . '/../includes/cabecalho.php';
             <option value="híbrido">Híbrido</option>
         </select>
 
-        <button type="submit">Pesquisar</button>
+        <button type="submit">Estou com sorte!</button>
     </form>
 </section>
 
 <section id="entidades" class="entidades">
     <h2>A sua entidade promove oportunidades em tecnologia?</h2>
-    <p>Divulgue cursos, eventos, comunidades e estágios para ampliar o acesso de mulheres e outros grupos sub-representados à tecnologia.</p>
+    <p>Divulgue aqui cursos, eventos, comunidades e estágios para ampliar o acesso de mulheres e outros grupos sub-representados à tecnologia.</p>
     <p class="acoes">
         <a class="btn" href="registar.php">Criar conta de entidade</a>
         <a class="btn secundario" href="login.php">Iniciar sessão</a>
     </p>
-</section>
-
-<section id="publicos">
-    <h2>O seu próximo passo, no seu ritmo</h2>
-    <h3>Jovens · 16 - 24 anos</h3>
-    <a class="btn" href="pesquisar.php" id="btn-jovens">Explorar oportunidades para começar</a>
-    <h3>A dar o próximo passo</h3>
-    <a class="btn secundario" href="pesquisar.php" id="btn-mulheres">Pesquisar oportunidades</a>
 </section>
 
 <?php require __DIR__ . '/../includes/rodape.php'; ?>
