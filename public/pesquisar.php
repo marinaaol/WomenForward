@@ -131,6 +131,45 @@ require __DIR__ . '/../includes/cabecalho.php';
         <p class="vazio">Ainda não encontrámos oportunidades com estes filtros. Experimente retirar um filtro ou procurar noutra cidade.</p>
     <?php else: ?>
         <p>As oportunidades são divulgadas pelas entidades responsáveis. Confirme datas, requisitos e disponibilidade através do respetivo link oficial.</p>
+        <?php
+        $logosOportunidades = [
+            '42 São Paulo' => '42-sao-paulo.png',
+            '42 Porto' => '42-porto.png',
+            'Claude Academy' => 'claude-academy.png',
+            'CodeWomen' => 'codewomen.png',
+            'Game Strategies' => 'game-strategies.png',
+            'Harvard Online' => 'harvard-university.png',
+            'Hire Tech Ladies' => 'tech-ladies.png',
+            'Portuguese Women in Tech' => 'portuguese-women-in-tech.png',
+            'PrograMaria' => 'programaria.png',
+            'SheCodes' => 'shecodes.png',
+            'Tech Girls' => 'tech-girls.png',
+            'Unity Learn' => 'unity.png',
+            'WomenTech Global Conference' => 'womentech-global-conference.png',
+            'MIT OpenCourseWare' => 'mit-opencourseware.svg',
+            'London Business School' => 'london-business-school.svg',
+            '.NET' => 'net-conf.png',
+            'Cisco Live' => 'cisco-live.png',
+            'Cisco Networking Academy' => 'cisco-networking-academy.png',
+            'CodeCombat' => 'codecombat.png',
+            'Descodifica-te' => 'descodifica-te.png',
+            'TryHackMe' => 'tryhackme.png',
+            'Global Women Tech Leaders' => 'global-women-tech-leaders.png',
+            'Ladies Who Tech' => 'ladies-who-tech.png',
+            'Ladies in Tech' => 'ladies-in-tech.png',
+            'Raparigas do Código' => 'raparigas-do-codigo.png',
+            'Roblox Creator Hub' => 'roblox-creator-hub.png',
+            'Technovation Portugal' => 'technovation-girls-portugal.png',
+            'WoMakersCode' => 'womakers-code.png',
+            'Women in Tech Portugal' => 'women-in-tech-portugal.png',
+        ];
+        $logosComBranco = [
+            'game-strategies.png', 'tech-ladies.png', 'tryhackme.png',
+            'ladies-in-tech.png', 'roblox-creator-hub.png', 'global-women-tech-leaders.png',
+            'women-in-tech-portugal.png',
+        ];
+        $logosComFundoBranco = ['net-conf.png', 'descodifica-te.png', 'harvard-university.png', 'raparigas-do-codigo.png', 'claude-academy.png'];
+        ?>
         <div class="grelha-oportunidades">
             <?php foreach ($oportunidades as $op): ?>
                 <?php
@@ -146,18 +185,29 @@ require __DIR__ . '/../includes/cabecalho.php';
                     'formato'   => $filtros['formato'],
                 ], fn($v) => $v !== '');
                 ?>
-                <?php $hostLogo = parse_url($op['url'], PHP_URL_HOST); ?>
+                <?php
+                $partesTitulo = preg_split('/\s+[—-]\s+/u', $op['titulo'], 2);
+                $tituloPrincipal = trim($partesTitulo[0]);
+                $subtitulo = isset($partesTitulo[1]) ? trim($partesTitulo[1]) : '';
+                $arquivoLogo = $logosOportunidades[$tituloPrincipal] ?? null;
+                $classesLogo = [];
+                if (in_array($arquivoLogo, ['42-porto.png', ...$logosComFundoBranco], true)) {
+                    $classesLogo[] = 'cartao-logo-sem-fundo';
+                }
+                if (in_array($arquivoLogo, $logosComBranco, true)) {
+                    $classesLogo[] = 'cartao-logo-cor-escura';
+                }
+                if ($arquivoLogo === 'raparigas-do-codigo.png') {
+                    $classesLogo[] = 'cartao-logo-simbolo';
+                }
+                ?>
                 <article class="cartao cartao-oportunidade">
                     <div class="cartao-cabecalho">
-                        <?php if ($hostLogo): ?>
-                            <img class="cartao-logo" src="https://<?= htmlspecialchars($hostLogo, ENT_QUOTES, 'UTF-8') ?>/favicon.ico"
-                                 alt="" loading="lazy" onerror="this.remove()">
+                        <?php if ($arquivoLogo): ?>
+                            <img class="cartao-logo<?= $classesLogo ? ' ' . implode(' ', $classesLogo) : '' ?>"
+                                 src="assets/images/oportunidades/<?= htmlspecialchars($arquivoLogo, ENT_QUOTES, 'UTF-8') ?>"
+                                 alt="" loading="lazy">
                         <?php endif; ?>
-                        <?php
-                        $partesTitulo = preg_split('/\s+[—-]\s+/u', $op['titulo'], 2);
-                        $tituloPrincipal = trim($partesTitulo[0]);
-                        $subtitulo = isset($partesTitulo[1]) ? trim($partesTitulo[1]) : '';
-                        ?>
 
                         <div class="cartao-titulos">
                             <h3><?= htmlspecialchars($tituloPrincipal, ENT_QUOTES, 'UTF-8') ?></h3>
@@ -182,8 +232,13 @@ require __DIR__ . '/../includes/cabecalho.php';
                             <p>Início: <?= htmlspecialchars(date('d/m/Y', strtotime($op['data_inicio'])), ENT_QUOTES, 'UTF-8') ?></p>
                         <?php endif; ?>
                         <div class="cartao-acoes">
-                            <a href="oportunidade_ver.php?<?= htmlspecialchars(http_build_query($query)) ?>">Ver detalhes</a>
-                            <a href="<?= htmlspecialchars($op['url'], ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener noreferrer">Fonte oficial</a>
+                            <a class="botao-cartao botao-detalhes" href="oportunidade_ver.php?<?= htmlspecialchars(http_build_query($query)) ?>">Ver detalhes</a>
+                            <a class="botao-cartao botao-fonte-oficial" href="<?= htmlspecialchars($op['url'], ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener noreferrer">
+                                <span>Fonte oficial</span>
+                                <svg aria-hidden="true" viewBox="0 0 16 19" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z" />
+                                </svg>
+                            </a>
                         </div>
                     </div>
                 </article>
