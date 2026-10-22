@@ -46,11 +46,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $op['formato']      = $_POST['formato'] ?? 'online';
     $op['pais']         = $_POST['pais'] ?? 'GLOBAL';
     $op['cidade']       = ($_POST['cidade'] ?? '') !== '' ? $_POST['cidade'] : null;
-    $op['url']          = trim($_POST['url'] ?? '');
     $op['data_inicio']  = ($_POST['data_inicio'] ?? '') !== '' ? $_POST['data_inicio'] : null;
     $op['ativo']        = isset($_POST['ativo']) ? 1 : 0;
     $op['id_categoria'] = (int) ($_POST['id_categoria'] ?? 0);
 
+    // URL: lê e normaliza
+    $op['url'] = trim($_POST['url'] ?? '');
+    if ($op['url'] !== '' && !preg_match('~^https?://~i', $op['url'])) {
+        $op['url'] = 'https://' . ltrim($op['url'], '/');
+    }
+
+    // Validações
     if ($op['titulo'] === '' || mb_strlen($op['titulo']) > 150) {
         $erros[] = 'O título é obrigatório (até 150 caracteres).';
     }
@@ -66,10 +72,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!in_array($op['pais'], ['PT', 'BR', 'GLOBAL'], true)) {
         $erros[] = 'País inválido.';
     }
-    if (!filter_var($op['url'], FILTER_VALIDATE_URL)) {
-        $erros[] = 'Introduza um URL válido (começando por https://).';
+
+    // URL: obrigatório + sintaxe válida + tem de ter http(s):// e domínio
+    if ($op['url'] === '') {
+        $erros[] = 'Indique o endereço (URL) da oportunidade.';
+    } elseif (
+        !filter_var($op['url'], FILTER_VALIDATE_URL)
+        || !preg_match('~^https?://[^\s]+\.[^\s]+$~i', $op['url'])
+    ) {
+        $erros[] = 'Introduza um URL válido (ex.: https://www.exemplo.com ou www.exemplo.com).';
     }
 
+    // Consistência país ↔ cidade
     $cidades_validas = [
         'PT' => ['Porto', 'Lisboa'],
         'BR' => ['São Paulo', 'Rio de Janeiro'],
@@ -84,6 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
+    // URL único (na BD)
     if (!$erros) {
         $sqlU = 'SELECT 1 FROM oportunidades WHERE url = ?';
         $paramsU = [$op['url']];
@@ -204,8 +219,8 @@ require __DIR__ . '/../includes/cabecalho.php';
     </label>
 
     <label for="url">URL oficial
-        <input id="url" name="url" type="url" required
-               placeholder="https://..."
+        <input id="url" name="url" type="text" required
+               placeholder="ex.: www.exemplo.com ou https://exemplo.com/oportunidade"
                value="<?= htmlspecialchars($op['url']) ?>">
     </label>
 
