@@ -88,7 +88,7 @@ require __DIR__ . '/../includes/cabecalho.php';
         </dl>
 
         <p>
-            <a class="btn" href="<?= htmlspecialchars($op['url'], ENT_QUOTES, 'UTF-8') ?>"
+            <a class="botao-fonte-oficial" href="<?= htmlspecialchars($op['url'], ENT_QUOTES, 'UTF-8') ?>"
                target="_blank" rel="noopener noreferrer">Consultar a fonte oficial</a>
         </p>
 

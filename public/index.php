@@ -15,7 +15,7 @@ require __DIR__ . '/../includes/cabecalho.php';
         <div class="text-block">
             <h1>A entrada em tech não devia depender de sorte.</h1>
         </div>
-        <img src="assets/images/women_hero.png"
+        <img src="assets/images/women_hero.webp"
              alt="Grupo de mulheres em contexto de tecnologia"
              class="responsive">
         </div>     
