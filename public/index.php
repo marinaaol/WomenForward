@@ -75,7 +75,7 @@ require __DIR__ . '/../includes/cabecalho.php';
 <section id="pesquisa">
     <h2>O que quer explorar?</h2>
 
-    <form method="get" action="pesquisar.php" class="formulario">
+    <form method="get" action="pesquisar.php#resultados" class="formulario">
         <label for="categoria">Categoria</label>
         <select id="categoria" name="categoria">
             <option value="">Todas</option>
@@ -129,7 +129,7 @@ require __DIR__ . '/../includes/cabecalho.php';
     <h3>Jovens · 16 - 24 anos</h3>
     <a class="btn" href="pesquisar.php" id="btn-jovens">Explorar oportunidades para começar</a>
     <h3>A dar o próximo passo</h3>
-    <a class="btn secundario" href="pesquisar.php" id="btn-mulheres">Pesquisar oportunidades</a>
+    <a class="btn secundario" href="pesquisar.php?categoria=Web#resultados">Pesquisar oportunidades</a>
 </section>
 
 <?php require __DIR__ . '/../includes/rodape.php'; ?>

@@ -27,7 +27,7 @@ require __DIR__ . '/../includes/cabecalho.php';
     <a class="btn secundario" href="logout.php">Terminar sessão</a>
 </p>
 
-<h2>Oportunidades da sua entidade</h2>
+<h2 id="resultados">Oportunidades da sua entidade</h2>
 
 <?php if (!$minhas): ?>
     <p>Ainda não publicou oportunidades. Crie a primeira com o botão acima.</p>
@@ -52,7 +52,7 @@ require __DIR__ . '/../includes/cabecalho.php';
                     <td><?= htmlspecialchars($op['pais']) ?></td>
                     <td><?= $op['ativo'] ? 'Sim' : 'Não' ?></td>
                     <td class="acoes-tabela">
-                        <a href="oportunidade_ver.php?id=<?= (int) $op['id_oportunidade'] ?>">Ver</a>
+                        <a href="oportunidade_ver.php?id=<?= (int) $op['id_oportunidade'] ?>&origem=dashboard">Ver</a>
                         <a href="oportunidade_form.php?id=<?= (int) $op['id_oportunidade'] ?>">Editar</a>
                         <a href="oportunidade_apagar.php?id=<?= (int) $op['id_oportunidade'] ?>" class="perigo">Apagar</a>
                     </td>

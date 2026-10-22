@@ -1,8 +1,9 @@
 <?php
 require_once __DIR__ . '/../includes/inicio.php';
 
-$id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-$op = null;
+$id      = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+$origem  = $_GET['origem'] ?? '';
+$op      = null;
 
 if ($id && $id > 0) {
     $consulta = $pdo->prepare(
@@ -21,12 +22,21 @@ if ($id && $id > 0) {
 
 $titulo = $op ? $op['titulo'] : 'Oportunidade não encontrada';
 require __DIR__ . '/../includes/cabecalho.php';
+
+// Link de regresso — depende da origem
+$voltar_url   = 'pesquisar.php';
+$voltar_label = 'Voltar aos resultados';
+
+if ($origem === 'dashboard' && esta_autenticado()) {
+    $voltar_url   = 'dashboard.php#resultados';
+    $voltar_label = 'Voltar ao meu painel';
+}
 ?>
 
 <?php if (!$op): ?>
     <h1>Oportunidade não encontrada</h1>
     <p>Não foi possível encontrar esta oportunidade. Pode ter sido removida ou já não estar disponível.</p>
-    <a href="pesquisar.php">Voltar à pesquisa</a>
+    <a href="<?= htmlspecialchars($voltar_url) ?>"><?= htmlspecialchars($voltar_label) ?></a>
 <?php else: ?>
     <article class="detalhe">
         <p><?= htmlspecialchars($op['categoria'], ENT_QUOTES, 'UTF-8') ?> · <?= htmlspecialchars(ucfirst($op['tipo']), ENT_QUOTES, 'UTF-8') ?></p>
@@ -52,7 +62,7 @@ require __DIR__ . '/../includes/cabecalho.php';
         </p>
 
         <p><small>Esta informação foi fornecida pela entidade responsável. Antes de se inscrever ou participar, confirme requisitos, datas e condições na fonte oficial.</small></p>
-        <p><a href="pesquisar.php">← Voltar aos resultados</a></p>
+        <p><a href="<?= htmlspecialchars($voltar_url) ?>">← <?= htmlspecialchars($voltar_label) ?></a></p>
     </article>
 <?php endif; ?>
 

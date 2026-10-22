@@ -68,7 +68,7 @@ require __DIR__ . '/../includes/cabecalho.php';
     </ol>
 </section>
 
-<form method="get" action="pesquisar.php" class="formulario">
+<form method="get" action="pesquisar.php#resultados" class="formulario">
     <label for="q">O que procura? (opcional)</label>
     <input id="q" name="q" type="search" placeholder="Ex.: programação, transição de carreira, dados"
            value="<?= htmlspecialchars($filtros['q'], ENT_QUOTES, 'UTF-8') ?>">
@@ -124,7 +124,7 @@ require __DIR__ . '/../includes/cabecalho.php';
     <a href="pesquisar.php">Limpar filtros</a>
 </form>
 
-<section aria-live="polite" aria-labelledby="titulo-resultados">
+<section aria-live="polite" aria-labelledby="titulo-resultados" id="resultados">
     <h2 id="titulo-resultados">Resultados (<?= count($oportunidades) ?>)</h2>
 
     <?php if (!$oportunidades): ?>
@@ -133,6 +133,19 @@ require __DIR__ . '/../includes/cabecalho.php';
         <p>As oportunidades são divulgadas pelas entidades responsáveis. Confirme datas, requisitos e disponibilidade através do respetivo link oficial.</p>
         <div class="grelha-oportunidades">
             <?php foreach ($oportunidades as $op): ?>
+                <?php
+                // Constrói o link para o detalhe, preservando os filtros atuais + origem
+                $query = array_filter([
+                    'id'        => $op['id_oportunidade'],
+                    'origem'    => 'pesquisar',
+                    'q'         => $filtros['q'],
+                    'categoria' => $filtros['categoria'],
+                    'tipo'      => $filtros['tipo'],
+                    'pais'      => $filtros['pais'],
+                    'cidade'    => $filtros['cidade'],
+                    'formato'   => $filtros['formato'],
+                ], fn($v) => $v !== '');
+                ?>
                 <article class="cartao">
                     <h3><?= htmlspecialchars($op['titulo'], ENT_QUOTES, 'UTF-8') ?></h3>
                     <p><?= htmlspecialchars($op['categoria'], ENT_QUOTES, 'UTF-8') ?> · <?= htmlspecialchars(ucfirst($op['tipo']), ENT_QUOTES, 'UTF-8') ?></p>
@@ -145,7 +158,7 @@ require __DIR__ . '/../includes/cabecalho.php';
                     <?php if ($op['data_inicio']): ?>
                         <p>Início: <?= htmlspecialchars($op['data_inicio'], ENT_QUOTES, 'UTF-8') ?></p>
                     <?php endif; ?>
-                    <a href="oportunidade_ver.php?id=<?= (int) $op['id_oportunidade'] ?>">Ver detalhes</a>
+                    <a href="oportunidade_ver.php?<?= htmlspecialchars(http_build_query($query)) ?>">Ver detalhes</a>
                 </article>
             <?php endforeach; ?>
         </div>
