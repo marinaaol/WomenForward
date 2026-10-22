@@ -38,8 +38,8 @@ if ($filtros['formato'] !== '') {
     $parametros['formato'] = $filtros['formato'];
 }
 
-$sql = 'SELECT o.id_oportunidade, o.titulo, o.tipo, o.pais, o.cidade, o.formato,
-               o.data_inicio, e.nome AS entidade, c.nome AS categoria
+$sql = 'SELECT o.id_oportunidade, o.titulo, o.descricao, o.tipo, o.pais, o.cidade, o.formato,
+               o.url, o.data_inicio, e.nome AS entidade, c.nome AS categoria
         FROM oportunidades o
         JOIN entidades  e ON e.id_entidade  = o.id_entidade
         JOIN categorias c ON c.id_categoria = o.id_categoria
@@ -146,19 +146,46 @@ require __DIR__ . '/../includes/cabecalho.php';
                     'formato'   => $filtros['formato'],
                 ], fn($v) => $v !== '');
                 ?>
-                <article class="cartao">
-                    <h3><?= htmlspecialchars($op['titulo'], ENT_QUOTES, 'UTF-8') ?></h3>
-                    <p><?= htmlspecialchars($op['categoria'], ENT_QUOTES, 'UTF-8') ?> · <?= htmlspecialchars(ucfirst($op['tipo']), ENT_QUOTES, 'UTF-8') ?></p>
-                    <p>
-                        <?= htmlspecialchars($op['entidade'], ENT_QUOTES, 'UTF-8') ?>
-                        · <?= htmlspecialchars($op['pais'], ENT_QUOTES, 'UTF-8') ?>
-                        <?= $op['cidade'] ? ' · ' . htmlspecialchars($op['cidade'], ENT_QUOTES, 'UTF-8') : '' ?>
-                        · <?= htmlspecialchars(ucfirst($op['formato']), ENT_QUOTES, 'UTF-8') ?>
-                    </p>
-                    <?php if ($op['data_inicio']): ?>
-                        <p>Início: <?= htmlspecialchars($op['data_inicio'], ENT_QUOTES, 'UTF-8') ?></p>
-                    <?php endif; ?>
-                    <a href="oportunidade_ver.php?<?= htmlspecialchars(http_build_query($query)) ?>">Ver detalhes</a>
+                <?php $hostLogo = parse_url($op['url'], PHP_URL_HOST); ?>
+                <article class="cartao cartao-oportunidade">
+                    <div class="cartao-cabecalho">
+                        <?php if ($hostLogo): ?>
+                            <img class="cartao-logo" src="https://<?= htmlspecialchars($hostLogo, ENT_QUOTES, 'UTF-8') ?>/favicon.ico"
+                                 alt="" loading="lazy" onerror="this.remove()">
+                        <?php endif; ?>
+                        <?php
+                        $partesTitulo = preg_split('/\s+[—-]\s+/u', $op['titulo'], 2);
+                        $tituloPrincipal = trim($partesTitulo[0]);
+                        $subtitulo = isset($partesTitulo[1]) ? trim($partesTitulo[1]) : '';
+                        ?>
+
+                        <div class="cartao-titulos">
+                            <h3><?= htmlspecialchars($tituloPrincipal, ENT_QUOTES, 'UTF-8') ?></h3>
+
+                            <?php if ($subtitulo !== ''): ?>
+                                <p class="subtitulo-oportunidade">
+                                    <?= htmlspecialchars($subtitulo, ENT_QUOTES, 'UTF-8') ?>
+                                </p>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                    <div class="cartao-detalhes">
+                        <p class="cartao-resumo"><?= htmlspecialchars($op['descricao'], ENT_QUOTES, 'UTF-8') ?></p>
+                        <p><?= htmlspecialchars($op['categoria'], ENT_QUOTES, 'UTF-8') ?> · <?= htmlspecialchars(ucfirst($op['tipo']), ENT_QUOTES, 'UTF-8') ?></p>
+                        <p>
+                            <?= htmlspecialchars($op['entidade'], ENT_QUOTES, 'UTF-8') ?>
+                            · <?= htmlspecialchars($op['pais'], ENT_QUOTES, 'UTF-8') ?>
+                            <?= $op['cidade'] ? ' · ' . htmlspecialchars($op['cidade'], ENT_QUOTES, 'UTF-8') : '' ?>
+                            · <?= htmlspecialchars(ucfirst($op['formato']), ENT_QUOTES, 'UTF-8') ?>
+                        </p>
+                        <?php if ($op['data_inicio']): ?>
+                            <p>Início: <?= htmlspecialchars(date('d/m/Y', strtotime($op['data_inicio'])), ENT_QUOTES, 'UTF-8') ?></p>
+                        <?php endif; ?>
+                        <div class="cartao-acoes">
+                            <a href="oportunidade_ver.php?<?= htmlspecialchars(http_build_query($query)) ?>">Ver detalhes</a>
+                            <a href="<?= htmlspecialchars($op['url'], ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener noreferrer">Fonte oficial</a>
+                        </div>
+                    </div>
                 </article>
             <?php endforeach; ?>
         </div>

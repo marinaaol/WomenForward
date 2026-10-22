@@ -133,7 +133,7 @@ INSERT INTO oportunidades (id_categoria, id_entidade, titulo, descricao, tipo, p
   (4, 1, 'Harvard Online — Cybersecurity Courses', 'Catálogo de cursos de cibersegurança, incluindo opções online; consultar disponibilidade de cada curso.', 'curso', 'GLOBAL', NULL, 'online', 'https://pll.harvard.edu/subject/cybersecurity'),
 
   -- Carreira & Liderança
-  (5, 20, 'Ladies in Tech — Liderança feminina em tecnologia', 'Comunidade brasileira voltada à liderança feminina em tecnologia; consultar atividades e inscrições no site.', 'comunidade', 'BR', NULL, 'online', 'https://ladiesintech.com.br/'),
+  (5, 20, 'Ladies in Tech - Liderança feminina em tecnologia', 'Comunidade brasileira voltada à liderança feminina em tecnologia; consultar atividades e inscrições no site.', 'comunidade', 'BR', NULL, 'online', 'https://ladiesintech.com.br/'),
   (5, 19, 'Portuguese Women in Tech — Comunidade profissional', 'Comunidade e iniciativas de carreira para mulheres no ecossistema tecnológico português.', 'comunidade', 'PT', NULL, 'online', 'https://www.portuguesewomenintech.com/'),
   (5, 18, 'Women in Tech Portugal — Comunidade e oportunidades', 'Comunidade profissional para mulheres em tecnologia; consultar eventos e iniciativas disponíveis.', 'comunidade', 'PT', NULL, 'online', 'https://www.womenintech.pt/'),
   (5, 17, 'Ladies Who Tech — Comunidade global', 'Comunidade internacional para mulheres em tecnologia; consultar programas e eventos atuais no site.', 'comunidade', 'GLOBAL', NULL, 'online', 'https://ladieswho.tech/eng'),
