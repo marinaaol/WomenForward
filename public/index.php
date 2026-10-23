@@ -22,8 +22,6 @@ require __DIR__ . '/../includes/cabecalho.php';
 
         <p class="slogan">Learn. Build. Lead.</p>
     </div>
-
-
     <p>Encontre num só lugar conteúdos para conhecer áreas tech, fazer transição de carreira ou atualizar a sua stack. Explore cursos, eventos, comunidades e oportunidades de entidades que promovem diversidade e ampliam o acesso de mulheres à tecnologia.</p>
     <p>O Women Forward é um espaço acolhedor de troca e apoio, com conteúdo feito por quem também vive experiências parecidas. Descubra novos caminhos com informação clara, referências próximas e acesso direto à entidade responsável por cada oportunidade.</p>
     <p>Aproveite e já faça sua pesquisa! Nem precisa criar conta.</p>

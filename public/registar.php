@@ -56,37 +56,50 @@ $titulo = 'Registar entidade · Women Forward';
 require __DIR__ . '/../includes/cabecalho.php';
 ?>
 
-<h1>Registe a sua entidade</h1>
+
 <p>Divulgue cursos, eventos, comunidades e estágios em tecnologia. Mantenha as informações atualizadas para que mais pessoas encontrem a sua iniciativa.</p>
 
 <?php require __DIR__ . '/../includes/erros.php'; ?>
 
 <form method="post" action="registar.php" class="form-auth">
-    <label>Nome da entidade
-        <input type="text" name="nome" maxlength="120" required
+    <div class="card">
+        <div class="card-image">
+            <h2 class="card-heading">
+                Registe a sua entidade
+            </h2>
+        </div>
+        <form class="card-form">
+            <div class="input">
+                <label class="input-label"> Nome da Entidade </label>
+                <input type="text" name="nome" maxlength="120" required
                value="<?= htmlspecialchars($nome) ?>">
-    </label>
-
-    <label>Email
-        <input type="email" name="email" required
+            </div>
+            <div class="input">
+                <label class="input-label">E-mail</label>
+                <input type="email" name="email" required
                value="<?= htmlspecialchars($email) ?>">
-    </label>
+            </div>
+            <div class="input">
+                <label class="input-label">Palavra-Passe (mínimo de 8 caracteres)</label>
+                <input type="password" name="password" minlength="8" required>
+            </div>
+            <div class="input">
+                <label class="input-label">Confirme a Palavra-Passe</label>
+                <input type="password" name="password2" minlength="8" required>
+            </div>
+            
+                <label class="check">
+                    <input type="checkbox" name="consentimento" value="1" required>
+                    Aceito a <a href="privacidade.php">política de privacidade</a> e o tratamento dos meus dados.
+                </label>
+            
+             <div class="action">
+                <button class="action-button"> Registar Entidade</button>
+            </div>
+        </form>
+    </div>
 
-    <label>Palavra-passe (mínimo de 8 caracteres)
-        <input type="password" name="password" minlength="8" required>
-    </label>
 
-    <label>Confirme a palavra-passe
-        <input type="password" name="password2" minlength="8" required>
-    </label>
-
-    <label class="check">
-        <input type="checkbox" name="consentimento" value="1" required>
-        Aceito a <a href="privacidade.php">política de privacidade</a> e o tratamento dos meus dados.
-    </label>
-
-    <button type="submit">Registar entidade</button>
-</form>
 
 <p>Já tem conta? <a href="login.php">Inicie sessão</a>.</p>
 
