@@ -7,6 +7,7 @@
 -- Garante que os acentos são lidos corretamente, seja qual for o cliente
 SET NAMES utf8mb4;
 
+DROP DATABASE IF EXISTS womenforward;
 CREATE DATABASE womenforward CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE womenforward;
 
@@ -68,6 +69,7 @@ INSERT INTO categorias (nome) VALUES
   ('Carreira & Liderança');
 
 -- Entidades de exemplo com email fictício e password comum (Demo1234)
+-- Entidade de teste: womenforward@demo.test / Demo1234
 INSERT INTO entidades (nome, email, password_hash, consentimento_em) VALUES
   ('Harvard Online', 'harvard@womenforward.test', '$2y$12$wtvyr7Br21NfSwx8lFD1EujFE1Q/5l4NumFPTF4aZ5OVbvUr4/V2m', '2025-10-03 09:14:22'),
   ('TryHackMe', 'tryhackme@womenforward.test', '$2y$12$wtvyr7Br21NfSwx8lFD1EujFE1Q/5l4NumFPTF4aZ5OVbvUr4/V2m', '2025-10-19 16:47:05'),

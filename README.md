@@ -40,3 +40,13 @@ Não existe relação direta entre categorias e entidades: ambas relacionam-se a
 
 - HTML, CSS e JavaScript
 - PHP 8.2+ com PDO
+
+## Como pôr a funcionar
+
+1. Instalar o XAMPP 8.2 e arrancar o Apache e o MySQL.
+2. Copiar esta pasta para C:\xampp\htdocs e mudar-lhe o nome para "womenforward".
+3. Abrir http://localhost/phpmyadmin, separador Importar, e escolher o ficheiro base_dados.sql.
+4. Se o MySQL tiver password, alterá-la em config/db.php.
+5. Abrir http://localhost/womenforward
+
+Utilizador de teste: womenforward@demo.test / Demo1234
