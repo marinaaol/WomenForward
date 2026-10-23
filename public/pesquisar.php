@@ -201,44 +201,62 @@ require __DIR__ . '/../includes/cabecalho.php';
                     $classesLogo[] = 'cartao-logo-simbolo';
                 }
                 ?>
-                <article class="cartao cartao-oportunidade">
-                    <div class="cartao-cabecalho">
-                        <?php if ($arquivoLogo): ?>
-                            <img class="cartao-logo<?= $classesLogo ? ' ' . implode(' ', $classesLogo) : '' ?>"
-                                 src="assets/images/oportunidades/<?= htmlspecialchars($arquivoLogo, ENT_QUOTES, 'UTF-8') ?>"
-                                 alt="" loading="lazy">
-                        <?php endif; ?>
+                <article class="cartao cartao-oportunidade" tabindex="0">
+                    <div class="cartao-flip-inner">
+                        <div class="cartao-face cartao-frente" aria-hidden="false">
+                            <div class="cartao-cabecalho">
+                                <?php if ($arquivoLogo): ?>
+                                    <img class="cartao-logo<?= $classesLogo ? ' ' . implode(' ', $classesLogo) : '' ?>"
+                                         src="assets/images/oportunidades/<?= htmlspecialchars($arquivoLogo, ENT_QUOTES, 'UTF-8') ?>"
+                                         alt="" loading="lazy">
+                                <?php endif; ?>
 
-                        <div class="cartao-titulos">
-                            <h3><?= htmlspecialchars($tituloPrincipal, ENT_QUOTES, 'UTF-8') ?></h3>
+                                <div class="cartao-titulos">
+                                    <h3><?= htmlspecialchars($tituloPrincipal, ENT_QUOTES, 'UTF-8') ?></h3>
 
-                            <?php if ($subtitulo !== ''): ?>
-                                <p class="subtitulo-oportunidade">
-                                    <?= htmlspecialchars($subtitulo, ENT_QUOTES, 'UTF-8') ?>
-                                </p>
-                            <?php endif; ?>
+                                    <?php if ($subtitulo !== ''): ?>
+                                        <p class="subtitulo-oportunidade">
+                                            <?= htmlspecialchars($subtitulo, ENT_QUOTES, 'UTF-8') ?>
+                                        </p>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="cartao-detalhes">
-                        <p class="cartao-resumo"><?= htmlspecialchars($op['descricao'], ENT_QUOTES, 'UTF-8') ?></p>
-                        <p><?= htmlspecialchars($op['categoria'], ENT_QUOTES, 'UTF-8') ?> · <?= htmlspecialchars(ucfirst($op['tipo']), ENT_QUOTES, 'UTF-8') ?></p>
-                        <p>
-                            <?= htmlspecialchars($op['entidade'], ENT_QUOTES, 'UTF-8') ?>
-                            · <?= htmlspecialchars($op['pais'], ENT_QUOTES, 'UTF-8') ?>
-                            <?= $op['cidade'] ? ' · ' . htmlspecialchars($op['cidade'], ENT_QUOTES, 'UTF-8') : '' ?>
-                            · <?= htmlspecialchars(ucfirst($op['formato']), ENT_QUOTES, 'UTF-8') ?>
-                        </p>
-                        <?php if ($op['data_inicio']): ?>
-                            <p>Início: <?= htmlspecialchars(date('d/m/Y', strtotime($op['data_inicio'])), ENT_QUOTES, 'UTF-8') ?></p>
-                        <?php endif; ?>
-                        <div class="cartao-acoes">
-                            <a class="botao-cartao botao-detalhes" href="oportunidade_ver.php?<?= htmlspecialchars(http_build_query($query)) ?>">Ver detalhes</a>
-                            <a class="botao-cartao botao-fonte-oficial" href="<?= htmlspecialchars($op['url'], ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener noreferrer">
-                                <span>Fonte oficial</span>
-                                <svg aria-hidden="true" viewBox="0 0 16 19" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z" />
-                                </svg>
-                            </a>
+
+                        <div class="cartao-face cartao-verso" aria-hidden="true" inert>
+                            <div class="cartao-titulos cartao-verso-titulo">
+                                <h3><?= htmlspecialchars($tituloPrincipal, ENT_QUOTES, 'UTF-8') ?></h3>
+
+                                <?php if ($subtitulo !== ''): ?>
+                                    <p class="subtitulo-oportunidade">
+                                        <?= htmlspecialchars($subtitulo, ENT_QUOTES, 'UTF-8') ?>
+                                    </p>
+                                <?php endif; ?>
+                            </div>
+                            <div class="cartao-detalhes">
+                                <div class="cartao-informacoes">
+                                    <p class="cartao-resumo"><?= htmlspecialchars($op['descricao'], ENT_QUOTES, 'UTF-8') ?></p>
+                                    <p><?= htmlspecialchars($op['categoria'], ENT_QUOTES, 'UTF-8') ?> · <?= htmlspecialchars(ucfirst($op['tipo']), ENT_QUOTES, 'UTF-8') ?></p>
+                                    <p>
+                                        <?= htmlspecialchars($op['entidade'], ENT_QUOTES, 'UTF-8') ?>
+                                        · <?= htmlspecialchars($op['pais'], ENT_QUOTES, 'UTF-8') ?>
+                                        <?= $op['cidade'] ? ' · ' . htmlspecialchars($op['cidade'], ENT_QUOTES, 'UTF-8') : '' ?>
+                                        · <?= htmlspecialchars(ucfirst($op['formato']), ENT_QUOTES, 'UTF-8') ?>
+                                    </p>
+                                    <?php if ($op['data_inicio']): ?>
+                                        <p>Início: <?= htmlspecialchars(date('d/m/Y', strtotime($op['data_inicio'])), ENT_QUOTES, 'UTF-8') ?></p>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="cartao-acoes">
+                                    <a class="botao-cartao botao-detalhes" href="oportunidade_ver.php?<?= htmlspecialchars(http_build_query($query)) ?>">Ver detalhes</a>
+                                    <a class="botao-cartao botao-fonte-oficial" href="<?= htmlspecialchars($op['url'], ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener noreferrer">
+                                        <span>Fonte oficial</span>
+                                        <svg aria-hidden="true" viewBox="0 0 16 19" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </article>
