@@ -26,11 +26,12 @@
             <a href="index.php">Página inicial</a>
             <a href="privacidade.php">Política de privacidade</a>
         </nav>
-    </div>
-    <div class="contatos">
-        <a href="https://www.linkedin.com/in/beatrizbarneves/">Beatriz Neves</a>
-        <a href="https://www.linkedin.com/in/marinaaol/">Marina Oliveira</a>
-        <a href="https://www.linkedin.com/in/pauloprimoo/">Paulo Primo</a>
+        <nav class="rodape-coluna" aria-label="Contatos">
+            <h3>Contatos</h3>
+            <a href="https://www.linkedin.com/in/beatrizbarneves/">Beatriz Neves</a>
+            <a href="https://www.linkedin.com/in/marinaaol/">Marina Oliveira</a>
+            <a href="https://www.linkedin.com/in/pauloprimoo/">Paulo Primo</a>
+        </nav>
     </div>
     <div class="rodape-base">
         <p class="rodape-academico"><small>Women Forward trata-se de projeto de conclusão do Curso de Especialização Tecnológica em Programação e Sistemas de Informação ofertado pelo IEFP e ministrado no ISLA Gaia. Ano de desenvolvimento do site: 2026.</small></p>

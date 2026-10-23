@@ -89,7 +89,7 @@ require __DIR__ . '/../includes/cabecalho.php';
 
         <p>
             <a class="botao-fonte-oficial" href="<?= htmlspecialchars($op['url'], ENT_QUOTES, 'UTF-8') ?>"
-               target="_blank" rel="noopener noreferrer">Consultar a fonte oficial</a>
+               target="_blank" rel="noopener noreferrer">Site</a>
         </p>
 
         <p><small>Esta informação foi fornecida pela entidade responsável. Antes de se inscrever ou participar, confirme requisitos, datas e condições na fonte oficial.</small></p>
