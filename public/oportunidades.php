@@ -39,7 +39,7 @@ if ($filtros['formato'] !== '') {
     $parametros['formato'] = $filtros['formato'];
 }
 
-$sql = 'SELECT o.id_oportunidade, o.titulo, o.descricao, o.tipo, o.pais,
+$sql = 'SELECT o.id_oportunidade, o.titulo, o.descricao, o.url, o.tipo, o.pais,
                o.cidade, o.formato, o.data_inicio, e.nome AS entidade,
                c.nome AS categoria
         FROM oportunidades o
@@ -57,7 +57,6 @@ require dirname(__DIR__) . '/includes/cabecalho.php';
 ?>
 
 <h1>Oportunidades para explorar</h1>
-<p>Combine os filtros para encontrar cursos, eventos, comunidades e estágios que façam sentido para os seus interesses, a sua carreira e o formato que prefere. Os resultados correspondem a todos os filtros selecionados.</p>
 
 <form method="get" action="oportunidades.php" class="formulario">
     <label for="q">O que procura?</label>
@@ -111,26 +110,16 @@ require dirname(__DIR__) . '/includes/cabecalho.php';
     <a href="oportunidades.php">Limpar filtros</a>
 </form>
 
-<section aria-live="polite" aria-labelledby="titulo-resultados">
+<section aria-live="polite" aria-labelledby="titulo-resultados" id="resultados">
     <h2 id="titulo-resultados">Resultados (<?= count($oportunidades) ?>)</h2>
     <?php if (!$oportunidades): ?>
         <p class="vazio">Ainda não encontrámos oportunidades com estes filtros. Experimente retirar um filtro ou procurar noutra cidade.</p>
     <?php else: ?>
         <p>As oportunidades são divulgadas pelas entidades responsáveis. Confirme datas, requisitos e disponibilidade através do respetivo link oficial.</p>
-        <div class="grelha-oportunidades">
-            <?php foreach ($oportunidades as $oportunidade): ?>
-                <article class="cartao">
-                    <h3><?= htmlspecialchars($oportunidade['titulo'], ENT_QUOTES, 'UTF-8') ?></h3>
-                    <p><?= htmlspecialchars($oportunidade['categoria'], ENT_QUOTES, 'UTF-8') ?> · <?= htmlspecialchars(ucfirst($oportunidade['tipo']), ENT_QUOTES, 'UTF-8') ?></p>
-                    <p><?= htmlspecialchars($oportunidade['entidade'], ENT_QUOTES, 'UTF-8') ?> · <?= htmlspecialchars($oportunidade['pais'], ENT_QUOTES, 'UTF-8') ?><?= $oportunidade['cidade'] ? ' · ' . htmlspecialchars($oportunidade['cidade'], ENT_QUOTES, 'UTF-8') : '' ?> · <?= htmlspecialchars(ucfirst($oportunidade['formato']), ENT_QUOTES, 'UTF-8') ?></p>
-                    <?php if ($oportunidade['data_inicio']): ?>
-                        <p>Início: <?= htmlspecialchars($oportunidade['data_inicio'], ENT_QUOTES, 'UTF-8') ?></p>
-                    <?php endif; ?>
-                    <a href="oportunidade_ver.php?id=<?= (int) $oportunidade['id_oportunidade'] ?>">Ver detalhes</a>
-                </article>
-            <?php endforeach; ?>
-        </div>
+        <?php $origemCartoes = 'oportunidades'; require dirname(__DIR__) . '/includes/grelha_oportunidades.php'; ?>
     <?php endif; ?>
 </section>
+
+<p>Combine os filtros para encontrar cursos, eventos, comunidades e estágios que façam sentido para os seus interesses, a sua carreira e o formato que prefere. Os resultados correspondem a todos os filtros selecionados.</p>
 
 <?php require dirname(__DIR__) . '/includes/rodape.php'; ?>

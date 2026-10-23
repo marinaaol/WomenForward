@@ -46,7 +46,7 @@ Não existe relação direta entre categorias e entidades: ambas relacionam-se a
 1. Instalar o XAMPP 8.2 e arrancar o Apache e o MySQL.
 2. Copiar esta pasta para C:\xampp\htdocs e mudar-lhe o nome para "womenforward".
 3. Abrir http://localhost/phpmyadmin, separador Importar, e escolher o ficheiro base_dados.sql.
-4. Se o MySQL tiver password, alterá-la em config/db.php.
+4. Copiar `.env.example` para `.env` e preencher `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER` e `DB_PASSWORD`. A configuração local documentada é `127.0.0.1:3306`, base `womenforward`, utilizador `root` sem palavra-passe. O `.env` não é versionado.
 5. Abrir http://localhost/womenforward
 
 Utilizador de teste: womenforward@demo.test / Demo1234

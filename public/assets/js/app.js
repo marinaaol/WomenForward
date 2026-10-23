@@ -1,4 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menuPrincipal = document.querySelector('#menu-principal');
+
+    if (menuToggle && menuPrincipal) {
+        const fecharMenu = () => {
+            menuPrincipal.classList.remove('is-open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.setAttribute('aria-label', 'Abrir menu');
+        };
+
+        menuToggle.addEventListener('click', () => {
+            const aberto = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', String(!aberto));
+            menuToggle.setAttribute('aria-label', aberto ? 'Abrir menu' : 'Fechar menu');
+            menuPrincipal.classList.toggle('is-open', !aberto);
+        });
+
+        menuPrincipal.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', fecharMenu);
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') fecharMenu();
+        });
+
+        window.matchMedia('(min-width: 901px)').addEventListener('change', fecharMenu);
+    }
+
 
     /* ---------- 1. Filtrar cidades por país ---------- */
     const pais   = document.querySelector('#pais');

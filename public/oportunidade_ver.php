@@ -21,14 +21,14 @@ if ($id && $id > 0) {
 }
 
 // ------- Constrói o link de regresso com base na origem -------
-$voltar_url   = 'pesquisar.php#resultados';
+$voltar_url   = 'oportunidades.php#resultados';
 $voltar_label = 'Voltar aos resultados';
 
 if ($origem === 'dashboard' && esta_autenticado()) {
     // Entidade logada, veio do painel
     $voltar_url   = 'dashboard.php#resultados';
     $voltar_label = 'Voltar ao meu painel';
-} elseif ($origem === 'pesquisar') {
+} elseif (in_array($origem, ['pesquisar', 'oportunidades'], true)) {
     // Veio da pesquisa — repõe os filtros que vieram no URL
     $filtros = [
         'q'         => $_GET['q']         ?? '',
@@ -40,7 +40,7 @@ if ($origem === 'dashboard' && esta_autenticado()) {
     ];
     $filtros = array_filter($filtros, fn($v) => $v !== '');
 
-    $voltar_url = 'pesquisar.php';
+    $voltar_url = $origem . '.php';
     if ($filtros) {
         $voltar_url .= '?' . http_build_query($filtros);
     }

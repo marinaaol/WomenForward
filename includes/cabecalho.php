@@ -1,8 +1,6 @@
 <?php
 require_once __DIR__ . '/inicio.php';
 
-$autenticado  = esta_autenticado();
-$nomeEntidade = entidade_nome();
 $msg          = ler_mensagem();
 ?>
 <!DOCTYPE html>
@@ -18,30 +16,30 @@ $msg          = ler_mensagem();
 </head>
 <body>
 <header class="topo">
-    <nav class="topo-menu topo-menu-esquerda" aria-label="Navegação — início e pesquisa">
-        <a href="index.php">Início</a>
-        <a href="pesquisar.php">Pesquisar</a>
-    </nav>
     <a class="marca" href="index.php" aria-label="Women Forward — início">
         <img src="assets/images/logo-women-forward.svg" alt="Women Forward">
     </a>
-    <nav class="topo-menu topo-menu-direita" aria-label="Navegação — áreas e entidades">
-        <a href="areas.php">Áreas Tech</a>
+
+    <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="menu-principal"
+    >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+    </button>
+
+    <nav class="nav-principal" id="menu-principal" aria-label="Navegação principal">
+        <a href="index.php">Início</a>
+        <a href="oportunidades.php">Pesquisar</a>
         <a href="stem.php">Mulheres na STEM</a>
         <a href="entidades.php">Para Entidades</a>
+        <a class="nav-login" href="login.php">Login</a>
     </nav>
 </header>
-
-<div class="barra-conta">
-    <?php if ($autenticado): ?>
-        <span>Olá, <?= htmlspecialchars($nomeEntidade ?? '') ?>!</span>
-        <a href="dashboard.php">O meu painel</a>
-        <a href="logout.php">Sair</a>
-    <?php else: ?>
-        <a href="registar.php">Criar conta</a>
-        <a href="login.php">Iniciar sessão</a>
-    <?php endif; ?>
-</div>
 
 <main>
 <?php if ($msg): ?>

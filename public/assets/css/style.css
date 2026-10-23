@@ -64,13 +64,14 @@ main {
    2. Top Navigation Bar
    ------------------------------------------------------------ */
 .topo {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    position: relative;
+    z-index: 10;
+    display: flex;
     align-items: center;
-    gap: 18px;
-    padding: 16px clamp(20px, 4vw, 64px);
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 14px clamp(20px, 4vw, 64px);
     background: var(--color1);
-    flex-wrap: wrap;
 }
 
 .topo .marca {
@@ -83,36 +84,24 @@ main {
 
 .topo .marca img {
     display: block;
-    width: clamp(220px, 20vw, 550px);
+    width: clamp(150px, 16vw, 220px);
     height: auto;
 }
 
-.topo .topo-menu {
+.topo .nav-principal {
     display: flex;
     align-items: center;
-    gap: 4px;
-    flex-wrap: nowrap;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    border-radius: 0;
-    background: transparent;
-}
-
-.topo .topo-menu-esquerda {
-    justify-content: flex-start;
-}
-
-.topo .topo-menu-direita {
     justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 0.35rem;
 }
 
-.topo .topo-menu a {
+.topo .nav-principal a {
     display: inline-flex;
+    min-height: 42px;
     align-items: center;
     justify-content: center;
-    min-height: 42px;
-    padding: 9px clamp(8px, 1.1vw, 15px);
+    padding: 9px 13px;
     border-radius: 999px;
     color: var(--color3);
     font-size: 0.9rem;
@@ -122,95 +111,85 @@ main {
     transition: background-color 160ms ease, color 160ms ease;
 }
 
-.topo .topo-menu a:hover,
-.topo .topo-menu a:focus-visible {
-    background: var(--color2);
-    color: #fff;
-    text-decoration: none;
+.topo .nav-principal a:hover,
+.topo .nav-principal a:focus-visible {
+    background: #fff;
 }
 
-.topo .topo-menu a:focus-visible,
+.topo .nav-principal .nav-login {
+    border: 1px solid var(--color3);
+}
+
+.topo .nav-principal .nav-login:hover,
+.topo .nav-principal .nav-login:focus-visible {
+    background: var(--color3);
+    color: #fff;
+}
+
+.topo .menu-toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--color3);
+    cursor: pointer;
+}
+
+.topo .menu-toggle span {
+    display: block;
+    height: 2px;
+    margin: 4px 0;
+    background: #fff;
+}
+
+.topo .menu-toggle:focus-visible,
+.topo .nav-principal a:focus-visible,
 .topo .marca:focus-visible {
     outline: 3px solid var(--color5);
     outline-offset: 3px;
 }
 
 @media (max-width: 900px) {
-    .topo {
-        grid-template-columns: 1fr 1fr;
-        justify-items: center;
-        row-gap: 12px;
-    }
-
-    .topo .marca {
-        grid-column: 1 / -1;
-        grid-row: 1;
-    }
-
-    .topo .topo-menu-esquerda,
-    .topo .topo-menu-direita {
-        grid-row: 2;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-}
-
-@media (max-width: 560px) {
-    .topo {
-        grid-template-columns: 1fr;
-        gap: 10px;
-        padding: 14px 20px;
-    }
-
-    .topo .marca {
-        grid-column: 1;
-        grid-row: 1;
-    }
-
     .topo .marca img {
-        width: 200px;
+        width: 160px;
     }
 
-    .topo .topo-menu-esquerda {
-        grid-row: 2;
+    .topo .menu-toggle {
+        display: block;
     }
 
-    .topo .topo-menu-direita {
-        grid-row: 3;
+    .topo .nav-principal {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 12px 20px 18px;
+        border-top: 1px solid rgba(73, 45, 65, 0.12);
+        background: var(--color1);
+        box-shadow: 0 8px 16px rgba(73, 45, 65, 0.12);
     }
 
-    .topo .topo-menu a {
-        min-height: 36px;
-        padding: 7px 9px;
-        font-size: 0.8rem;
+    .topo .nav-principal.is-open {
+        display: flex;
+    }
+
+    .topo .nav-principal a {
+        width: 100%;
+        justify-content: flex-start;
+        border-radius: 8px;
     }
 }
 
-
-/* ------------------------------------------------------------
-   3. Barra de conta (login/registo)
-   ------------------------------------------------------------ */
-.barra-conta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    align-items:flex-end;
-    padding: .75rem clamp(20px, 4vw, 64px);
-    background: var(--color2);
-    color: var(--color1);
-    font-size: .95rem;
+@media (prefers-reduced-motion: reduce) {
+    .topo .nav-principal a {
+        transition: none;
+    }
 }
-
-.barra-conta a {
-    color: var(--color1);
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.barra-conta a:hover {
-    text-decoration: underline;
-}
-
 
 /* ------------------------------------------------------------
    4. Hero + imagem
@@ -866,7 +845,7 @@ button.perigo:hover {
 
 .rodape-colunas {
     display: grid;
-    grid-template-columns: 1.2fr repeat(3, minmax(0, 1fr));
+    grid-template-columns: 1.2fr repeat(4, minmax(0, 1fr));
     gap: clamp(20px, 3vw, 48px);
     max-width: 1500px;
     margin: 0 auto;
