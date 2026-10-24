@@ -57,57 +57,72 @@ require dirname(__DIR__) . '/includes/cabecalho.php';
 ?>
 
 <h1>Encontre Oportunidades Para o Seu Próximo Passo</h1>
+<p>Combine os filtros para encontrar cursos, eventos, comunidades e estágios alinhados com os seus interesses, o momento da sua carreira e o formato que prefere.</p>
 
-<form method="get" action="oportunidades.php" class="formulario">
-    <label for="q">O que procura?</label>
-    <input id="q" name="q" type="search" value="<?= htmlspecialchars($filtros['q'], ENT_QUOTES, 'UTF-8') ?>">
+<form method="get" action="oportunidades.php" class="formulario formulario-oportunidades">
+    <div class="campo-filtro campo-filtro-pesquisa">
+        <label for="q">O que procura?</label>
+        <input id="q" name="q" type="search" value="<?= htmlspecialchars($filtros['q'], ENT_QUOTES, 'UTF-8') ?>">
+    </div>
 
-    <label for="categoria">Categoria</label>
-    <select id="categoria" name="categoria">
-        <option value="">Todas as categorias</option>
-        <?php foreach ($categorias as $categoria): ?>
-            <option value="<?= htmlspecialchars($categoria, ENT_QUOTES, 'UTF-8') ?>" <?= $filtros['categoria'] === $categoria ? 'selected' : '' ?>>
-                <?= htmlspecialchars($categoria, ENT_QUOTES, 'UTF-8') ?>
-            </option>
-        <?php endforeach; ?>
-    </select>
+    <div class="campo-filtro">
+        <label for="categoria">Categoria</label>
+        <select id="categoria" name="categoria">
+            <option value="">Todas as categorias</option>
+            <?php foreach ($categorias as $categoria): ?>
+                <option value="<?= htmlspecialchars($categoria, ENT_QUOTES, 'UTF-8') ?>" <?= $filtros['categoria'] === $categoria ? 'selected' : '' ?>>
+                    <?= htmlspecialchars($categoria, ENT_QUOTES, 'UTF-8') ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
 
-    <label for="tipo">Oportunidade</label>
-    <select id="tipo" name="tipo">
-        <option value="">Todos os tipos</option>
-        <?php foreach (['curso' => 'Curso', 'evento' => 'Evento', 'comunidade' => 'Comunidade', 'estágio' => 'Estágio'] as $valor => $rotulo): ?>
-            <option value="<?= $valor ?>" <?= $filtros['tipo'] === $valor ? 'selected' : '' ?>><?= $rotulo ?></option>
-        <?php endforeach; ?>
-    </select>
+    <div class="campo-filtro">
+        <label for="tipo">Oportunidade</label>
+        <select id="tipo" name="tipo">
+            <option value="">Todos os tipos</option>
+            <?php foreach (['curso' => 'Curso', 'evento' => 'Evento', 'comunidade' => 'Comunidade', 'estágio' => 'Estágio'] as $valor => $rotulo): ?>
+                <option value="<?= $valor ?>" <?= $filtros['tipo'] === $valor ? 'selected' : '' ?>><?= $rotulo ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
 
-    <label for="pais">País</label>
-    <select id="pais" name="pais">
-        <option value="">Portugal, Brasil ou Global</option>
-        <?php foreach (['PT' => 'Portugal', 'BR' => 'Brasil', 'GLOBAL' => 'Global'] as $valor => $rotulo): ?>
-            <option value="<?= $valor ?>" <?= $filtros['pais'] === $valor ? 'selected' : '' ?>><?= $rotulo ?></option>
-        <?php endforeach; ?>
-    </select>
+    <div class="campo-filtro">
+        <label for="pais">País</label>
+        <select id="pais" name="pais">
+            <option value="">Portugal, Brasil ou Global</option>
+            <?php foreach (['PT' => 'Portugal', 'BR' => 'Brasil', 'GLOBAL' => 'Global'] as $valor => $rotulo): ?>
+                <option value="<?= $valor ?>" <?= $filtros['pais'] === $valor ? 'selected' : '' ?>><?= $rotulo ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
 
-    <label for="cidade">Cidade</label>
-    <select id="cidade" name="cidade">
-        <option value="">Todas as cidades</option>
-        <?php foreach (['Porto' => 'PT', 'Lisboa' => 'PT', 'São Paulo' => 'BR', 'Rio de Janeiro' => 'BR'] as $cidade => $paisCidade): ?>
-            <option value="<?= htmlspecialchars($cidade, ENT_QUOTES, 'UTF-8') ?>" data-pais="<?= $paisCidade ?>" <?= $filtros['cidade'] === $cidade ? 'selected' : '' ?>>
-                <?= htmlspecialchars($cidade, ENT_QUOTES, 'UTF-8') ?>
-            </option>
-        <?php endforeach; ?>
-    </select>
+    <div class="campo-filtro">
+        <label for="cidade">Cidade</label>
+        <select id="cidade" name="cidade">
+            <option value="">Todas as cidades</option>
+            <?php foreach (['Porto' => 'PT', 'Lisboa' => 'PT', 'São Paulo' => 'BR', 'Rio de Janeiro' => 'BR'] as $cidade => $paisCidade): ?>
+                <option value="<?= htmlspecialchars($cidade, ENT_QUOTES, 'UTF-8') ?>" data-pais="<?= $paisCidade ?>" <?= $filtros['cidade'] === $cidade ? 'selected' : '' ?>>
+                    <?= htmlspecialchars($cidade, ENT_QUOTES, 'UTF-8') ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
 
-    <label for="formato">Formato</label>
-    <select id="formato" name="formato">
-        <option value="">Todos os formatos</option>
-        <?php foreach (['presencial' => 'Presencial', 'online' => 'Online', 'híbrido' => 'Híbrido'] as $valor => $rotulo): ?>
-            <option value="<?= $valor ?>" <?= $filtros['formato'] === $valor ? 'selected' : '' ?>><?= $rotulo ?></option>
-        <?php endforeach; ?>
-    </select>
+    <div class="campo-filtro">
+        <label for="formato">Formato</label>
+        <select id="formato" name="formato">
+            <option value="">Todos os formatos</option>
+            <?php foreach (['presencial' => 'Presencial', 'online' => 'Online', 'híbrido' => 'Híbrido'] as $valor => $rotulo): ?>
+                <option value="<?= $valor ?>" <?= $filtros['formato'] === $valor ? 'selected' : '' ?>><?= $rotulo ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
 
-    <button type="submit">Mostrar Oportunidades</button>
-    <a href="oportunidades.php">Limpar Pesquisa</a>
+    <div class="formulario-oportunidades-acoes">
+        <button type="submit">Mostrar Oportunidades</button>
+        <a href="oportunidades.php">Limpar pesquisa</a>
+    </div>
 </form>
 
 
@@ -120,7 +135,5 @@ require dirname(__DIR__) . '/includes/cabecalho.php';
         <?php $origemCartoes = 'oportunidades'; require dirname(__DIR__) . '/includes/grelha_oportunidades.php'; ?>
     <?php endif; ?>
 </section>
-
-<p>Combine os filtros para encontrar cursos, eventos, comunidades e estágios alinhados com os seus interesses, o momento da sua carreira e o formato que prefere.</p>
 
 <?php require dirname(__DIR__) . '/includes/rodape.php'; ?>

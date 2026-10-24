@@ -13,6 +13,7 @@
     --color5: #5e8080;
     --largura-conteudo: 1120px;
     --tamanho-logo-oportunidade: 96px;
+    --fonte-marca: "Segoe UI", Arial, sans-serif;
 }
 
 *, *:after, *:before {
@@ -21,7 +22,7 @@
 
 body {
     margin: 0;
-    font-family: "Segoe UI", Arial, sans-serif;
+    font-family: var(--fonte-marca);
     color: var(--color3);
     background: var(--color1);
     line-height: 1.6;
@@ -127,7 +128,7 @@ main {
 
 .topo .nav-principal .nav-login:hover,
 .topo .nav-principal .nav-login:focus-visible {
-    background: var(--color3);
+    background: var(--color5);
     color: #fff;
 }
 
@@ -293,7 +294,73 @@ main {
 
 .slogan {
     font-size: clamp(3rem, 1vw, 3rem);
-    font-weight: bolder;
+}
+
+.rodape-wordmark,
+.slogan,
+.categorias > h2,
+#entidades > h1 {
+    font-family: var(--fonte-marca);
+}
+
+.slogan,
+.categorias > h2,
+#entidades > h1 {
+    font-weight: 600;
+    letter-spacing: -0.04em;
+}
+
+#pesquisa {
+    max-width: var(--largura-conteudo);
+    margin: 1.5rem auto;
+    padding: 1rem 1.25rem;
+    border: 1px solid rgba(73, 45, 65, 0.16);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.28);
+}
+
+#pesquisa > h2 {
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+}
+
+#pesquisa .formulario {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) auto;
+    align-items: end;
+    gap: 0.65rem;
+}
+
+#pesquisa .campo-pesquisa {
+    min-width: 0;
+}
+
+#pesquisa .campo-pesquisa label {
+    margin: 0 0 0.2rem;
+    font-size: 0.85rem;
+}
+
+#pesquisa .campo-pesquisa select {
+    min-height: 40px;
+    padding: 7px 9px;
+    background: rgba(255, 255, 255, 0.65);
+}
+
+#pesquisa .formulario button {
+    margin-top: 0;
+    padding: 9px 14px;
+    white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+    #pesquisa .formulario {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #pesquisa .formulario button {
+        grid-column: 1 / -1;
+        justify-self: end;
+    }
 }
 
 @media (max-width: 640px) {
@@ -353,6 +420,7 @@ main {
     gap: 1rem;
 }
 
+.categorias > h1,
 .categorias > h2 {
     grid-column: 1 / -1;
 }
@@ -369,6 +437,7 @@ main {
     display: flex;
     flex-direction: column;
     padding-bottom: 1rem;
+    background: rgba(255, 255, 255, 0.55);
 }
 
 .cartao-categoria img,
@@ -387,9 +456,84 @@ main {
     margin-left: 1rem;
 }
 
+.cartao-categoria h3 {
+    position: relative;
+    z-index: 1;
+    align-self: flex-start;
+    margin-top: -1.25rem;
+    margin-bottom: 0.5rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    background: var(--color5);
+    color: #fff;
+    font-size: 0.9rem;
+    line-height: 1.3;
+}
+
 .cartao-categoria > p:last-child {
     margin-top: auto;
     padding-top: 0.75rem;
+}
+
+.chamada-entidades {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+    max-width: var(--largura-conteudo);
+    margin: 2rem auto;
+    overflow: hidden;
+    border: 1px solid rgba(73, 45, 65, 0.18);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.32);
+}
+
+.chamada-entidades-conteudo {
+    padding: clamp(1.5rem, 4vw, 3rem);
+}
+
+.chamada-entidades h1 {
+    margin-bottom: 0.55rem;
+    font-size: clamp(2rem, 4vw, 3.6rem);
+    line-height: 1.05;
+}
+
+.chamada-entidades-introducao {
+    max-width: 58ch;
+    font-size: 1.05rem;
+}
+
+.chamada-entidades .acoes {
+    margin: 1.5rem 0 0;
+}
+
+.chamada-entidades-iniciativas {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(73, 45, 65, 0.18);
+}
+
+.chamada-entidades-iniciativas h2 {
+    margin-bottom: 0.45rem;
+    color: var(--color5);
+    font-size: clamp(1.35rem, 2.3vw, 2rem);
+}
+
+.chamada-entidades-imagem {
+    position: relative;
+    min-height: 100%;
+    overflow: hidden;
+}
+
+.chamada-entidades-imagem img {
+    position: absolute;
+    top: -12px;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: calc(100% + 24px);
+    object-fit: cover;
+    object-position: center;
+    transform: translate3d(0, var(--inicio-parallax-y, 0px), 0);
+    will-change: transform;
 }
 
 .bloco-visual {
@@ -517,6 +661,15 @@ main {
 }
 
 @media (max-width: 900px) {
+    .chamada-entidades {
+        grid-template-columns: 1fr;
+    }
+
+    .chamada-entidades-imagem {
+        min-height: 0;
+        aspect-ratio: 16 / 9;
+    }
+
     .categorias {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -536,6 +689,10 @@ main {
     .categorias,
     .bloco-iniciativas,
     .percursos {
+        margin: 1.5rem 1rem;
+    }
+
+    .chamada-entidades {
         margin: 1.5rem 1rem;
     }
 
@@ -594,20 +751,118 @@ ul.msg {
     gap: 6px;
 }
 
-.form-auth .card-form .input + .input {
-    margin-block-start: 10px;
+.form-auth .input {
+    display: grid;
+    gap: 2px;
+}
+
+.form-auth .input + .input {
+    margin-block-start: 18px;
 }
 
 .form-auth {
     display: grid;
-    gap: 14px;
+    gap: 24px;
     max-width: 520px;
     padding: 24px;
     border-radius: 8px;
     background: transparent;
 }
 
-.form-auth label,
+.formulario-oportunidades {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 32px;
+    max-width: 760px;
+    padding: 24px;
+    border: 1px solid rgba(73, 45, 65, 0.16);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.formulario-oportunidades .campo-filtro {
+    display: grid;
+    gap: 2px;
+    min-width: 0;
+}
+
+.formulario-oportunidades .campo-filtro label {
+    margin: 0;
+}
+
+.formulario-oportunidades .campo-filtro-pesquisa,
+.formulario-oportunidades-acoes {
+    grid-column: 1 / -1;
+}
+
+.formulario.formulario-oportunidades input,
+.formulario.formulario-oportunidades select {
+    min-width: 0;
+    padding: 10px 2px 8px;
+    border: 0;
+    border-bottom: 1px solid var(--color4);
+    border-radius: 0;
+    background: transparent;
+    color: var(--color3);
+    box-shadow: none;
+}
+
+.formulario-oportunidades input:focus,
+.formulario-oportunidades select:focus {
+    border-bottom-color: var(--color5);
+    outline: none;
+    box-shadow: 0 1px 0 var(--color5);
+}
+
+.formulario-oportunidades-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+}
+
+.formulario.formulario-oportunidades .formulario-oportunidades-acoes button {
+    margin: 0;
+}
+
+.formulario-oportunidades-acoes a {
+    color: var(--color3);
+    font-weight: 600;
+}
+
+#resultados {
+    margin-top: clamp(3rem, 7vw, 5rem);
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(73, 45, 65, 0.2);
+}
+
+#titulo-resultados {
+    display: inline-block;
+    margin: 0 0 1.25rem;
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
+    background: var(--color5);
+    color: #fff;
+    font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+}
+
+@media (max-width: 640px) {
+    .formulario-oportunidades {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+    }
+}
+
+.form-auth label {
+    display: grid;
+    gap: 2px;
+    font-weight: 600;
+}
+
 .formulario label {
     display: grid;
     gap: 6px;
@@ -766,6 +1021,12 @@ button:hover {
     background: transparent;
     color: var(--color3);
     border: 1px solid var(--color3);
+}
+
+.cartao-categoria .btn.secundario {
+    background: var(--color2);
+    color: #fff;
+    border-color: var(--color2);
 }
 
 .btn.secundario:hover {
