@@ -70,7 +70,7 @@ main {
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    padding: 14px clamp(20px, 4vw, 64px);
+    padding: 14px clamp(32px, 7vw, 100px);
     background: var(--color1);
 }
 
@@ -84,7 +84,7 @@ main {
 
 .topo .marca img {
     display: block;
-    width: clamp(350px, 16vw, 520px);
+    width: clamp(450px, 28vw, 620px);
     height: auto;
 }
 
@@ -94,6 +94,10 @@ main {
     justify-content: flex-end;
     flex-wrap: wrap;
     gap: 0.35rem;
+    margin-inline: 12px;
+    background-color: (--color3);
+    padding: 6px;
+    border-radius: 999px;
 }
 
 .topo .nav-principal a {
@@ -153,7 +157,7 @@ main {
 
 @media (max-width: 900px) {
     .topo .marca img {
-        width: 160px;
+        width: 360px;
     }
 
     .topo .menu-toggle {
