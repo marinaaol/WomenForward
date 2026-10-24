@@ -8,6 +8,12 @@ require __DIR__ . '/../includes/cabecalho.php';
 <h1>A Sua Entidade Pode Abrir Novos Caminhos Na Tecnologia</h1>
 <p>Partilhe cursos, eventos, comunidades e estágios com pessoas que procuram aprender, crescer ou iniciar um percurso em tecnologia. Mantenha as informações atualizadas para que cada oportunidade continue útil.</p>
 
+<div class="inicio-imagem-container entidade-imagem-container">
+    <img class="inicio-imagem entidade-imagem"
+         src="assets/images/talk.webp"
+         alt="Pessoas conversam durante um encontro profissional">
+</div>
+
 <h2>Informação Clara, Confiança Partilhada</h2>
 <p>A entidade que publica é responsável pela exatidão das informações, pelos requisitos de participação e pela sua atualização. O Women Forward reúne as oportunidades; antes de participar, confirme sempre os detalhes na fonte oficial.</p>
 

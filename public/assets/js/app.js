@@ -107,20 +107,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    /* ---------- Efeito parallax da imagem de apoio ---------- */
-    const imagemApoioFrame = document.querySelector('.apoio-image-container');
-    const imageApoio = imagemApoioFrame?.querySelector('.apoio-image');
-
-    if (imagemApoioFrame && imagemApoio) {
-        const atualizarLarguraImagemApoio = () => {
+    /* ---------- Largura total das imagens editoriais ---------- */
+    if (document.querySelector('.inicio-imagem-container')) {
+        const atualizarLarguraImagensInicio = () => {
             const larguraViewport = document.documentElement.clientWidth;
             document.documentElement.style.setProperty('--site-viewport-width', `${larguraViewport}px`);
             document.documentElement.style.setProperty('--site-viewport-negative-half-width', `${larguraViewport / -2}px`);
         };
 
-        atualizarLarguraImagemApoio();
-        window.addEventListener('resize', atualizarLarguraImagemApoio);
+        atualizarLarguraImagensInicio();
+        window.addEventListener('resize', atualizarLarguraImagensInicio);
+    }
 
+    /* ---------- Efeito parallax da imagem de apoio ---------- */
+    const imagemApoioFrame = document.querySelector('.apoio-image-container');
+    const imageApoio = imagemApoioFrame?.querySelector('.apoio-image');
+
+    if (imagemApoioFrame && imagemApoio) {
         if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
             let frameApoioAgendado = false;
 
@@ -132,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const progresso = (window.innerHeight - limites.top) / (window.innerHeight + limites.height);
                 const deslocamento = (progresso - 0.5) * 24;
-                imagemApoio.style.setProperty('--apoio-parallax-y', `${deslocamento.toFixed(1)}px`);
+                imageApoio.style.setProperty('--inicio-parallax-y', `${deslocamento.toFixed(1)}px`);
             };
 
             const agendarParallaxApoio = () => {
@@ -145,6 +148,66 @@ document.addEventListener('DOMContentLoaded', () => {
             window.addEventListener('resize', agendarParallaxApoio);
             atualizarParallaxApoio();
         }
+    }
+
+    /* ---------- Parallax da imagem iniciativas-pitch ---------- */
+    const iniciativasPitchFrame = document.querySelector('.iniciativas-pitch-container');
+    const iniciativasPitchImage = iniciativasPitchFrame?.querySelector('.iniciativas-pitch');
+
+    if (iniciativasPitchFrame && iniciativasPitchImage
+        && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        let framePitchAgendado = false;
+
+        const atualizarParallaxPitch = () => {
+            framePitchAgendado = false;
+            const limites = iniciativasPitchFrame.getBoundingClientRect();
+
+            if (limites.bottom < 0 || limites.top > window.innerHeight) return;
+
+            const progresso = (window.innerHeight - limites.top) / (window.innerHeight + limites.height);
+            const deslocamento = (progresso - 0.5) * 24;
+            iniciativasPitchImage.style.setProperty('--inicio-parallax-y', `${deslocamento.toFixed(1)}px`);
+        };
+
+        const agendarParallaxPitch = () => {
+            if (framePitchAgendado) return;
+            framePitchAgendado = true;
+            window.requestAnimationFrame(atualizarParallaxPitch);
+        };
+
+        window.addEventListener('scroll', agendarParallaxPitch, { passive: true });
+        window.addEventListener('resize', agendarParallaxPitch);
+        atualizarParallaxPitch();
+    }
+
+    /* ---------- Parallax da imagem da página de entidades ---------- */
+    const entidadeImageFrame = document.querySelector('.entidade-imagem-container');
+    const entidadeImage = entidadeImageFrame?.querySelector('.entidade-imagem');
+
+    if (entidadeImageFrame && entidadeImage
+        && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        let frameEntidadeAgendado = false;
+
+        const atualizarParallaxEntidade = () => {
+            frameEntidadeAgendado = false;
+            const limites = entidadeImageFrame.getBoundingClientRect();
+
+            if (limites.bottom < 0 || limites.top > window.innerHeight) return;
+
+            const progresso = (window.innerHeight - limites.top) / (window.innerHeight + limites.height);
+            const deslocamento = (progresso - 0.5) * 24;
+            entidadeImage.style.setProperty('--inicio-parallax-y', `${deslocamento.toFixed(1)}px`);
+        };
+
+        const agendarParallaxEntidade = () => {
+            if (frameEntidadeAgendado) return;
+            frameEntidadeAgendado = true;
+            window.requestAnimationFrame(atualizarParallaxEntidade);
+        };
+
+        window.addEventListener('scroll', agendarParallaxEntidade, { passive: true });
+        window.addEventListener('resize', agendarParallaxEntidade);
+        atualizarParallaxEntidade();
     }
 
     /* ---------- 1. Filtrar cidades por país ---------- */

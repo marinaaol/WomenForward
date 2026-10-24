@@ -30,8 +30,8 @@ require __DIR__ . '/../includes/cabecalho.php';
 <section id="inicio" class="inicio">
     <h2>Menos procura. Mais apoio para avançar.</h2>
     <p>As oportunidades estão muitas vezes espalhadas por diferentes sites e redes. O Women Forward facilita a pesquisa e aproxima mulheres de cursos, eventos, comunidades e estágios — para que seja mais simples descobrir possibilidades e escolher o próximo passo.</p>
-    <div class="apoio-image-container">
-        <img class="apoio-image"
+    <div class="inicio-imagem-container apoio-image-container">
+        <img class="inicio-imagem apoio-image"
             src="assets/images/women_stairs2.webp"
             alt="Uma mulher mais velha ensina algo a uma mulher mais jovem num escritório.">
     </div>
@@ -137,7 +137,11 @@ require __DIR__ . '/../includes/cabecalho.php';
             <p>Encontros, apresentações e workshops aproximam ideias de pessoas e comunidades.</p>
             <a class="ligacao-visual" href="oportunidades.php?tipo=evento">Ver iniciativas e eventos →</a>
         </div>
-        <img src="assets/images/wireframe/iniciativas-pitch.webp" alt="Equipa apresenta um projecto de jogo a uma audiência num evento">
+        <div class="inicio-imagem-container iniciativas-pitch-container">
+            <img class="inicio-imagem iniciativas-pitch"
+                 src="assets/images/wireframe/iniciativas-pitch.webp"
+                 alt="Equipa apresenta um projecto de jogo a uma audiência num evento">
+        </div>
 </section>
 
 <?php require __DIR__ . '/../includes/rodape.php'; ?>

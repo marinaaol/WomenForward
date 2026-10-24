@@ -411,16 +411,16 @@ main {
     margin-bottom: 0.5rem;
 }
 
-.apoio-image-container {
+.inicio-imagem-container {
     position: relative;
     left: 50%;
     width: var(--site-viewport-width, 100vw);
     aspect-ratio: 16 / 9;
-    margin-left: var(--site-viewport-negative-half-width, -50vw);
+    margin: 1.5rem 0 1.5rem var(--site-viewport-negative-half-width, -50vw);
     overflow: hidden;
 }
 
-.apoio-image {
+.inicio-imagem {
     position: absolute;
     top: -12px;
     left: 0;
@@ -428,9 +428,13 @@ main {
     width: 100%;
     height: calc(100% + 24px);
     object-fit: cover;
-    object-position: center 40%;
-    transform: translate3d(0, var(--apoio-parallax-y, 0px), 0);
+    object-position: center;
+    transform: translate3d(0, var(--inicio-parallax-y, 0px), 0);
     will-change: transform;
+}
+
+.apoio-image {
+    object-position: center 40%;
 }
 
 .etiqueta-visual {
