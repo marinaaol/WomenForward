@@ -61,6 +61,6 @@ require __DIR__ . '/../includes/cabecalho.php';
     <button type="submit">Entrar na minha conta</button>
 </form>
 
-<p>Ainda não tem conta? <a href="registar.php">Crie uma conta de entidade</a>.</p>
+<p>Ainda não tem conta? <a href="registar.php">Criar conta</a>.</p>
 
 <?php require __DIR__ . '/../includes/rodape.php'; ?>

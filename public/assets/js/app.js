@@ -157,3 +157,11 @@ function topFunction() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 }
+
+// Mostrar data corrente no texto da Política de Privacidade
+
+document.querySelectorAll('time').forEach($e => {
+  const date = new Date($e.dateTime);
+  // or output the localized date only
+  $e.innerHTML = date.toLocaleDateString();
+});

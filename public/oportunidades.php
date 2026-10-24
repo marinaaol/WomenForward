@@ -107,7 +107,7 @@ require dirname(__DIR__) . '/includes/cabecalho.php';
     </select>
 
     <button type="submit">Mostrar oportunidades</button>
-    <a href="oportunidades.php">Recomeçar pesquisa</a>
+    <a href="oportunidades.php">Limpar Pesquisa</a>
 </form>
 
 <section aria-live="polite" aria-labelledby="titulo-resultados" id="resultados">
