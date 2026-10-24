@@ -1,4 +1,7 @@
 </main>
+<button id="myBtn" type="button" title="Voltar ao topo" aria-label="Voltar ao topo">
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+</button>
 <footer class="rodape">
     <div class="rodape-assinatura">
         <h2 class="rodape-wordmark">Women Forward</h2>

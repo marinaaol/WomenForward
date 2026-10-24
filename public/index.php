@@ -5,10 +5,6 @@ $titulo = 'Início';
 require __DIR__ . '/../includes/cabecalho.php';
 ?>
 
-<button onclick="topFunction()" id="myBtn" title="Voltar ao topo" aria-label="Voltar ao topo">
-    <i class="fas fa-arrow-up" aria-hidden="true"></i>
-</button>
-
 <section class="hero" aria-labelledby="titulo-hero">
     <div class="container">
         <div class="hero-image">

@@ -83,7 +83,7 @@ require __DIR__ . '/../includes/cabecalho.php';
 <section id="solucao">
     <h2>O Women Forward Aproxima Oportunidades</h2>
     <p>Explore opções para conhecer áreas tech, mudar de carreira ou atualizar competências. Compare cursos, eventos, comunidades e estágios e confirme os requisitos diretamente com a entidade responsável.</p>
-    <p><a class="btn" href="oportunidades.php">Encontrar oportunidades</a></p>
+    <p><a class="btn" href="oportunidades.php">Ver Minhas Oportunidades</a></p>
 </section>
 
 

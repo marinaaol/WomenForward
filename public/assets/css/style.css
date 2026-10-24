@@ -646,9 +646,13 @@ button.perigo:hover {
    ------------------------------------------------------------ */
 .grelha-oportunidades {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: min(1400px, calc(100vw - 80px));
+    position: relative;
+    left: 50%;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1rem;
     align-items: stretch;
+    transform: translateX(-50%);
 }
 
 .cartao,
@@ -665,10 +669,15 @@ button.perigo:hover {
 .cartao-oportunidade {
     position: relative;
     z-index: 0;
-    height: 420px;
+    height: 340px;
     padding: 0;
     perspective: 1200px;
     background: transparent;
+}
+
+.cartao-oportunidade,
+.cartao-oportunidade .cartao-face {
+    border-radius: 20px;
 }
 
 .cartao-flip-inner {
@@ -688,8 +697,8 @@ button.perigo:hover {
     inset: 0;
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    border-radius: 8px;
+    padding: 14px;
+    border-radius: 20px;
     background: #f3f3eb;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
@@ -700,12 +709,15 @@ button.perigo:hover {
 }
 
 .cartao-verso {
+    padding: 20px;
+    border: 2px solid var(--color5);
     transform: rotateY(180deg);
 }
 
 .cartao-verso-titulo {
     flex: 0 0 auto;
-    margin: 0 0 12px;
+    margin: 0 0 8px;
+    text-align: center;
 }
 
 .cartao-verso-titulo h3 {
@@ -715,7 +727,7 @@ button.perigo:hover {
 .cartao-cabecalho {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 10px;
 }
 
 .cartao-cabecalho h3 {
@@ -728,7 +740,7 @@ button.perigo:hover {
 
 .cartao-titulos .subtitulo-oportunidade {
     margin: 2px 0 0;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     font-weight: 500;
     line-height: 1.35;
 }
@@ -740,9 +752,9 @@ button.perigo:hover {
 
 .cartao-logo {
     display: block;
-    flex: 0 0 var(--tamanho-logo-oportunidade);
-    width: var(--tamanho-logo-oportunidade);
-    height: var(--tamanho-logo-oportunidade);
+    flex: 0 0 72px;
+    width: 72px;
+    height: 72px;
     object-fit: contain;
     object-position: center;
 }
@@ -765,10 +777,17 @@ button.perigo:hover {
     flex: 1;
     flex-direction: column;
     min-height: 0;
+    justify-content: center;
+}
+
+.cartao-detalhes p {
+    margin: 0 0 6px;
+    font-size: 0.82rem;
+    line-height: 1.35;
 }
 
 .cartao-informacoes {
-    flex: 1 1 auto;
+    flex: 0 1 auto;
     min-height: 0;
 }
 
@@ -786,6 +805,10 @@ button.perigo:hover {
 
 .cartao-resumo {
     margin-top: 0;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
 }
 
 .cartao-acoes {
@@ -793,7 +816,10 @@ button.perigo:hover {
     flex-wrap: nowrap;
     align-items: center;
     gap: 8px;
+    width: 100%;
+    max-width: 260px;
     margin-top: 12px;
+    align-self: center;
 }
 
 .cartao-acoes .botao-cartao {
