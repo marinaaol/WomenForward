@@ -136,10 +136,18 @@ require __DIR__ . '/../includes/cabecalho.php';
 <section id="entidades" class="entidades">
     <h2>A sua entidade pode abrir novos caminhos.</h2>
     <p>Divulgue cursos, eventos, comunidades e estágios para que mais mulheres encontrem oportunidades para crescer em tecnologia.</p>
-    <p class="acoes">
-        <a class="btn" href="registar.php">Divulgar uma oportunidade</a>
-        <a class="btn secundario" href="login.php">Login</a>
-    </p>
+
+    <?php if (esta_autenticado()): ?>
+        <p class="acoes">
+            <a class="btn" href="oportunidade_form.php">Divulgar uma oportunidade</a>
+            <a class="btn secundario" href="dashboard.php">Ir para o meu painel</a>
+        </p>
+    <?php else: ?>
+        <p class="acoes">
+            <a class="btn" href="registar.php">Divulgar uma oportunidade</a>
+            <a class="btn secundario" href="login.php">Login</a>
+        </p>
+    <?php endif; ?>
 </section>
 
 <?php require __DIR__ . '/../includes/rodape.php'; ?>
