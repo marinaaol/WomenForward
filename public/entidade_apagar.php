@@ -89,7 +89,7 @@ require __DIR__ . '/../includes/cabecalho.php';
 
 <?php require __DIR__ . '/../includes/erros.php'; ?>
 
-<form method="post" action="perfil_apagar.php" class="form-auth">
+<form method="post" action="entidade_apagar.php" class="form-auth">
     <?php require __DIR__ . '/../includes/csrf.php'; ?>
 
     <label>Palavra-passe atual (para confirmar)
