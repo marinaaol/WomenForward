@@ -25,6 +25,7 @@ require __DIR__ . '/../includes/cabecalho.php';
 <p class="acoes">
     <a class="btn" href="oportunidade_form.php">+ Divulgar oportunidade</a>
     <a class="btn secundario" href="logout.php">Sair da conta</a>
+    <a class="btn secundario perigo" href="entidade_apagar.php">Eliminar conta</a>
 </p>
 
 <h2 id="resultados">As oportunidades da sua entidade</h2>

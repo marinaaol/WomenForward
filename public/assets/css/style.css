@@ -770,6 +770,18 @@ button.perigo:hover {
     background: var(--color3);
 }
 
+/* Variante de alerta para "Eliminar conta" no dashboard */
+.btn.secundario.perigo {
+    background: transparent;
+    color: var(--color2);
+    border-color: var(--color2);
+}
+
+.btn.secundario.perigo:hover {
+    background: var(--color2);
+    color: #fff;
+}
+
 .acoes {
     display: flex;
     flex-wrap: wrap;
