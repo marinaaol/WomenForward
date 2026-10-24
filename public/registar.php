@@ -1,6 +1,11 @@
 <?php
 require_once __DIR__ . '/../includes/inicio.php';
 
+if (esta_autenticado()) {
+    header('Location: dashboard.php');
+    exit;
+}
+
 $erros = [];
 $nome  = '';
 $email = '';
