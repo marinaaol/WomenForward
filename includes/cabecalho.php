@@ -2,6 +2,8 @@
 require_once __DIR__ . '/inicio.php';
 
 $msg          = ler_mensagem();
+$autenticado  = esta_autenticado();
+$nomeEntidade = entidade_nome();
 ?>
 <!DOCTYPE html>
 <html lang="pt-PT">
@@ -11,7 +13,6 @@ $msg          = ler_mensagem();
     <meta name="description" content="Women Forward — oportunidades em STEM para mulheres. Cursos, eventos, comunidades e estágios num só lugar.">
     <title><?= isset($titulo) ? htmlspecialchars($titulo) . ' · Women Forward' : 'Women Forward' ?></title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="icon" type="image/svg+xml" href="public/assets/images/logo-women-forward.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="assets/js/app.js" defer></script>
 </head>
@@ -37,7 +38,13 @@ $msg          = ler_mensagem();
         <a href="oportunidades.php">Pesquisar</a>
         <a href="stem.php">Mulheres na STEM</a>
         <a href="entidades.php">Para Entidades</a>
-        <a class="nav-login" href="login.php">Login</a>
+
+        <?php if ($autenticado): ?>
+            <a class="nav-login" href="dashboard.php">Olá, <?= htmlspecialchars($nomeEntidade ?? '') ?></a>
+            <a href="logout.php">Sair</a>
+        <?php else: ?>
+            <a class="nav-login" href="login.php">Login</a>
+        <?php endif; ?>
     </nav>
 </header>
 
