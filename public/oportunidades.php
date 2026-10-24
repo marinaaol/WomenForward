@@ -57,6 +57,7 @@ require dirname(__DIR__) . '/includes/cabecalho.php';
 ?>
 
 <h1>Encontre Oportunidades Para o Seu Próximo Passo</h1>
+<p>Combine os filtros para encontrar cursos, eventos, comunidades e estágios alinhados com os seus interesses, o momento da sua carreira e o formato que prefere.</p>
 
 <form method="get" action="oportunidades.php" class="formulario formulario-oportunidades">
     <div class="campo-filtro campo-filtro-pesquisa">
@@ -134,7 +135,5 @@ require dirname(__DIR__) . '/includes/cabecalho.php';
         <?php $origemCartoes = 'oportunidades'; require dirname(__DIR__) . '/includes/grelha_oportunidades.php'; ?>
     <?php endif; ?>
 </section>
-
-<p>Combine os filtros para encontrar cursos, eventos, comunidades e estágios alinhados com os seus interesses, o momento da sua carreira e o formato que prefere.</p>
 
 <?php require dirname(__DIR__) . '/includes/rodape.php'; ?>

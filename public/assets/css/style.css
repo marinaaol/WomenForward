@@ -830,6 +830,25 @@ ul.msg {
     font-weight: 600;
 }
 
+#resultados {
+    margin-top: clamp(3rem, 7vw, 5rem);
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(73, 45, 65, 0.2);
+}
+
+#titulo-resultados {
+    display: inline-block;
+    margin: 0 0 1.25rem;
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
+    background: var(--color5);
+    color: #fff;
+    font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+}
+
 @media (max-width: 640px) {
     .formulario-oportunidades {
         grid-template-columns: 1fr;
