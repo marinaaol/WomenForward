@@ -450,13 +450,26 @@ main {
     margin-bottom: 0.5rem;
 }
 
+.imagem-stem-container {
+    position: relative;
+    left: 50%;
+    width: var(--site-viewport-width, 100vw);
+    aspect-ratio: 3 / 2;
+    margin-left: var(--site-viewport-negative-half-width, -50vw);
+    overflow: hidden;
+}
+
 .imagem-stem {
+    position: absolute;
+    top: -12px;
+    left: 0;
     display: block;
     width: 100%;
-    max-height: 310px;
-    margin: 1.25rem 0;
-    border-radius: 10px;
+    height: calc(100% + 24px);
     object-fit: cover;
+    object-position: center;
+    transform: translate3d(0, var(--stem-parallax-y, 0px), 0);
+    will-change: transform;
 }
 
 .cartoes-stem {
