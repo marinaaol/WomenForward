@@ -29,7 +29,7 @@ if ($origem === 'dashboard' && esta_autenticado()) {
     $voltar_url   = 'dashboard.php#resultados';
     $voltar_label = 'Voltar ao meu painel';
 } elseif (in_array($origem, ['pesquisar', 'oportunidades'], true)) {
-    // Veio da pesquisa — repõe os filtros que vieram no URL
+    // Compatível com cartões antigos e regressa sempre à rota canónica.
     $filtros = [
         'q'         => $_GET['q']         ?? '',
         'categoria' => $_GET['categoria'] ?? '',
@@ -40,7 +40,7 @@ if ($origem === 'dashboard' && esta_autenticado()) {
     ];
     $filtros = array_filter($filtros, fn($v) => $v !== '');
 
-    $voltar_url = $origem . '.php';
+    $voltar_url = 'oportunidades.php';
     if ($filtros) {
         $voltar_url .= '?' . http_build_query($filtros);
     }
