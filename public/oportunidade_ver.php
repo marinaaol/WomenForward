@@ -20,6 +20,13 @@ if ($id && $id > 0) {
     $op = $consulta->fetch();
 }
 
+// ------- Código HTTP correto -------
+if (!$id || $id < 1) {
+    http_response_code(400);   // pedido mal formado (sem id ou id inválido)
+} elseif (!$op) {
+    http_response_code(404);   // id válido mas não existe (ou está inativo)
+}
+
 // ------- Constrói o link de regresso com base na origem -------
 $voltar_url   = 'oportunidades.php#resultados';
 $voltar_label = 'Voltar aos resultados';
@@ -29,7 +36,7 @@ if ($origem === 'dashboard' && esta_autenticado()) {
     $voltar_url   = 'dashboard.php#resultados';
     $voltar_label = 'Voltar ao meu painel';
 } elseif (in_array($origem, ['pesquisar', 'oportunidades'], true)) {
-    // Compatível com cartões antigos e regressa sempre à rota canónica.
+    // Veio da pesquisa — repõe os filtros que vieram no URL
     $filtros = [
         'q'         => $_GET['q']         ?? '',
         'categoria' => $_GET['categoria'] ?? '',
@@ -40,7 +47,7 @@ if ($origem === 'dashboard' && esta_autenticado()) {
     ];
     $filtros = array_filter($filtros, fn($v) => $v !== '');
 
-    $voltar_url = 'oportunidades.php';
+    $voltar_url = $origem . '.php';
     if ($filtros) {
         $voltar_url .= '?' . http_build_query($filtros);
     }
