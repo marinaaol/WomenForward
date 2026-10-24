@@ -53,8 +53,8 @@ require __DIR__ . '/../includes/cabecalho.php';
 ?>
 
 <?php if (!$op): ?>
-    <h1>Oportunidade não encontrada</h1>
-    <p>Não foi possível encontrar esta oportunidade. Pode ter sido removida ou já não estar disponível.</p>
+    <h1>Não encontrámos esta oportunidade</h1>
+    <p>Pode ter sido removida ou já não estar disponível.</p>
     <a href="<?= htmlspecialchars($voltar_url) ?>"><?= htmlspecialchars($voltar_label) ?></a>
 <?php else: ?>
     <article class="detalhe">
@@ -89,10 +89,10 @@ require __DIR__ . '/../includes/cabecalho.php';
 
         <p>
             <a class="botao-fonte-oficial" href="<?= htmlspecialchars($op['url'], ENT_QUOTES, 'UTF-8') ?>"
-               target="_blank" rel="noopener noreferrer">Site</a>
+               target="_blank" rel="noopener noreferrer">Consultar oportunidade na fonte oficial</a>
         </p>
 
-        <p><small>Esta informação foi fornecida pela entidade responsável. Antes de se inscrever ou participar, confirme requisitos, datas e condições na fonte oficial.</small></p>
+        <p><small>Esta informação foi fornecida pela entidade responsável. Confirme requisitos, datas e condições na fonte oficial antes de se inscrever ou participar.</small></p>
 
         <p><a href="<?= htmlspecialchars($voltar_url) ?>">← <?= htmlspecialchars($voltar_label) ?></a></p>
     </article>

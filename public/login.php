@@ -36,8 +36,8 @@ $titulo = 'Iniciar sessão';
 require __DIR__ . '/../includes/cabecalho.php';
 ?>
 
-<h1>Aceda à área da sua entidade</h1>
-<p>Entre para gerir as oportunidades divulgadas pela sua entidade.</p>
+<h1>Bem-vinda à área da sua entidade</h1>
+<p>Entre para publicar e acompanhar as oportunidades da sua entidade.</p>
 
 <?php require __DIR__ . '/../includes/erros.php'; ?>
 
@@ -58,9 +58,9 @@ require __DIR__ . '/../includes/cabecalho.php';
         </span>
     </label>
 
-    <button type="submit">Iniciar sessão</button>
+    <button type="submit">Entrar na minha conta</button>
 </form>
 
-<p>Ainda não tem conta de entidade? <a href="registar.php">Registe-se aqui</a>.</p>
+<p>Ainda não tem conta? <a href="registar.php">Crie uma conta de entidade</a>.</p>
 
 <?php require __DIR__ . '/../includes/rodape.php'; ?>

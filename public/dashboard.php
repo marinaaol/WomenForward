@@ -23,14 +23,14 @@ require __DIR__ . '/../includes/cabecalho.php';
 <h1>Olá, <?= htmlspecialchars(entidade_nome() ?? '') ?>!</h1>
 
 <p class="acoes">
-    <a class="btn" href="oportunidade_form.php">+ Nova oportunidade</a>
-    <a class="btn secundario" href="logout.php">Terminar sessão</a>
+    <a class="btn" href="oportunidade_form.php">+ Divulgar oportunidade</a>
+    <a class="btn secundario" href="logout.php">Sair da conta</a>
 </p>
 
-<h2 id="resultados">Oportunidades da sua entidade</h2>
+<h2 id="resultados">As oportunidades da sua entidade</h2>
 
 <?php if (!$minhas): ?>
-    <p>Ainda não publicou oportunidades. Crie a primeira com o botão acima.</p>
+    <p>Ainda não publicou oportunidades. Partilhe a primeira para que mais pessoas a possam encontrar.</p>
 <?php else: ?>
     <table class="tabela">
         <thead>
@@ -54,7 +54,7 @@ require __DIR__ . '/../includes/cabecalho.php';
                     <td class="acoes-tabela">
                         <a href="oportunidade_ver.php?id=<?= (int) $op['id_oportunidade'] ?>&origem=dashboard">Ver</a>
                         <a href="oportunidade_form.php?id=<?= (int) $op['id_oportunidade'] ?>">Editar</a>
-                        <a href="oportunidade_apagar.php?id=<?= (int) $op['id_oportunidade'] ?>" class="perigo">Apagar</a>
+                        <a href="oportunidade_apagar.php?id=<?= (int) $op['id_oportunidade'] ?>" class="perigo">Remover</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

@@ -55,7 +55,7 @@ $titulo = 'Pesquisar oportunidades';
 require __DIR__ . '/../includes/cabecalho.php';
 ?>
 
-<h1>Encontre oportunidades que abrem caminhos.</h1>
+<h1>Encontre oportunidades para o seu próximo passo</h1>
 <form method="get" action="pesquisar.php#resultados" class="formulario">
     <label for="q">O que procura? (opcional)</label>
     <input id="q" name="q" type="search" placeholder="Ex.: programação, transição de carreira, dados"
@@ -108,22 +108,22 @@ require __DIR__ . '/../includes/cabecalho.php';
         <?php endforeach; ?>
     </select>
 
-    <button type="submit">Encontrar oportunidades</button>
-    <a href="pesquisar.php">Limpar filtros</a>
+    <button type="submit">Mostrar oportunidades</button>
+    <a href="pesquisar.php">Recomeçar pesquisa</a>
 </form>
 
 <section aria-live="polite" aria-labelledby="titulo-resultados" id="resultados">
-    <h2 id="titulo-resultados">Resultados (<?= count($oportunidades) ?>)</h2>
+    <h2 id="titulo-resultados">Oportunidades encontradas (<?= count($oportunidades) ?>)</h2>
 
     <?php if (!$oportunidades): ?>
-        <p class="vazio">Ainda não encontrámos oportunidades com estes filtros. Experimente retirar um filtro ou procurar noutra cidade.</p>
+        <p class="vazio">Não encontrámos oportunidades com estes filtros. Experimente ajustar a pesquisa ou remover algum filtro.</p>
     <?php else: ?>
-        <p>As oportunidades são divulgadas pelas entidades responsáveis. Confirme datas, requisitos e disponibilidade através do respetivo link oficial.</p>
+        <p>As oportunidades são divulgadas pelas entidades responsáveis. Antes de se inscrever, confirme datas, requisitos e disponibilidade na fonte oficial.</p>
         <?php $origemCartoes = 'pesquisar'; require __DIR__ . '/../includes/grelha_oportunidades.php'; ?>
     <?php endif; ?>
 </section>
 
-<p>Pesquise cursos, eventos, comunidades e estágios em Portugal e no Brasil. Combine os filtros para descobrir opções que façam sentido para os seus interesses, o momento da sua carreira e o formato que prefere.</p>
+<p>Combine os filtros para encontrar cursos, eventos, comunidades e estágios alinhados com os seus interesses, o momento da sua carreira e o formato que prefere.</p>
 
 <section aria-labelledby="como-funciona">
     <h2 id="como-funciona">Como funciona</h2>

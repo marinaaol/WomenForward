@@ -15,7 +15,7 @@ require __DIR__ . '/../includes/cabecalho.php';
 
     <h2>Dados tratados</h2>
     <h3>Visitantes</h3>
-    <p>Podes consultar e pesquisar oportunidades sem criar uma conta. A aplicação não pede nome ou email para pesquisar nem cria um perfil de visitante. O servidor local pode registar informação técnica da ligação durante a execução; a aplicação não inclui ferramentas de análise ou publicidade.</p>
+    <p>Pode consultar e pesquisar oportunidades sem criar uma conta. A aplicação não pede nome ou email para pesquisar nem cria um perfil de visitante. O servidor local pode registar informação técnica da ligação durante a execução; a aplicação não inclui ferramentas de análise ou publicidade.</p>
     <h3>Contas de entidades</h3>
     <p>O registo de uma entidade recolhe nome, email, palavra-passe e a data de aceitação da política. A palavra-passe é guardada sob a forma de hash. A sessão de autenticação usa um cookie técnico necessário para manter o acesso à conta.</p>
     <h3>Oportunidades</h3>
@@ -39,7 +39,7 @@ require __DIR__ . '/../includes/cabecalho.php';
     <p>Na versão de demonstração, as palavras-passe são protegidas com hash, as consultas à base de dados usam instruções preparadas e as páginas de conta verificam a sessão e o token CSRF.</p>
 
     <h2>Direitos e contacto</h2>
-    <p>Num serviço real, podes solicitar acesso, retificação ou apagamento dos teus dados, bem como exercer os restantes direitos previstos na legislação aplicável. Para este exemplo académico, o contacto indicado é fictício e não recebe pedidos. Também podes obter informação sobre a autoridade de controlo em <a href="https://www.cnpd.pt/" target="_blank" rel="noopener noreferrer">Comissão Nacional de Proteção de Dados (CNPD)</a>.</p>
+    <p>Num serviço real, pode solicitar acesso, retificação ou apagamento dos seus dados, bem como exercer os restantes direitos previstos na legislação aplicável. Para este exemplo académico, o contacto indicado é fictício e não recebe pedidos. Também pode obter informação sobre a autoridade de controlo em <a href="https://www.cnpd.pt/" target="_blank" rel="noopener noreferrer">Comissão Nacional de Proteção de Dados (CNPD)</a>.</p>
 
     <aside class="nota" aria-label="Aviso sobre o projeto">
         <strong>Nota:</strong> O Women Forward é um projeto de conclusão do Curso de Especialização Tecnológica em Programação e Sistemas de Informação, desenvolvido para fins académicos e de demonstração. Os nomes, contactos e dados de exemplo não representam pessoas, entidades ou serviços reais.

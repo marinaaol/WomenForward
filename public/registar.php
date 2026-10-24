@@ -52,12 +52,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-$titulo = 'Registar entidade · Women Forward';
+$titulo = 'Criar conta de entidade · Women Forward';
 require __DIR__ . '/../includes/cabecalho.php';
 ?>
 
 
-<p>Divulgue cursos, eventos, comunidades e estágios em tecnologia. Mantenha as informações atualizadas para que mais pessoas encontrem a sua iniciativa.</p>
+<p>Crie a sua conta para partilhar cursos, eventos, comunidades e estágios com quem procura crescer em tecnologia.</p>
 
 <?php require __DIR__ . '/../includes/erros.php'; ?>
 
@@ -65,26 +65,26 @@ require __DIR__ . '/../includes/cabecalho.php';
     <div class="card">
         <div class="card-image">
             <h2 class="card-heading">
-                Registe a sua entidade
+                Divulgue as oportunidades da sua entidade
             </h2>
         </div>
         <form class="card-form">
             <div class="input">
-                <label class="input-label"> Nome da Entidade </label>
+                <label class="input-label"> Nome da entidade </label>
                 <input type="text" name="nome" maxlength="120" required
                value="<?= htmlspecialchars($nome) ?>">
             </div>
             <div class="input">
-                <label class="input-label">E-mail</label>
+                <label class="input-label">Email</label>
                 <input type="email" name="email" required
                value="<?= htmlspecialchars($email) ?>">
             </div>
             <div class="input">
-                <label class="input-label">Palavra-Passe (mínimo de 8 caracteres)</label>
+                <label class="input-label">Palavra-passe (mínimo de 8 caracteres)</label>
                 <input type="password" name="password" minlength="8" required>
             </div>
             <div class="input">
-                <label class="input-label">Confirme a Palavra-Passe</label>
+                <label class="input-label">Confirme a palavra-passe</label>
                 <input type="password" name="password2" minlength="8" required>
             </div>
             
@@ -94,13 +94,13 @@ require __DIR__ . '/../includes/cabecalho.php';
                 </label>
             
              <div class="action">
-                <button class="action-button"> Registar Entidade</button>
+                <button class="action-button"> Criar conta de entidade</button>
             </div>
         </form>
     </div>
 
 
 
-<p>Já tem conta? <a href="login.php">Inicie sessão</a>.</p>
+<p>Já tem conta? <a href="login.php">Entre na sua conta</a>.</p>
 
 <?php require __DIR__ . '/../includes/rodape.php'; ?>

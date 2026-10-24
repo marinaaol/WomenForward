@@ -11,12 +11,12 @@
         </section>
         <nav class="rodape-coluna" aria-label="Explorar">
             <h3>Explorar</h3>
-            <a href="oportunidades.php">Pesquisar oportunidades</a>
+            <a href="oportunidades.php">Explorar oportunidades</a>
             <a href="stem.php">Mulheres na STEM</a>
         </nav>
         <nav class="rodape-coluna" aria-label="Para entidades">
             <h3>Para entidades</h3>
-            <a href="entidades.php">Sobre a plataforma</a>
+            <a href="entidades.php">Divulgar oportunidades</a>
         </nav>
         <nav class="rodape-coluna" aria-label="Projeto">
             <h3>Projeto</h3>

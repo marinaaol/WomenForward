@@ -16,7 +16,7 @@ $msg          = ler_mensagem();
 </head>
 <body>
 <header class="topo">
-    <a class="marca" href="index.php" aria-label="Women Forward — início">
+    <a class="marca" href="index.php" aria-label="Women Forward — página inicial">
         <img src="assets/images/logo-women-forward.svg" alt="Women Forward">
     </a>
 
@@ -33,7 +33,6 @@ $msg          = ler_mensagem();
     </button>
 
     <nav class="nav-principal" id="menu-principal" aria-label="Navegação principal">
-        <a href="index.php">Início</a>
         <a href="oportunidades.php">Pesquisar</a>
         <a href="stem.php">Mulheres na STEM</a>
         <a href="entidades.php">Para Entidades</a>

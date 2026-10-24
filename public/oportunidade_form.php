@@ -126,7 +126,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $op['formato'], $op['pais'], $op['cidade'], $op['url'],
                 $op['data_inicio'], $op['ativo'], $id, $id_ent,
             ]);
-            mensagem('sucesso', 'Oportunidade atualizada.');
+            mensagem('sucesso', 'Oportunidade atualizada com sucesso.');
         } else {
             $stmt = $pdo->prepare(
                 'INSERT INTO oportunidades
@@ -139,7 +139,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $op['formato'], $op['pais'], $op['cidade'], $op['url'],
                 $op['data_inicio'], $op['ativo'],
             ]);
-            mensagem('sucesso', 'Oportunidade criada.');
+            mensagem('sucesso', 'Oportunidade publicada.');
         }
 
         header('Location: dashboard.php');
@@ -149,11 +149,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $categorias = $pdo->query('SELECT id_categoria, nome FROM categorias ORDER BY nome')->fetchAll();
 
-$titulo = $a_editar ? 'Editar oportunidade' : 'Nova oportunidade';
+$titulo = $a_editar ? 'Editar oportunidade' : 'Divulgar oportunidade';
 require __DIR__ . '/../includes/cabecalho.php';
 ?>
 
-<h1><?= $a_editar ? 'Editar oportunidade' : 'Nova oportunidade' ?></h1>
+<h1><?= $a_editar ? 'Editar oportunidade' : 'Divulgar uma oportunidade' ?></h1>
 
 <?php require __DIR__ . '/../includes/erros.php'; ?>
 
@@ -220,7 +220,7 @@ require __DIR__ . '/../includes/cabecalho.php';
 
     <label for="url">URL oficial
         <input id="url" name="url" type="text" required
-               placeholder="ex.: www.exemplo.com ou https://exemplo.com/oportunidade"
+               placeholder="Ex.: https://exemplo.com/oportunidade"
                value="<?= htmlspecialchars($op['url']) ?>">
     </label>
 
@@ -234,7 +234,7 @@ require __DIR__ . '/../includes/cabecalho.php';
         Oportunidade ativa (visível na pesquisa)
     </label>
 
-    <button type="submit"><?= $a_editar ? 'Guardar alterações' : 'Criar oportunidade' ?></button>
+    <button type="submit"><?= $a_editar ? 'Guardar alterações' : 'Publicar oportunidade' ?></button>
     <a href="dashboard.php">Cancelar</a>
 </form>
 
