@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $erros[] = 'País inválido.';
     }
 
-    // URL: obrigatório + sintaxe válida + tem de ter http(s):// e domínio
+    // URL: obrigatório
     if ($op['url'] === '') {
         $erros[] = 'Indique o endereço (URL) da oportunidade.';
     } elseif (

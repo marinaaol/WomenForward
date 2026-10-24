@@ -1,6 +1,4 @@
 <?php
-// Este componente também pode ser carregado isoladamente durante o desenvolvimento.
-// Mantém valores seguros caso a página chamadora não tenha preparado estes dados.
 if (!isset($oportunidades)) {
     $oportunidades = [];
 }
