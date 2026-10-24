@@ -193,15 +193,20 @@ main {
     .topo .nav-principal {
         display: none;
         position: absolute;
-        top: 100%;
-        right: 0;
-        left: 0;
+        top: calc(100% + 8px);
+        right: 16px;
+        left: auto;
+        z-index: 12;
+        width: min(340px, calc(100% - 32px));
         flex-direction: column;
         align-items: stretch;
-        padding: 12px 20px 18px;
-        border-top: 1px solid rgba(73, 45, 65, 0.12);
+        justify-content: flex-start;
+        gap: 6px;
+        padding: 12px;
+        border: 1px solid rgba(73, 45, 65, 0.12);
+        border-radius: 18px;
         background: var(--color1);
-        box-shadow: 0 8px 16px rgba(73, 45, 65, 0.12);
+        box-shadow: 0 12px 30px rgba(73, 45, 65, 0.18);
     }
 
     .topo .nav-principal.is-open {
@@ -210,12 +215,16 @@ main {
 
     .topo .nav-principal a {
         width: 100%;
+        min-height: 44px;
         justify-content: flex-start;
-        border-radius: 8px;
+        padding: 10px 12px;
+        border-radius: 10px;
         color: var(--color3);
     }
 
     .topo .nav-principal .nav-login {
+        justify-content: center;
+        border-width: 2px;
         border-color: var(--color3);
     }
 }
@@ -236,20 +245,30 @@ main {
 
 .hero-image {
     position: relative;
+    left: 50%;
     height: clamp(420px, 68vh, 700px);
     overflow: hidden;
-    width: 100vw;
-    margin-left: calc(50%, -50vw);
+    width: var(--site-viewport-width, 100vw);
+    margin-left: var(--site-viewport-negative-half-width, -50vw);
+}
+
+.hero-photo {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
 }
 
 .hero-image img.responsive {
     position: absolute;
-    inset: 0;
+    top: -5%;
+    left: 0;
     display: block;
     width: 100%;
-    height: 100%;
+    height: 110%;
     object-fit: cover;
-    object-position: 55% center;
+    object-position: 55% top;
+    transform: translate3d(0, var(--hero-parallax-y, 0px), 0);
+    will-change: transform;
 }
 
 .text-block {
@@ -271,20 +290,39 @@ main {
 
 @media (max-width: 640px) {
     .hero-image {
+        display: flex;
+        height: auto;
+        flex-direction: column;
+        overflow: visible;
+    }
+
+    .hero-image .text-block {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        padding: clamp(1.5rem, 6vw, 2.5rem);
+        background: var(--color1);
+    }
+
+    .hero-photo {
+        position: relative;
+        flex: 0 0 65vh;
         height: 65vh;
     }
 
     .hero-image img.responsive {
+        top: 0;
+        height: 100%;
         object-position: center;
     }
+}
 
-    .text-block {
-        width: 70%;
-        padding: 1.25rem;
-    }
-
-    .text-block h1 {
-        font-size: clamp(1.7rem, 8vw, 2.5rem);
+@media (prefers-reduced-motion: reduce) {
+    .hero-image img.responsive {
+        top: 0;
+        height: 100%;
+        transform: none;
+        will-change: auto;
     }
 }
 
@@ -508,7 +546,7 @@ ul.msg {
     max-width: 520px;
     padding: 24px;
     border-radius: 8px;
-    background: #fff;
+    background: transparent;
 }
 
 .form-auth label,
@@ -525,8 +563,8 @@ ul.msg {
 .form-auth input,
 .form-auth select,
 .form-auth textarea,
-.formulario input,
 .formulario select,
+.formulario input,
 .formulario textarea {
     width: 100%;
     padding: 10px 12px;
@@ -534,6 +572,37 @@ ul.msg {
     border-radius: 6px;
     font: inherit;
     background: #fff;
+}
+
+.form-auth input:not([type="checkbox"]):not([type="radio"]),
+.formulario input:not([type="checkbox"]):not([type="radio"]),
+.form-auth textarea,
+.formulario textarea {
+    padding: 10px 2px 8px;
+    border: 0;
+    border-bottom: 1px solid var(--color4);
+    border-radius: 0;
+    background: transparent;
+    color: var(--color3);
+    box-shadow: none;
+    transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.form-auth input:not([type="checkbox"]):not([type="radio"]):focus,
+.formulario input:not([type="checkbox"]):not([type="radio"]):focus,
+.form-auth textarea:focus,
+.formulario textarea:focus {
+    border-bottom-color: var(--color5);
+    outline: none;
+    box-shadow: 0 1px 0 var(--color5);
+}
+
+.form-auth input::placeholder,
+.formulario input::placeholder,
+.form-auth textarea::placeholder,
+.formulario textarea::placeholder {
+    color: var(--color4);
+    opacity: .75;
 }
 
 .formulario textarea {
@@ -544,8 +613,25 @@ ul.msg {
 .form-auth .check {
     font-weight: normal;
     display: flex;
-    gap: 8px;
+    gap: 10px;
     align-items: flex-start;
+}
+
+.formulario .check input,
+.form-auth .check input {
+    flex: 0 0 18px;
+    width: 18px;
+    min-width: 18px;
+    height: 18px;
+    margin: 3px 0 0;
+    padding: 0;
+    accent-color: var(--color3);
+}
+
+.formulario .check > span,
+.form-auth .check > span {
+    flex: 1;
+    min-width: 0;
 }
 
 .formulario button {
@@ -564,11 +650,12 @@ ul.msg {
 
 .password-field input {
     width: 100%;
-    padding: 10px 44px 10px 12px;
-    border: 1px solid var(--color5);
-    border-radius: 30px;
+    padding: 10px 44px 8px 2px;
+    border: 0;
+    border-bottom: 1px solid var(--color4);
+    border-radius: 0;
     font: inherit;
-    background: #fff;
+    background: transparent;
 }
 
 .password-toggle {
@@ -699,7 +786,7 @@ button.perigo:hover {
     flex-direction: column;
     padding: 14px;
     border-radius: 20px;
-    background: #f3f3eb;
+    background: rgba(243, 243, 235, 0.76);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
 }

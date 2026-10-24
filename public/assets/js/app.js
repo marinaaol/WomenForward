@@ -27,6 +27,45 @@ document.addEventListener('DOMContentLoaded', () => {
         window.matchMedia('(min-width: 901px)').addEventListener('change', fecharMenu);
     }
 
+    /* ---------- Efeito parallax da imagem principal ---------- */
+    const heroFrame = document.querySelector('.hero-image');
+    const heroImage = heroFrame?.querySelector('.hero-photo');
+    const heroPhoto = heroImage?.querySelector('img.responsive');
+
+    if (heroFrame && heroImage && heroPhoto) {
+        const atualizarLarguraHero = () => {
+            const larguraViewport = document.documentElement.clientWidth;
+            document.documentElement.style.setProperty('--site-viewport-width', `${larguraViewport}px`);
+            document.documentElement.style.setProperty('--site-viewport-negative-half-width', `${larguraViewport / -2}px`);
+        };
+
+        atualizarLarguraHero();
+        window.addEventListener('resize', atualizarLarguraHero);
+
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            let frameAgendado = false;
+
+            const atualizarParallax = () => {
+                frameAgendado = false;
+                const limites = heroImage.getBoundingClientRect();
+
+                if (limites.bottom < 0 || limites.top > window.innerHeight) return;
+
+                const deslocamento = Math.max(0, Math.min(55, window.scrollY * 0.12));
+                heroPhoto.style.setProperty('--hero-parallax-y', `${deslocamento.toFixed(1)}px`);
+            };
+
+            const agendarParallax = () => {
+                if (frameAgendado) return;
+                frameAgendado = true;
+                window.requestAnimationFrame(atualizarParallax);
+            };
+
+            window.addEventListener('scroll', agendarParallax, { passive: true });
+            window.addEventListener('resize', agendarParallax);
+            atualizarParallax();
+        }
+    }
 
     /* ---------- 1. Filtrar cidades por país ---------- */
     const pais   = document.querySelector('#pais');

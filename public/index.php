@@ -8,12 +8,14 @@ require __DIR__ . '/../includes/cabecalho.php';
 <section class="hero" aria-labelledby="titulo-hero">
     <div class="container">
         <div class="hero-image">
-        <div class="text-block">
-            <h1>O seu caminho em tecnologia não tem de depender da sorte.</h1>
-        </div>
-        <img src="assets/images/women_hero.webp"
-             alt="Grupo de mulheres em contexto de tecnologia"
-             class="responsive">
+            <div class="text-block">
+                <h1>O seu caminho em tecnologia não tem de depender da sorte.</h1>
+            </div>
+            <div class="hero-photo">
+                <img src="assets/images/women_hero.webp"
+                     alt="Grupo de mulheres em contexto de tecnologia"
+                     class="responsive">
+            </div>
         </div>     
 
         <p class="slogan">Learn. Build. Lead.</p>

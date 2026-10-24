@@ -95,7 +95,7 @@ require __DIR__ . '/../includes/cabecalho.php';
             
                 <label class="check">
                     <input type="checkbox" name="consentimento" value="1" required>
-                    Aceito a <a href="privacidade.php">política de privacidade</a> e o tratamento dos meus dados.
+                    <span>Aceito a <a href="privacidade.php">política de privacidade</a> e o tratamento dos meus dados.</span>
                 </label>
             
              <div class="action">

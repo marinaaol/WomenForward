@@ -4,6 +4,7 @@ require_once __DIR__ . '/inicio.php';
 $msg          = ler_mensagem();
 $autenticado  = esta_autenticado();
 $nomeEntidade = entidade_nome();
+$paginaAtual  = basename($_SERVER['SCRIPT_NAME'] ?? '');
 ?>
 <!DOCTYPE html>
 <html lang="pt-PT">
@@ -35,6 +36,9 @@ $nomeEntidade = entidade_nome();
     </button>
 
     <nav class="nav-principal" id="menu-principal" aria-label="Navegação principal">
+        <?php if ($paginaAtual !== 'index.php'): ?>
+            <a href="index.php">Início</a>
+        <?php endif; ?>
         <a href="oportunidades.php">Pesquisar</a>
         <a href="stem.php">Mulheres na STEM</a>
         <a href="entidades.php">Para Entidades</a>
