@@ -411,6 +411,28 @@ main {
     margin-bottom: 0.5rem;
 }
 
+.apoio-image-container {
+    position: relative;
+    left: 50%;
+    width: var(--site-viewport-width, 100vw);
+    aspect-ratio: 16 / 9;
+    margin-left: var(--site-viewport-negative-half-width, -50vw);
+    overflow: hidden;
+}
+
+.apoio-image {
+    position: absolute;
+    top: -12px;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: calc(100% + 24px);
+    object-fit: cover;
+    object-position: center 40%;
+    transform: translate3d(0, var(--apoio-parallax-y, 0px), 0);
+    will-change: transform;
+}
+
 .etiqueta-visual {
     margin-bottom: 0.4rem;
     color: var(--color5);

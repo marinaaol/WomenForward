@@ -30,14 +30,10 @@ require __DIR__ . '/../includes/cabecalho.php';
 <section id="inicio" class="inicio">
     <h2>Menos procura. Mais apoio para avançar.</h2>
     <p>As oportunidades estão muitas vezes espalhadas por diferentes sites e redes. O Women Forward facilita a pesquisa e aproxima mulheres de cursos, eventos, comunidades e estágios — para que seja mais simples descobrir possibilidades e escolher o próximo passo.</p>
-    <div class="bloco-visual">
-        <img src="assets/images/wireframe/stem-workshop.webp" alt="Participantes colaboram numa actividade prática de prototipagem tecnológica">
-        <div>
-            <p class="etiqueta-visual">Sobre STEM</p>
-            <h3>Mais acesso, mais caminhos possíveis.</h3>
-            <p>Conheça o cenário STEM e como aproximar mulheres de informação, experiências e oportunidades na tecnologia.</p>
-            <a class="ligacao-visual" href="stem.php">Conhecer STEM →</a>
-        </div>
+    <div class="apoio-image-container">
+        <img class="apoio-image"
+            src="assets/images/women_stairs2.webp"
+            alt="Uma mulher mais velha ensina algo a uma mulher mais jovem num escritório.">
     </div>
 </section>
 
@@ -74,19 +70,6 @@ require __DIR__ . '/../includes/cabecalho.php';
         <p><a class="btn secundario" href="oportunidades.php?categoria=Carreira%20%26%20Lideran%C3%A7a">Ver oportunidades em Carreira &amp; Liderança</a></p>
     </article>
 </section>
-
-<section id="iniciativas" class="bloco-iniciativas">
-    <div class="bloco-visual reverso">
-        <div>
-            <p class="etiqueta-visual">Iniciativas e eventos</p>
-            <h2>Aprender também é partilhar o que se constrói.</h2>
-            <p>Encontros, apresentações e workshops aproximam ideias de pessoas e comunidades.</p>
-            <a class="ligacao-visual" href="oportunidades.php?tipo=evento">Ver iniciativas e eventos →</a>
-        </div>
-        <img src="assets/images/wireframe/iniciativas-pitch.webp" alt="Equipa apresenta um projecto de jogo a uma audiência num evento">
-    </div>
-</section>
-
 
 <section id="pesquisa">
     <h2>O que gostaria de explorar?</h2>
@@ -146,6 +129,15 @@ require __DIR__ . '/../includes/cabecalho.php';
             <a class="btn secundario" href="login.php">Login</a>
         </p>
     <?php endif; ?>
+</section>
+
+<section id="iniciativas" class="bloco-iniciativas">
+        <div>
+            <h2>Aprender também é partilhar o que se constrói.</h2>
+            <p>Encontros, apresentações e workshops aproximam ideias de pessoas e comunidades.</p>
+            <a class="ligacao-visual" href="oportunidades.php?tipo=evento">Ver iniciativas e eventos →</a>
+        </div>
+        <img src="assets/images/wireframe/iniciativas-pitch.webp" alt="Equipa apresenta um projecto de jogo a uma audiência num evento">
 </section>
 
 <?php require __DIR__ . '/../includes/rodape.php'; ?>
