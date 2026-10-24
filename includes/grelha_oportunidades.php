@@ -1,4 +1,27 @@
 <?php
+// Este componente também pode ser carregado isoladamente durante o desenvolvimento.
+// Mantém valores seguros caso a página chamadora não tenha preparado estes dados.
+if (!isset($oportunidades)) {
+    $oportunidades = [];
+}
+
+if (!isset($filtros)) {
+    $filtros = [];
+}
+
+$filtros = array_merge([
+    'q' => '',
+    'categoria' => '',
+    'tipo' => '',
+    'pais' => '',
+    'cidade' => '',
+    'formato' => '',
+], $filtros);
+
+if (!isset($origemCartoes)) {
+    $origemCartoes = '';
+}
+
 $logosOportunidades = [
     '42 São Paulo' => '42-sao-paulo.png',
     '42 Porto' => '42-porto.png',
