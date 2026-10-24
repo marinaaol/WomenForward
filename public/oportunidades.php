@@ -56,7 +56,7 @@ $titulo = 'Pesquisar oportunidades · Women Forward';
 require dirname(__DIR__) . '/includes/cabecalho.php';
 ?>
 
-<h1>Encontre oportunidades para o seu próximo passo</h1>
+<h1>Encontre Oportunidades Para o Seu Próximo Passo</h1>
 
 <form method="get" action="oportunidades.php" class="formulario">
     <label for="q">O que procura?</label>
@@ -82,7 +82,7 @@ require dirname(__DIR__) . '/includes/cabecalho.php';
 
     <label for="pais">País</label>
     <select id="pais" name="pais">
-        <option value="">Portugal, Brasil ou global</option>
+        <option value="">Portugal, Brasil ou Global</option>
         <?php foreach (['PT' => 'Portugal', 'BR' => 'Brasil', 'GLOBAL' => 'Global'] as $valor => $rotulo): ?>
             <option value="<?= $valor ?>" <?= $filtros['pais'] === $valor ? 'selected' : '' ?>><?= $rotulo ?></option>
         <?php endforeach; ?>
@@ -106,12 +106,12 @@ require dirname(__DIR__) . '/includes/cabecalho.php';
         <?php endforeach; ?>
     </select>
 
-    <button type="submit">Mostrar oportunidades</button>
+    <button type="submit">Mostrar Oportunidades</button>
     <a href="oportunidades.php">Limpar Pesquisa</a>
 </form>
 
 <section aria-live="polite" aria-labelledby="titulo-resultados" id="resultados">
-    <h2 id="titulo-resultados">Oportunidades encontradas (<?= count($oportunidades) ?>)</h2>
+    <h2 id="titulo-resultados">Oportunidades Encontradas (<?= count($oportunidades) ?>)</h2>
     <?php if (!$oportunidades): ?>
         <p class="vazio">Não encontrámos oportunidades com estes filtros. Experimente ajustar a pesquisa ou remover algum filtro.</p>
     <?php else: ?>
