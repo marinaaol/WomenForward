@@ -16,6 +16,7 @@ require __DIR__ . '/../includes/cabecalho.php';
 <section>
     <h2>Há muitos caminhos para fazer parte da tecnologia</h2>
     <p>STEM reúne Ciência, Tecnologia, Engenharia e Matemática. São áreas que nos ajudam a fazer perguntas, criar ferramentas e resolver problemas — e há muitas maneiras de fazer parte delas. Conheça algumas das áreas que pode explorar no Women Forward.</p>
+    <img class="imagem-stem" src="assets/images/wireframe/stem-workshop.webp" alt="Participantes colaboram numa actividade prática de prototipagem tecnológica">
 </section>
 
 <section id="areas">
@@ -50,6 +51,28 @@ require __DIR__ . '/../includes/cabecalho.php';
         <p>Crescer também é trocar experiências, abrir espaço a novas ideias e liderar. Explore oportunidades para desenvolver o seu percurso profissional em tecnologia.</p>
         <p><a class="btn secundario" href="oportunidades.php?categoria=Carreira%20%26%20Lideran%C3%A7a">Explorar oportunidades em Carreira &amp; Liderança</a></p>
     </article>
+</section>
+
+<section aria-labelledby="titulo-perfis-stem">
+    <h2 id="titulo-perfis-stem">Tecnologia faz-se em equipa e em diferentes fases da vida.</h2>
+    <div class="cartoes-stem">
+        <article class="cartao-visual">
+            <img src="assets/images/wireframe/detalhe-equipa-tech.webp" alt="Colegas colaboram numa tarefa tecnológica no escritório">
+            <div>
+                <h3>Colaboração no trabalho</h3>
+                <p>Uma janela para o quotidiano das equipas que criam e mantêm tecnologia.</p>
+                <a class="ligacao-visual" href="oportunidades.php">Explorar oportunidades →</a>
+            </div>
+        </article>
+        <article class="cartao-visual">
+            <img src="assets/images/wireframe/perfis-diversos.webp" alt="Mulheres de diferentes idades partilham um momento de colaboração">
+            <div>
+                <h3>Mais do que um ponto de entrada</h3>
+                <p>Aprender, mudar de área ou avançar na carreira pode acontecer em momentos diferentes.</p>
+                <a class="ligacao-visual" href="oportunidades.php?categoria=Carreira%20%26%20Lideran%C3%A7a">Conhecer percursos →</a>
+            </div>
+        </article>
+    </div>
 </section>
 
 <section>
