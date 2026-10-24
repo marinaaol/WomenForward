@@ -41,26 +41,31 @@ require __DIR__ . '/../includes/cabecalho.php';
     <h1>Explore Áreas Tech</h1>
     <article class="cartao-categoria">
         <img src="assets/images/notebook_detail.webp" alt="Detalhe de um notebook">
+        <h3>Web</h3>
         <p>Crie para a internet: sites, aplicações e serviços que ligam pessoas e ideias.</p>
         <p><a class="btn secundario" href="oportunidades.php?categoria=Web">Ver oportunidades em Web</a></p>
     </article>
     <article class="cartao-categoria">
         <img src="assets/images/wireframe/categoria-dados.webp" alt="Telemóvel apresenta informação meteorológica durante uma viagem">
+        <h3>Dados &amp; IA</h3>
         <p>Descubra como os dados revelam padrões e como a inteligência artificial pode apoiar novas soluções.</p>
         <p><a class="btn secundario" href="oportunidades.php?categoria=Dados%20%26%20IA">Ver oportunidades em Dados &amp; IA</a></p>
     </article>
     <article class="cartao-categoria">
         <img src="assets/images/wireframe/categoria-jogos.webp" alt="Jovem cria um jogo no computador com rascunhos à sua frente">
+        <h3>Jogos</h3>
         <p>Junte programação, design, narrativa e som para dar vida a experiências interativas.</p>
         <p><a class="btn secundario" href="oportunidades.php?categoria=Jogos">Ver oportunidades em Jogos</a></p>
     </article>
     <article class="cartao-categoria">
         <img src="assets/images/wireframe/categoria-ciberseguranca.webp" alt="Painéis de monitorização numa sala de controlo">
+        <h3>Cibersegurança</h3>
         <p>Aprenda a proteger sistemas, redes e informação num mundo cada vez mais conectado.</p>
         <p><a class="btn secundario" href="oportunidades.php?categoria=Ciberseguran%C3%A7a">Ver oportunidades em Cibersegurança</a></p>
     </article>
     <article class="cartao-categoria">
         <img src="assets/images/meeting_online.webp" alt="Pessoas participam numa reunião online">
+        <h3>Carreira &amp; Liderança</h3>
         <p>Encontre oportunidades para crescer profissionalmente, partilhar experiências e liderar em tecnologia.</p>
         <p><a class="btn secundario" href="oportunidades.php?categoria=Carreira%20%26%20Lideran%C3%A7a">Ver oportunidades em Carreira &amp; Liderança</a></p>
     </article>
@@ -70,73 +75,81 @@ require __DIR__ . '/../includes/cabecalho.php';
     <h2>O que gostaria de explorar?</h2>
 
     <form method="get" action="oportunidades.php#resultados" class="formulario">
-        <label for="categoria">Categoria</label>
-        <select id="categoria" name="categoria">
-            <option value="">Todas</option>
-            <option value="Web">Web</option>
-            <option value="Dados & IA">Dados & IA</option>
-            <option value="Jogos">Jogos</option>
-            <option value="Cibersegurança">Cibersegurança</option>
-            <option value="Carreira & Liderança">Carreira & Liderança</option>
-        </select>
+        <div class="campo-pesquisa">
+            <label for="categoria">Categoria</label>
+            <select id="categoria" name="categoria">
+                <option value="">Todas</option>
+                <option value="Web">Web</option>
+                <option value="Dados & IA">Dados & IA</option>
+                <option value="Jogos">Jogos</option>
+                <option value="Cibersegurança">Cibersegurança</option>
+                <option value="Carreira & Liderança">Carreira & Liderança</option>
+            </select>
+        </div>
 
-        <label for="tipo">Oportunidade</label>
-        <select id="tipo" name="tipo">
-            <option value="">Todas</option>
-            <option value="curso">Curso</option>
-            <option value="evento">Evento</option>
-            <option value="comunidade">Comunidade</option>
-            <option value="estágio">Estágio</option>
-        </select>
+        <div class="campo-pesquisa">
+            <label for="tipo">Oportunidade</label>
+            <select id="tipo" name="tipo">
+                <option value="">Todas</option>
+                <option value="curso">Curso</option>
+                <option value="evento">Evento</option>
+                <option value="comunidade">Comunidade</option>
+                <option value="estágio">Estágio</option>
+            </select>
+        </div>
 
-        <label for="pais">País</label>
-        <select id="pais" name="pais">
-            <option value="">Todos</option>
-            <option value="PT">PT</option>
-            <option value="BR">BR</option>
-            <option value="GLOBAL">Global</option>
-        </select>
+        <div class="campo-pesquisa">
+            <label for="pais">País</label>
+            <select id="pais" name="pais">
+                <option value="">Todos</option>
+                <option value="PT">PT</option>
+                <option value="BR">BR</option>
+                <option value="GLOBAL">Global</option>
+            </select>
+        </div>
 
-        <label for="formato">Formato</label>
-        <select id="formato" name="formato">
-            <option value="">Todos</option>
-            <option value="presencial">Presencial</option>
-            <option value="online">Online</option>
-            <option value="híbrido">Híbrido</option>
-        </select>
+        <div class="campo-pesquisa">
+            <label for="formato">Formato</label>
+            <select id="formato" name="formato">
+                <option value="">Todos</option>
+                <option value="presencial">Presencial</option>
+                <option value="online">Online</option>
+                <option value="híbrido">Híbrido</option>
+            </select>
+        </div>
 
         <button type="submit">Ver oportunidades</button>
     </form>
 </section>
 
-<section id="entidades" class="entidades">
-    <h2>A sua entidade pode abrir novos caminhos.</h2>
-    <p>Divulgue cursos, eventos, comunidades e estágios para que mais mulheres encontrem oportunidades para crescer em tecnologia.</p>
+<section id="entidades" class="chamada-entidades">
+    <div class="chamada-entidades-conteudo">
+        <p class="etiqueta-visual">Para entidades</p>
+        <h1>Sua Entidade Faz a Diferença</h1>
+        <p class="chamada-entidades-introducao">Divulgue cursos, eventos, comunidades e estágios para que mais mulheres encontrem oportunidades para crescer em tecnologia.</p>
 
-    <?php if (esta_autenticado()): ?>
-        <p class="acoes">
-            <a class="btn" href="oportunidade_form.php">Divulgar uma oportunidade</a>
-            <a class="btn secundario" href="dashboard.php">Ir para o meu painel</a>
-        </p>
-    <?php else: ?>
-        <p class="acoes">
-            <a class="btn" href="registar.php">Divulgar uma oportunidade</a>
-            <a class="btn secundario" href="login.php">Login</a>
-        </p>
-    <?php endif; ?>
-</section>
+        <?php if (esta_autenticado()): ?>
+            <p class="acoes">
+                <a class="btn" href="oportunidade_form.php">Divulgar uma oportunidade</a>
+                <a class="btn secundario" href="dashboard.php">Ir para o meu painel</a>
+            </p>
+        <?php else: ?>
+            <p class="acoes">
+                <a class="btn" href="registar.php">Divulgar uma oportunidade</a>
+                <a class="btn secundario" href="login.php">Login</a>
+            </p>
+        <?php endif; ?>
 
-<section id="iniciativas" class="bloco-iniciativas">
-        <div>
+        <div class="chamada-entidades-iniciativas">
             <h2>Aprender também é partilhar o que se constrói.</h2>
             <p>Encontros, apresentações e workshops aproximam ideias de pessoas e comunidades.</p>
             <a class="ligacao-visual" href="oportunidades.php?tipo=evento">Ver iniciativas e eventos →</a>
         </div>
-        <div class="inicio-imagem-container iniciativas-pitch-container">
-            <img class="inicio-imagem iniciativas-pitch"
-                 src="assets/images/wireframe/iniciativas-pitch.webp"
-                 alt="Equipa apresenta um projecto de jogo a uma audiência num evento">
-        </div>
+    </div>
+    <div class="chamada-entidades-imagem iniciativas-pitch-container">
+        <img class="iniciativas-pitch" src="assets/images/wireframe/iniciativas-pitch.webp"
+             alt="Equipa apresenta um projecto de jogo a uma audiência num evento">
+    </div>
 </section>
 
 <?php require __DIR__ . '/../includes/rodape.php'; ?>
