@@ -7,7 +7,7 @@ require __DIR__ . '/../includes/cabecalho.php';
 
 <article class="detalhe">
     <h1>Política de Privacidade</h1>
-    <p><strong>Atualização:</strong> <time datetime="{{ $post->created_at->toIso8601String() }}">
+    <p><strong>Atualização:</strong> <time datetime="2026-10-24">24 de outubro de 2026</time></p>
     <p>Esta página é um exemplo académico. Os nomes e contactos identificados como fictícios foram criados apenas para a demonstração do projeto e não representam uma pessoa ou serviço real.</p>
 
     <h2>Responsável pelo Tratamento</h2>

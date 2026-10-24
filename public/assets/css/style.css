@@ -54,9 +54,9 @@ h3 {
 }
 
 main {
-    max-width: 960px;
+    max-width: 1200px;
     margin: 32px auto;
-    padding: 0 20px;
+    padding-inline: clamp(20px, 5vw, 64px);
 }
 
 
@@ -96,9 +96,8 @@ main {
     gap: 0.35rem;
     margin-inline: 0;
     background:  var(--color2);
-    
     padding: 6px;
-    border-radius: 999px;
+    border-radius: 800px;
 }
 
 .topo .nav-principal a {
@@ -286,6 +285,11 @@ main {
     margin: 0;
     font-size: clamp(2rem, 4.5vw, 4.5rem);
     line-height: 1.05;
+}
+
+.slogan {
+    font-size: clamp(3rem, 1vw, 3rem);
+    font-weight: bolder;
 }
 
 @media (max-width: 640px) {
@@ -540,6 +544,10 @@ ul.msg {
     gap: 6px;
 }
 
+.form-auth .card-form .input + .input {
+    margin-block-start: 10px;
+}
+
 .form-auth {
     display: grid;
     gap: 14px;
@@ -615,6 +623,11 @@ ul.msg {
     display: flex;
     gap: 10px;
     align-items: flex-start;
+}
+
+.form-auth .check-consentimento {
+    gap: 14px;
+    margin-block: 18px;
 }
 
 .formulario .check input,
@@ -706,7 +719,9 @@ button:hover {
 }
 
 .btn.secundario:hover {
-    background: var(--color1);
+    background: var(--color5);
+    color: var(--color1);
+    border: none;
 }
 
 .btn.perigo,
@@ -844,6 +859,12 @@ button.perigo:hover {
     height: 72px;
     object-fit: contain;
     object-position: center;
+}
+
+.cartao-logo-destaque {
+    flex-basis: 88px;
+    width: 88px;
+    height: 88px;
 }
 
 .cartao-logo-sem-fundo {
@@ -1160,6 +1181,7 @@ button.perigo:hover {
     color: var(--color4);
     font-size: 1.3rem;
     letter-spacing: 0.08em;
+    font-weight: bolder;
 }
 
 .rodape-colunas {

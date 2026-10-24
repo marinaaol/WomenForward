@@ -62,7 +62,6 @@ require __DIR__ . '/../includes/cabecalho.php';
 ?>
 
 
-<p>Crie a sua conta para partilhar cursos, eventos, comunidades e estágios com quem procura crescer em tecnologia.</p>
 
 <?php require __DIR__ . '/../includes/erros.php'; ?>
 
@@ -73,6 +72,8 @@ require __DIR__ . '/../includes/cabecalho.php';
                 Divulgue as Oportunidades da Sua Entidade
             </h2>
         </div>
+        <p>Crie a sua conta para partilhar cursos, eventos, comunidades e estágios com quem procura crescer em tecnologia.</p>
+
         <form class="card-form">
             <div class="input">
                 <label class="input-label"> Nome da entidade </label>
@@ -93,13 +94,13 @@ require __DIR__ . '/../includes/cabecalho.php';
                 <input type="password" name="password2" minlength="8" required>
             </div>
             
-                <label class="check">
+                <label class="check check-consentimento">
                     <input type="checkbox" name="consentimento" value="1" required>
                     <span>Aceito a <a href="privacidade.php">política de privacidade</a> e o tratamento dos meus dados.</span>
                 </label>
             
              <div class="action">
-                <button class="action-button"> Criar conta de entidade</button>
+                <button class="action-button"> Criar conta da minha entidade</button>
             </div>
         </form>
     </div>
