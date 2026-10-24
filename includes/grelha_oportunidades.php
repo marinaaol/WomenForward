@@ -58,7 +58,7 @@ $logosComBranco = [
     'ladies-in-tech.png', 'roblox-creator-hub.png', 'global-women-tech-leaders.png',
     'women-in-tech-portugal.png',
 ];
-$logosComFundoBranco = ['net-conf.png', 'descodifica-te.png', 'harvard-university.png', 'raparigas-do-codigo.png', 'claude-academy.png'];
+$logosComFundoBranco = ['net-conf.png', 'descodifica-te.png'];
 ?>
 <div class="grelha-oportunidades">
     <?php foreach ($oportunidades as $op): ?>
@@ -81,8 +81,11 @@ $logosComFundoBranco = ['net-conf.png', 'descodifica-te.png', 'harvard-universit
         $subtitulo = isset($partesTitulo[1]) ? trim($partesTitulo[1]) : '';
         $arquivoLogo = $logosOportunidades[$tituloPrincipal] ?? null;
         $classesLogo = [];
-        if (in_array($arquivoLogo, ['42-porto.png', ...$logosComFundoBranco], true)) {
+        if (in_array($arquivoLogo, $logosComFundoBranco, true)) {
             $classesLogo[] = 'cartao-logo-sem-fundo';
+        }
+        if (in_array($arquivoLogo, ['42-porto.png', 'claude-academy.png', 'harvard-university.png', 'raparigas-do-codigo.png'], true)) {
+            $classesLogo[] = 'cartao-logo-destaque';
         }
         if (in_array($arquivoLogo, $logosComBranco, true)) {
             $classesLogo[] = 'cartao-logo-cor-escura';

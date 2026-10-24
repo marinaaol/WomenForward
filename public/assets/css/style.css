@@ -54,9 +54,9 @@ h3 {
 }
 
 main {
-    max-width: 960px;
+    max-width: 1200px;
     margin: 32px auto;
-    padding: 0 20px;
+    padding-inline: clamp(20px, 5vw, 64px);
 }
 
 
@@ -96,9 +96,8 @@ main {
     gap: 0.35rem;
     margin-inline: 0;
     background:  var(--color2);
-    
     padding: 6px;
-    border-radius: 999px;
+    border-radius: 800px;
 }
 
 .topo .nav-principal a {
@@ -288,6 +287,11 @@ main {
     line-height: 1.05;
 }
 
+.slogan {
+    font-size: clamp(3rem, 1vw, 3rem);
+    font-weight: bolder;
+}
+
 @media (max-width: 640px) {
     .hero-image {
         display: flex;
@@ -446,13 +450,26 @@ main {
     margin-bottom: 0.5rem;
 }
 
+.imagem-stem-container {
+    position: relative;
+    left: 50%;
+    width: var(--site-viewport-width, 100vw);
+    aspect-ratio: 3 / 2;
+    margin-left: var(--site-viewport-negative-half-width, -50vw);
+    overflow: hidden;
+}
+
 .imagem-stem {
+    position: absolute;
+    top: -12px;
+    left: 0;
     display: block;
     width: 100%;
-    max-height: 310px;
-    margin: 1.25rem 0;
-    border-radius: 10px;
+    height: calc(100% + 24px);
     object-fit: cover;
+    object-position: center;
+    transform: translate3d(0, var(--stem-parallax-y, 0px), 0);
+    will-change: transform;
 }
 
 .cartoes-stem {
@@ -540,6 +557,10 @@ ul.msg {
     gap: 6px;
 }
 
+.form-auth .card-form .input + .input {
+    margin-block-start: 10px;
+}
+
 .form-auth {
     display: grid;
     gap: 14px;
@@ -615,6 +636,11 @@ ul.msg {
     display: flex;
     gap: 10px;
     align-items: flex-start;
+}
+
+.form-auth .check-consentimento {
+    gap: 14px;
+    margin-block: 18px;
 }
 
 .formulario .check input,
@@ -706,7 +732,9 @@ button:hover {
 }
 
 .btn.secundario:hover {
-    background: var(--color1);
+    background: var(--color5);
+    color: var(--color1);
+    border: none;
 }
 
 .btn.perigo,
@@ -856,6 +884,12 @@ button.perigo:hover {
     height: 72px;
     object-fit: contain;
     object-position: center;
+}
+
+.cartao-logo-destaque {
+    flex-basis: 88px;
+    width: 88px;
+    height: 88px;
 }
 
 .cartao-logo-sem-fundo {
@@ -1172,6 +1206,7 @@ button.perigo:hover {
     color: var(--color4);
     font-size: 1.3rem;
     letter-spacing: 0.08em;
+    font-weight: bolder;
 }
 
 .rodape-colunas {

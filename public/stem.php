@@ -16,7 +16,9 @@ require __DIR__ . '/../includes/cabecalho.php';
 <section>
     <h2>Há muitos caminhos para fazer parte da tecnologia</h2>
     <p>STEM reúne Ciência, Tecnologia, Engenharia e Matemática. São áreas que nos ajudam a fazer perguntas, criar ferramentas e resolver problemas — e há muitas maneiras de fazer parte delas. Conheça algumas das áreas que pode explorar no Women Forward.</p>
-    <img class="imagem-stem" src="assets/images/wireframe/stem-workshop.webp" alt="Participantes colaboram numa actividade prática de prototipagem tecnológica">
+    <div class="imagem-stem-container">
+        <img class="imagem-stem" src="assets/images/women_ages.webp" alt="Grupo de 5 mulheres com idades e representatividades diversas.">
+    </div>
 </section>
 
 <section id="areas">

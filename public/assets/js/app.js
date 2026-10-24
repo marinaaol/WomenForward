@@ -67,6 +67,46 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    /* ---------- Efeito parallax da imagem da página STEM ---------- */
+    const imagemStemFrame = document.querySelector('.imagem-stem-container');
+    const imagemStem = imagemStemFrame?.querySelector('.imagem-stem');
+
+    if (imagemStemFrame && imagemStem) {
+        const atualizarLarguraImagemStem = () => {
+            const larguraViewport = document.documentElement.clientWidth;
+            document.documentElement.style.setProperty('--site-viewport-width', `${larguraViewport}px`);
+            document.documentElement.style.setProperty('--site-viewport-negative-half-width', `${larguraViewport / -2}px`);
+        };
+
+        atualizarLarguraImagemStem();
+        window.addEventListener('resize', atualizarLarguraImagemStem);
+
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            let frameStemAgendado = false;
+
+            const atualizarParallaxStem = () => {
+                frameStemAgendado = false;
+                const limites = imagemStemFrame.getBoundingClientRect();
+
+                if (limites.bottom < 0 || limites.top > window.innerHeight) return;
+
+                const progresso = (window.innerHeight - limites.top) / (window.innerHeight + limites.height);
+                const deslocamento = (progresso - 0.5) * 24;
+                imagemStem.style.setProperty('--stem-parallax-y', `${deslocamento.toFixed(1)}px`);
+            };
+
+            const agendarParallaxStem = () => {
+                if (frameStemAgendado) return;
+                frameStemAgendado = true;
+                window.requestAnimationFrame(atualizarParallaxStem);
+            };
+
+            window.addEventListener('scroll', agendarParallaxStem, { passive: true });
+            window.addEventListener('resize', agendarParallaxStem);
+            atualizarParallaxStem();
+        }
+    }
+
     /* ---------- 1. Filtrar cidades por país ---------- */
     const pais   = document.querySelector('#pais');
     const cidade = document.querySelector('#cidade');
