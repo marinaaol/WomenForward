@@ -14,11 +14,14 @@ require __DIR__ . '/../includes/cabecalho.php';
 </section>
 
 <section>
-    <h2>Há muitos caminhos para fazer parte da tecnologia</h2>
-    <p>STEM reúne Ciência, Tecnologia, Engenharia e Matemática. São áreas que nos ajudam a fazer perguntas, criar ferramentas e resolver problemas — e há muitas maneiras de fazer parte delas. Conheça algumas das áreas que pode explorar no Women Forward.</p>
     <div class="imagem-stem-container">
         <img class="imagem-stem" src="assets/images/women_ages.webp" alt="Grupo de 5 mulheres com idades e representatividades diversas.">
     </div>
+</section>
+
+<section>
+    <h2>Há muitos caminhos para fazer parte da tecnologia</h2>
+    <p>STEM - sigla em inglês que reúne <b>Ciência, Tecnologia, Engenharia e Matemática</b>. São áreas que nos ajudam a fazer perguntas, criar ferramentas e resolver problemas — e há muitas maneiras de fazer parte delas. Conheça algumas das áreas que pode explorar no Women Forward.</p>
 </section>
 
 <section id="areas">
@@ -54,40 +57,6 @@ require __DIR__ . '/../includes/cabecalho.php';
         <p><a class="btn secundario" href="oportunidades.php?categoria=Carreira%20%26%20Lideran%C3%A7a">Explorar oportunidades em Carreira &amp; Liderança</a></p>
     </article>
 </section>
-
-<section aria-labelledby="titulo-perfis-stem">
-    <h2 id="titulo-perfis-stem">Tecnologia faz-se em equipa e em diferentes fases da vida.</h2>
-    <div class="cartoes-stem">
-        <article class="cartao-visual">
-            <img src="assets/images/wireframe/detalhe-equipa-tech.webp" alt="Colegas colaboram numa tarefa tecnológica no escritório">
-            <div>
-                <h3>Colaboração no trabalho</h3>
-                <p>Uma janela para o quotidiano das equipas que criam e mantêm tecnologia.</p>
-                <a class="ligacao-visual" href="oportunidades.php">Explorar oportunidades →</a>
-            </div>
-        </article>
-        <article class="cartao-visual">
-            <img src="assets/images/wireframe/perfis-diversos.webp" alt="Mulheres de diferentes idades partilham um momento de colaboração">
-            <div>
-                <h3>Mais do que um ponto de entrada</h3>
-                <p>Aprender, mudar de área ou avançar na carreira pode acontecer em momentos diferentes.</p>
-                <a class="ligacao-visual" href="oportunidades.php?categoria=Carreira%20%26%20Lideran%C3%A7a">Conhecer percursos →</a>
-            </div>
-        </article>
-    </div>
-</section>
-
-<section>
-    <h2>Aprender · Construir · Liderar</h2>
-    <p>Estes são caminhos possíveis, não etapas obrigatórias. Pode começar, mudar de área, retomar os estudos ou avançar na carreira em diferentes momentos da vida.</p>
-</section>
-
-<section id="solucao">
-    <h2>O Women Forward Aproxima Oportunidades</h2>
-    <p>Explore opções para conhecer áreas tech, mudar de carreira ou atualizar competências. Compare cursos, eventos, comunidades e estágios e confirme os requisitos diretamente com a entidade responsável.</p>
-    <p><a class="btn" href="oportunidades.php">Ver Minhas Oportunidades</a></p>
-</section>
-
 
 
 <?php require __DIR__ . '/../includes/rodape.php'; ?>
