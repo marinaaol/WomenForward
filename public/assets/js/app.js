@@ -107,6 +107,46 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    /* ---------- Efeito parallax da imagem de apoio ---------- */
+    const imagemApoioFrame = document.querySelector('.apoio-image-container');
+    const imageApoio = imagemApoioFrame?.querySelector('.apoio-image');
+
+    if (imagemApoioFrame && imagemApoio) {
+        const atualizarLarguraImagemApoio = () => {
+            const larguraViewport = document.documentElement.clientWidth;
+            document.documentElement.style.setProperty('--site-viewport-width', `${larguraViewport}px`);
+            document.documentElement.style.setProperty('--site-viewport-negative-half-width', `${larguraViewport / -2}px`);
+        };
+
+        atualizarLarguraImagemApoio();
+        window.addEventListener('resize', atualizarLarguraImagemApoio);
+
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            let frameApoioAgendado = false;
+
+            const atualizarParallaxApoio = () => {
+                frameApoioAgendado = false;
+                const limites = imagemApoioFrame.getBoundingClientRect();
+
+                if (limites.bottom < 0 || limites.top > window.innerHeight) return;
+
+                const progresso = (window.innerHeight - limites.top) / (window.innerHeight + limites.height);
+                const deslocamento = (progresso - 0.5) * 24;
+                imagemApoio.style.setProperty('--apoio-parallax-y', `${deslocamento.toFixed(1)}px`);
+            };
+
+            const agendarParallaxApoio = () => {
+                if (frameApoioAgendado) return;
+                frameApoioAgendado = true;
+                window.requestAnimationFrame(atualizarParallaxApoio);
+            };
+
+            window.addEventListener('scroll', agendarParallaxApoio, { passive: true });
+            window.addEventListener('resize', agendarParallaxApoio);
+            atualizarParallaxApoio();
+        }
+    }
+
     /* ---------- 1. Filtrar cidades por país ---------- */
     const pais   = document.querySelector('#pais');
     const cidade = document.querySelector('#cidade');
