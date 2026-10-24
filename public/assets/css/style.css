@@ -242,6 +242,10 @@ main {
     margin: 0 auto;
 }
 
+.hero #btn-pesquisar {
+    margin-right: 1rem;
+}
+
 .hero-image {
     position: relative;
     left: 50%;
@@ -362,6 +366,8 @@ main {
 }
 
 .cartao-categoria {
+    display: flex;
+    flex-direction: column;
     padding-bottom: 1rem;
 }
 
@@ -379,6 +385,11 @@ main {
 .cartao-visual > div {
     margin-right: 1rem;
     margin-left: 1rem;
+}
+
+.cartao-categoria > p:last-child {
+    margin-top: auto;
+    padding-top: 0.75rem;
 }
 
 .bloco-visual {

@@ -38,34 +38,29 @@ require __DIR__ . '/../includes/cabecalho.php';
 </section>
 
 <section id="categorias" class="categorias">
-    <h2>Explore áreas tech</h2>
+    <h1>Explore Áreas Tech</h1>
     <article class="cartao-categoria">
-        <img src="assets/images/wireframe/categoria-web.webp" alt="Mulher a programar num computador">
-        <h3>Web</h3>
+        <img src="assets/images/notebook_detail.webp" alt="Detalhe de um notebook">
         <p>Crie para a internet: sites, aplicações e serviços que ligam pessoas e ideias.</p>
         <p><a class="btn secundario" href="oportunidades.php?categoria=Web">Ver oportunidades em Web</a></p>
     </article>
     <article class="cartao-categoria">
         <img src="assets/images/wireframe/categoria-dados.webp" alt="Telemóvel apresenta informação meteorológica durante uma viagem">
-        <h3>Dados &amp; IA</h3>
         <p>Descubra como os dados revelam padrões e como a inteligência artificial pode apoiar novas soluções.</p>
         <p><a class="btn secundario" href="oportunidades.php?categoria=Dados%20%26%20IA">Ver oportunidades em Dados &amp; IA</a></p>
     </article>
     <article class="cartao-categoria">
         <img src="assets/images/wireframe/categoria-jogos.webp" alt="Jovem cria um jogo no computador com rascunhos à sua frente">
-        <h3>Jogos</h3>
         <p>Junte programação, design, narrativa e som para dar vida a experiências interativas.</p>
         <p><a class="btn secundario" href="oportunidades.php?categoria=Jogos">Ver oportunidades em Jogos</a></p>
     </article>
     <article class="cartao-categoria">
         <img src="assets/images/wireframe/categoria-ciberseguranca.webp" alt="Painéis de monitorização numa sala de controlo">
-        <h3>Cibersegurança</h3>
         <p>Aprenda a proteger sistemas, redes e informação num mundo cada vez mais conectado.</p>
         <p><a class="btn secundario" href="oportunidades.php?categoria=Ciberseguran%C3%A7a">Ver oportunidades em Cibersegurança</a></p>
     </article>
     <article class="cartao-categoria">
-        <img src="assets/images/wireframe/categoria-carreira.webp" alt="Mulher experiente conversa com uma jovem numa escadaria">
-        <h3>Carreira &amp; Liderança</h3>
+        <img src="assets/images/meeting_online.webp" alt="Pessoas participam numa reunião online">
         <p>Encontre oportunidades para crescer profissionalmente, partilhar experiências e liderar em tecnologia.</p>
         <p><a class="btn secundario" href="oportunidades.php?categoria=Carreira%20%26%20Lideran%C3%A7a">Ver oportunidades em Carreira &amp; Liderança</a></p>
     </article>
