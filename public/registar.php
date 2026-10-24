@@ -65,7 +65,7 @@ require __DIR__ . '/../includes/cabecalho.php';
     <div class="card">
         <div class="card-image">
             <h2 class="card-heading">
-                Divulgue as oportunidades da sua entidade
+                Divulgue as Oportunidades da Sua Entidade
             </h2>
         </div>
         <form class="card-form">

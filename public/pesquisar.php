@@ -55,7 +55,7 @@ $titulo = 'Pesquisar oportunidades';
 require __DIR__ . '/../includes/cabecalho.php';
 ?>
 
-<h1>Encontre oportunidades para o seu próximo passo</h1>
+<h1>Encontre Oportunidades Para o Seu Próximo Passo</h1>
 <form method="get" action="pesquisar.php#resultados" class="formulario">
     <label for="q">O que procura? (opcional)</label>
     <input id="q" name="q" type="search" placeholder="Ex.: programação, transição de carreira, dados"
@@ -108,12 +108,12 @@ require __DIR__ . '/../includes/cabecalho.php';
         <?php endforeach; ?>
     </select>
 
-    <button type="submit">Mostrar oportunidades</button>
+    <button type="submit">Mostrar Oportunidades</button>
     <a href="pesquisar.php">Recomeçar pesquisa</a>
 </form>
 
 <section aria-live="polite" aria-labelledby="titulo-resultados" id="resultados">
-    <h2 id="titulo-resultados">Oportunidades encontradas (<?= count($oportunidades) ?>)</h2>
+    <h2 id="titulo-resultados">Oportunidades Encontradas (<?= count($oportunidades) ?>)</h2>
 
     <?php if (!$oportunidades): ?>
         <p class="vazio">Não encontrámos oportunidades com estes filtros. Experimente ajustar a pesquisa ou remover algum filtro.</p>
