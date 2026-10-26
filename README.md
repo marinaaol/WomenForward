@@ -38,7 +38,7 @@ Pessoas a partir dos 16 anos, com foco em mulheres que procuram estudar, desenvo
 | Oportunidades | Cursos, eventos, comunidades e estágios |
 | Entidades | Registo, autenticação e gestão das próprias oportunidades |
 | Privacidade | Consentimento explícito e informação sobre o tratamento de dados |
-| Interface | Navegação responsiva, parallax nas imagens editoriais e botão para voltar ao topo |
+| Interface | Navegação responsiva, flip para leitura dos cards, parallax nas imagens editoriais e botão para voltar ao topo |
 
 ## Modelo de dados
 
