@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     aplicarParallax('.iniciativas-pitch-container', '.iniciativas-pitch', '--inicio-parallax-y');
     aplicarParallax('.entidade-imagem-container', '.entidade-imagem', '--inicio-parallax-y');
 
-    /* ---------- 1. Filtrar cidades por país ---------- */
+    /* ----------  Filtrar cidades por país ---------- */
     const pais   = document.querySelector('#pais');
     const cidade = document.querySelector('#cidade');
 
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
         atualizarCidades();
     }
 
-    /* ---------- 2. Mostrar/esconder password ---------- */
+    /* ---------- Mostrar/esconder password ---------- */
     const passwordInput = document.getElementById('password');
     const toggler = document.getElementById('toggler');
 
@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* ---------- 3. Botão "Voltar ao topo" ---------- */
+    /* ----------  Botão "Voltar ao topo" ---------- */
     const myBtn = document.getElementById('myBtn');
 
     if (myBtn) {
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* ---------- 4. Flip dos cartões de oportunidades ---------- */
+    /* ----------  Flip dos cartões de oportunidades ---------- */
     document.querySelectorAll('.cartao-oportunidade').forEach((cartao) => {
         const frente = cartao.querySelector('.cartao-frente');
         const verso = cartao.querySelector('.cartao-verso');

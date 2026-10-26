@@ -33,7 +33,7 @@ header, main, footer {
 }
 
 a {
-    color: var(--color5);
+    color: var(--color3);
 }
 
 h1 {
@@ -45,7 +45,7 @@ h1 {
 h2 {
     margin-top: 0;
     font-size: 1.4rem;
-    color: var(--color5);
+    color: #4d6c6c;
 }
 
 h3 {
@@ -566,6 +566,7 @@ main {
 .chamada-entidades-conteudo {
     --espaco-entidades: clamp(1.5rem, 4vw, 3rem);
     padding: var(--espaco-entidades);
+    background: #587878;
 }
 
 .chamada-entidades h1 {
@@ -591,7 +592,7 @@ main {
     background: transparent;
     color: #fff;
     font-size: 1.05rem;
-    opacity: 0.9;
+    opacity: 1;
 }
 
 .chamada-entidades .etiqueta-visual::after {
@@ -621,7 +622,7 @@ main {
 
 .chamada-entidades .btn.secundario:hover {
     background: #fff;
-    color: var(--color5);
+    color: var(--color3);
 }
 
 .chamada-entidades-introducao {
@@ -1026,7 +1027,7 @@ ul.msg {
     margin: 0 0 1.25rem;
     padding: 0.55rem 1rem;
     border-radius: 999px;
-    background: var(--color5);
+    background: #587878;
     color: #fff;
     font-size: clamp(1.1rem, 2.5vw, 1.45rem);
     font-weight: 700;
@@ -1215,8 +1216,8 @@ button:hover {
 }
 
 .btn.secundario:hover {
-    background: var(--color5);
-    color: var(--color1);
+    background: #587878;
+    color: #fff;
     border: none;
 }
 

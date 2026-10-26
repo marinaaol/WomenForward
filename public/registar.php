@@ -81,22 +81,22 @@ require __DIR__ . '/../includes/cabecalho.php';
 
         <div class="card-form">
             <div class="input">
-                <label class="input-label"> Nome da entidade </label>
-                <input type="text" name="nome" maxlength="120" required
+                <label class="input-label" for="nome"> Nome da entidade </label>
+                <input type="text" id="nome" name="nome" maxlength="120" required
                value="<?= htmlspecialchars($nome) ?>">
             </div>
             <div class="input">
-                <label class="input-label">Email</label>
-                <input type="email" name="email" required
+                <label class="input-label" for="email">Email</label>
+                <input type="email" id="email" name="email" required
                value="<?= htmlspecialchars($email) ?>">
             </div>
             <div class="input">
-                <label class="input-label">Palavra-passe (mínimo de 8 caracteres)</label>
-                <input type="password" name="password" minlength="8" required>
+                <label class="input-label" for="password">Palavra-passe (mínimo de 8 caracteres)</label>
+                <input type="password" id="password" name="password" minlength="8" required>
             </div>
             <div class="input">
-                <label class="input-label">Confirme a palavra-passe</label>
-                <input type="password" name="password2" minlength="8" required>
+                <label class="input-label" for="password2">Confirme a palavra-passe</label>
+                <input type="password" id="password2" name="password2" minlength="8" required>
             </div>
             
                 <label class="check check-consentimento">
