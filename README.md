@@ -42,11 +42,8 @@ Pessoas a partir dos 16 anos, com foco em mulheres que procuram estudar, desenvo
 
 ## Modelo de dados
 
-```mermaid
-erDiagram
-    ENTIDADES ||--o{ OPORTUNIDADES : publica
-    CATEGORIAS ||--o{ OPORTUNIDADES : classifica
-```
+Categorias 1:N oportunidades - Classifica
+Entidades 1:N oportunidades - Publica
 
 Cada oportunidade pertence a uma entidade e a uma categoria. Não existe uma relação direta entre entidades e categorias.
 
@@ -59,13 +56,12 @@ Cada oportunidade pertence a uma entidade e a uma categoria. Não existe uma rel
 
 ## Estrutura do projeto
 
-```text
 config/                 Configuração da ligação à base de dados
 database/base_dados.sql Estrutura e dados de exemplo
 includes/               Componentes reutilizáveis e funções de apoio
 public/                 Páginas acessíveis no navegador
 public/assets/          Folhas de estilo, JavaScript, imagens e logotipos
-```
+
 
 ## Executar localmente
 
@@ -79,23 +75,11 @@ public/assets/          Folhas de estilo, JavaScript, imagens e logotipos
 
 ### Configuração
 
-1. Inicie o MySQL ou MariaDB.
-2. Importe [`database/base_dados.sql`](database/base_dados.sql) pelo phpMyAdmin ou no terminal:
-
-   ```bash
-   mysql -u root -p < database/base_dados.sql
-   ```
-
-   > O script recria a base de dados `womenforward`. Não o execute sobre dados que pretende manter.
-
-3. Confirme os dados de ligação em [`config/db.php`](config/db.php). A configuração incluída usa `localhost`, base `womenforward`, utilizador `root` e palavra-passe vazia.
-4. Na raiz do repositório, inicie o servidor:
-
-   ```bash
-   php -S 127.0.0.1:8000 -t public
-   ```
-
-5. Abra [http://127.0.0.1:8000](http://127.0.0.1:8000) no navegador.
+1. Instalar o XAMPP 8.3 e arrancar o Apache e o MySQL.
+2. Copiar esta pasta para C:\xampp\htdocs e mudar-lhe o nome para "womenforward".
+3. Abrir http://localhost/phpmyadmin, separador Importar, e escolher o ficheiro base_dados.sql.
+4. Se o MySQL tiver password, alterá-la em config/db.php (por omissão: utilizador root, sem password).
+5. Abrir http://localhost/womenforward/public
 
 ### Conta de demonstração
 
