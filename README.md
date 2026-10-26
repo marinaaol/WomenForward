@@ -79,7 +79,7 @@ public/assets/          Folhas de estilo, JavaScript, imagens e logotipos
 
 1. Instalar o XAMPP 8.3 e arrancar o Apache e o MySQL.
 2. Copiar esta pasta para C:\xampp\htdocs e mudar-lhe o nome para "womenforward".
-3. Abrir http://localhost/phpmyadmin, separador Importar, e escolher o ficheiro base_dados.sql.
+3. Abrir http://localhost/phpmyadmin, separador Importar, e escolher o ficheiro database/base_dados.sql.
 4. Se o MySQL tiver password, alterá-la em config/db.php (por omissão: utilizador root, sem password).
 5. Abrir http://localhost/womenforward/public
 
