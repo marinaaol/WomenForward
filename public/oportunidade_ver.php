@@ -71,9 +71,20 @@ require __DIR__ . '/../includes/cabecalho.php';
         $partesTitulo = preg_split('/\s+[—-]\s+/u', $op['titulo'], 2);
         $tituloPrincipal = trim($partesTitulo[0]);
         $subtitulo = isset($partesTitulo[1]) ? trim($partesTitulo[1]) : '';
+        require __DIR__ . '/../includes/logos_oportunidades.php';
+        $arquivoLogo = $logosOportunidades[$tituloPrincipal] ?? null;
+        $classesLogo = [];
+        if (in_array($arquivoLogo, $logosComFundoBranco, true)) $classesLogo[] = 'cartao-logo-sem-fundo';
+        if (in_array($arquivoLogo, $logosComBranco, true)) $classesLogo[] = 'cartao-logo-cor-escura';
+        if ($arquivoLogo === 'raparigas-do-codigo.png') $classesLogo[] = 'cartao-logo-simbolo';
     ?>
 
     <header class="detalhe-cabecalho">
+        <?php if ($arquivoLogo): ?>
+            <img class="detalhe-logo<?= $classesLogo ? ' ' . implode(' ', $classesLogo) : '' ?>"
+                 src="assets/images/oportunidades/<?= htmlspecialchars($arquivoLogo, ENT_QUOTES, 'UTF-8') ?>" alt="">
+        <?php endif; ?>
+        <div class="detalhe-titulos">
         <h1><?= htmlspecialchars($tituloPrincipal, ENT_QUOTES, 'UTF-8') ?></h1>
 
         <?php if ($subtitulo !== ''): ?>
@@ -81,22 +92,19 @@ require __DIR__ . '/../includes/cabecalho.php';
                 <?= htmlspecialchars($subtitulo, ENT_QUOTES, 'UTF-8') ?>
             </h2>
         <?php endif; ?>
+        </div>
     </header>
 
     <p class="detalhe-descricao"><?= nl2br(htmlspecialchars($op['descricao'], ENT_QUOTES, 'UTF-8')) ?></p>
 
     <div class="detalhe-informacoes" aria-label="Informações da oportunidade">
-        <span class="detalhe-tag"><span class="detalhe-tag-rotulo">Entidade</span><?= htmlspecialchars($op['entidade'], ENT_QUOTES, 'UTF-8') ?></span>
         <span class="detalhe-tag"><span class="detalhe-tag-rotulo">Local</span><?= htmlspecialchars($op['pais'], ENT_QUOTES, 'UTF-8') ?><?= $op['cidade'] ? ' · ' . htmlspecialchars($op['cidade'], ENT_QUOTES, 'UTF-8') : '' ?></span>
         <span class="detalhe-tag"><span class="detalhe-tag-rotulo">Formato</span><?= htmlspecialchars(ucfirst($op['formato']), ENT_QUOTES, 'UTF-8') ?></span>
-        <?php if ($op['data_inicio']): ?>
-            <span class="detalhe-tag"><span class="detalhe-tag-rotulo">Data de início</span><?= htmlspecialchars($op['data_inicio'], ENT_QUOTES, 'UTF-8') ?></span>
-        <?php endif; ?>
     </div>
 
     <div class="detalhe-acoes">
         <a class="botao-fonte-oficial" href="<?= htmlspecialchars($op['url'], ENT_QUOTES, 'UTF-8') ?>"
-           target="_blank" rel="noopener noreferrer">Consultar oportunidade na fonte oficial</a>
+           target="_blank" rel="noopener noreferrer">Visitar site oficial</a>
         <a class="detalhe-voltar" href="<?= htmlspecialchars($voltar_url) ?>">← <?= htmlspecialchars($voltar_label) ?></a>
     </div>
 
