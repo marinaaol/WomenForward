@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../includes/inicio.php';
+require_once __DIR__ . '/../includes/verificar_csrf.php';
 
 // Impede que uma entidade já autenticada crie outra conta a partir deste formulário.
 if (esta_autenticado()) {
@@ -69,6 +70,7 @@ require __DIR__ . '/../includes/cabecalho.php';
 <?php require __DIR__ . '/../includes/erros.php'; ?>
 
 <form method="post" action="registar.php" class="form-auth">
+    <?php require __DIR__ . '/../includes/csrf.php'; ?>
     <div class="card">
         <div class="card-image">
             <h2 class="card-heading">
@@ -77,7 +79,7 @@ require __DIR__ . '/../includes/cabecalho.php';
         </div>
         <p>Crie a sua conta para partilhar cursos, eventos, comunidades e estágios com quem procura crescer em tecnologia.</p>
 
-        <form class="card-form">
+        <div class="card-form">
             <div class="input">
                 <label class="input-label"> Nome da entidade </label>
                 <input type="text" name="nome" maxlength="120" required
@@ -103,10 +105,11 @@ require __DIR__ . '/../includes/cabecalho.php';
                 </label>
             
              <div class="action">
-                <button class="action-button"> Criar conta da minha entidade</button>
+                <button class="action-button" type="submit"> Criar conta da minha entidade</button>
             </div>
-        </form>
+        </div>
     </div>
+</form>
 
 
 

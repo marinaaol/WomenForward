@@ -2,12 +2,25 @@
 declare(strict_types=1);
 
 // Configuração única da ligação PDO usada por todas as páginas da aplicação.
+// Mantém o modelo obrigatório da Stack A: as credenciais ficam neste ficheiro.
 $host = 'localhost';
-$bd   = 'womenforward';
+$porta = '3306';
+$bd = 'womenforward';
 $user = 'root';
 $pass = '';
 
-$pdo = new PDO("mysql:host=$host;dbname=$bd;charset=utf8mb4", $user, $pass);
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+try {
+    $pdo = new PDO(
+        "mysql:host={$host};port={$porta};dbname={$bd};charset=utf8mb4",
+        $user,
+        $pass,
+        [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES => false,
+        ]
+    );
+} catch (PDOException $erro) {
+    http_response_code(500);
+    exit('Não foi possível estabelecer ligação à base de dados.');
+}

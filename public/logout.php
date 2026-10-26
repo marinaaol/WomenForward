@@ -6,7 +6,7 @@ $_SESSION = [];
 session_destroy();
  
 // Nova sessão, só para levar a mensagem até à página seguinte
-session_start();
+iniciar_sessao_segura();
 mensagem('sucesso', 'Sessão terminada. Até breve.');
 header('Location: index.php');
 exit; ?>

@@ -1,12 +1,7 @@
 <?php
-// Inicialização comum: sessão, ligação à base de dados e funções de autenticação.
-
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
-require __DIR__ . '/../config/db.php';
+// Inicialização comum: sessão protegida, ligação à base de dados e autenticação.
 require __DIR__ . '/auth.php';
+require __DIR__ . '/../config/db.php';
 
 // Guarda uma mensagem temporária para mostrar na página seguinte.
 

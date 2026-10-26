@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Termina a sessão
             $_SESSION = [];
             session_destroy();
-            session_start();
+            iniciar_sessao_segura();
             mensagem('sucesso', 'Conta e oportunidades eliminadas. Até breve.');
             header('Location: index.php');
             exit;
