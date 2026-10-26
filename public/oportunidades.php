@@ -63,10 +63,7 @@ require dirname(__DIR__) . '/includes/cabecalho.php';
 <p>Combine os filtros para encontrar cursos, eventos, comunidades e estágios alinhados com os seus interesses, o momento da sua carreira e o formato que prefere.</p>
 
 <form method="get" action="oportunidades.php" class="formulario formulario-oportunidades">
-    <div class="campo-filtro campo-filtro-pesquisa">
-        <label for="q">O que procura?</label>
-        <input id="q" name="q" type="search" value="<?= htmlspecialchars($filtros['q'], ENT_QUOTES, 'UTF-8') ?>">
-    </div>
+    <h2 class="campo-filtro-pesquisa">O que procura?</h2>
 
     <div class="campo-filtro">
         <label for="categoria">Categoria</label>
