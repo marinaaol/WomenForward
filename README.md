@@ -107,8 +107,8 @@ public/assets/          Folhas de estilo, JavaScript, imagens e logotipos
 
 | Pessoa | Área de trabalho |
 | --- | --- |
-| Beatriz Neves | CRUD, pesquisa, filtros e validação |
-| Marina Oliveira | Interface, navegabilidade, JavaScript, páginas, formulários e acessibilidade |
+| Beatriz Neves | CRUD, pesquisa, filtros, validação e testes |
+| Marina Oliveira | Interface, navegabilidade, JavaScript, páginas, formulários, acessibilidade e testes |
 | Paulo Primo | Base de dados, autenticação, sessões e controlo de acesso |
 
 ## Estado do projeto
