@@ -114,3 +114,5 @@ public/assets/          Folhas de estilo, JavaScript, imagens e logotipos
 ## Estado do projeto
 
 Projeto académico em desenvolvimento. As oportunidades apresentadas são divulgadas pelas entidades responsáveis; antes de participar, confirme sempre os detalhes, requisitos e disponibilidade na fonte oficial.
+
+Veja aqui o diário detalhado de desenvolvimento do projeto Women Forward: [Women Forward — diário de desenvolvimento](https://women-forward.marina508.chatgpt.site/).
