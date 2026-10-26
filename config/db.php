@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 
+// Configuração única da ligação PDO usada por todas as páginas da aplicação.
 $host = 'localhost';
 $bd   = 'womenforward';
 $user = 'root';

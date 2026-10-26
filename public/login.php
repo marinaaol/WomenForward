@@ -1,11 +1,13 @@
 <?php
 require_once __DIR__ . '/../includes/inicio.php';
 
+// Impede que uma entidade já autenticada volte a aceder ao formulário de login.
 if (esta_autenticado()) {
     header('Location: dashboard.php');
     exit;
 }
 
+// Estado inicial do formulário e mensagens devolvidas pela validação.
 $erros = [];
 $email = '';
 
@@ -15,6 +17,7 @@ if (!empty($_SESSION['flash_erro'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Valida as credenciais e inicia a sessão da entidade.
     $email    = trim($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
 

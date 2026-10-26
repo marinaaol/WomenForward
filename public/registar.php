@@ -1,16 +1,19 @@
 <?php
 require_once __DIR__ . '/../includes/inicio.php';
 
+// Impede que uma entidade já autenticada crie outra conta a partir deste formulário.
 if (esta_autenticado()) {
     header('Location: dashboard.php');
     exit;
 }
 
+// Estado inicial do formulário de criação de conta.
 $erros = [];
 $nome  = '';
 $email = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Recolhe, valida e grava os dados da nova entidade.
     $nome      = trim($_POST['nome'] ?? '');
     $email     = trim($_POST['email'] ?? '');
     $password  = $_POST['password'] ?? '';

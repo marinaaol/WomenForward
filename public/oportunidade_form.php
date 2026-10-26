@@ -4,10 +4,12 @@ require_once __DIR__ . '/../includes/verificar_csrf.php';
 
 exigir_login();
 
+// Determina se o formulário cria uma oportunidade nova ou edita uma existente.
 $id       = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 $a_editar = $id && $id > 0;
 $id_ent   = entidade_id();
 
+// Valores iniciais que preenchem o formulário quando não existe edição.
 $op = [
     'titulo'       => '',
     'descricao'    => '',
@@ -40,6 +42,7 @@ if ($a_editar) {
 $erros = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Recolhe, normaliza e valida os dados antes de inserir ou atualizar na base de dados.
     $op['titulo']       = trim($_POST['titulo'] ?? '');
     $op['descricao']    = trim($_POST['descricao'] ?? '');
     $op['tipo']         = $_POST['tipo'] ?? 'curso';

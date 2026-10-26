@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/auth.php';
 
+// Interrompe pedidos POST sem um token CSRF válido antes de processar o formulário.
 if ($_SERVER['REQUEST_METHOD'] === 'POST'
     && !validar_token_csrf($_POST['csrf'] ?? null)) {
     http_response_code(400);

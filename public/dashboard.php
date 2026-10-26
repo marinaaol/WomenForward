@@ -3,6 +3,7 @@ require_once __DIR__ . '/../includes/inicio.php';
 
 exigir_login();
 
+// Carrega apenas as oportunidades publicadas pela entidade da sessão atual.
 $id = entidade_id();
 
 $stmt = $pdo->prepare(

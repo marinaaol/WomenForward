@@ -4,6 +4,7 @@ require_once __DIR__ . '/../includes/verificar_csrf.php';
 
 exigir_login();
 
+// Carrega a conta autenticada e as oportunidades relacionadas antes de mostrar a confirmação.
 $id = entidade_id();
 
 // Carrega os dados da entidade

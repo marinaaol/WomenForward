@@ -1,4 +1,5 @@
-<?php // Lista de erros da validação no servidor (se houver) 
+<?php
+// Inicialização comum: sessão, ligação à base de dados e funções de autenticação.
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -7,7 +8,7 @@ if (session_status() === PHP_SESSION_NONE) {
 require __DIR__ . '/../config/db.php';
 require __DIR__ . '/auth.php';
 
-//Guarda uma mensagem flash para mostrar na próxima página. Tipo: 'sucesso' | 'erro' | 'info'
+// Guarda uma mensagem temporária para mostrar na página seguinte.
 
 function mensagem(string $tipo, string $texto): void
 {

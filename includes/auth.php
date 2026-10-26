@@ -1,32 +1,32 @@
 <?php
 declare(strict_types=1);
 
-// NÃO inicia sessão — assume que o inicio.php já o fez.
-// Se for incluído diretamente (sem inicio.php), inicia na mesma.
+// Funções de sessão, autenticação e proteção CSRF partilhadas pelas páginas privadas.
+// Normalmente a sessão é iniciada em inicio.php; esta verificação permite incluir este ficheiro isoladamente.
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Está autenticado?
+// Indica se existe uma entidade autenticada na sessão atual.
 function esta_autenticado(): bool
 {
     return isset($_SESSION['id_entidade']);
 }
 
-// ID da entidade autenticada (ou null)
+// Devolve o identificador da entidade autenticada, quando existir.
 function entidade_id(): ?int
 {
     return isset($_SESSION['id_entidade']) ? (int) $_SESSION['id_entidade'] : null;
 }
 
-// Nome da entidade autenticada (ou null)
+// Devolve o nome da entidade autenticada, quando existir.
 function entidade_nome(): ?string
 {
     return $_SESSION['entidade_nome'] ?? null;
 }
 
-// Bloqueia o acesso se não houver sessão iniciada
+// Redireciona para o login quando uma página requer autenticação.
 function exigir_login(): void
 {
     if (!esta_autenticado()) {
@@ -36,7 +36,7 @@ function exigir_login(): void
     }
 }
 
-// Impede que outro site envie formulários em nome do utilizador
+// Cria e valida o token que protege os formulários contra pedidos CSRF.
 function token_csrf(): string
 {
     if (empty($_SESSION['csrf_token'])) {

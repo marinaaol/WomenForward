@@ -4,6 +4,7 @@ require_once __DIR__ . '/../includes/verificar_csrf.php';
 
 exigir_login();
 
+// Confirma que a oportunidade indicada pertence à entidade autenticada antes de a remover.
 $id     = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 $id_ent = entidade_id();
 

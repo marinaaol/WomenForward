@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/inicio.php';
 
+// Dados usados pelo cabeçalho em todas as páginas: mensagem, sessão e rota atual.
 $msg          = ler_mensagem();
 $autenticado  = esta_autenticado();
 $nomeEntidade = entidade_nome();

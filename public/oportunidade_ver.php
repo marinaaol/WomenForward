@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../includes/inicio.php';
 
+// Lê a oportunidade ativa pedida no URL e conserva a página de origem para o regresso.
 $id     = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 $origem = $_GET['origem'] ?? '';
 $op     = null;

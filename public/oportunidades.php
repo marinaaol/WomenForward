@@ -1,6 +1,7 @@
 <?php
 require dirname(__DIR__) . '/includes/inicio.php';
 
+// Lê os filtros do URL para reconstruir a pesquisa após cada submissão.
 $filtros = [
     'q' => trim($_GET['q'] ?? ''),
     'categoria' => trim($_GET['categoria'] ?? ''),
@@ -10,6 +11,7 @@ $filtros = [
     'formato' => trim($_GET['formato'] ?? ''),
 ];
 
+// Constrói a consulta SQL e os parâmetros de forma incremental conforme os filtros ativos.
 $condicoes = ['o.ativo = TRUE'];
 $parametros = [];
 
@@ -39,6 +41,7 @@ if ($filtros['formato'] !== '') {
     $parametros['formato'] = $filtros['formato'];
 }
 
+// Executa a pesquisa e carrega as categorias usadas pelo formulário.
 $sql = 'SELECT o.id_oportunidade, o.titulo, o.descricao, o.url, o.tipo, o.pais,
                o.cidade, o.formato, o.data_inicio, e.nome AS entidade,
                c.nome AS categoria

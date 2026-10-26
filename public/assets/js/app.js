@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    /* ---------- Navegação móvel ---------- */
     const menuToggle = document.querySelector('.menu-toggle');
     const menuPrincipal = document.querySelector('#menu-principal');
 
@@ -27,188 +28,56 @@ document.addEventListener('DOMContentLoaded', () => {
         window.matchMedia('(min-width: 901px)').addEventListener('change', fecharMenu);
     }
 
-    /* ---------- Efeito parallax da imagem principal ---------- */
-    const heroFrame = document.querySelector('.hero-image');
-    const heroImage = heroFrame?.querySelector('.hero-photo');
-    const heroPhoto = heroImage?.querySelector('img.responsive');
+    /* ---------- Largura total e efeito parallax das imagens ---------- */
+    // Mantém as imagens editoriais alinhadas à largura real da janela, incluindo a barra de scroll.
+    const atualizarLarguraImagens = () => {
+        const larguraViewport = document.documentElement.clientWidth;
+        document.documentElement.style.setProperty('--site-viewport-width', `${larguraViewport}px`);
+        document.documentElement.style.setProperty('--site-viewport-negative-half-width', `${larguraViewport / -2}px`);
+    };
 
-    if (heroFrame && heroImage && heroPhoto) {
-        const atualizarLarguraHero = () => {
-            const larguraViewport = document.documentElement.clientWidth;
-            document.documentElement.style.setProperty('--site-viewport-width', `${larguraViewport}px`);
-            document.documentElement.style.setProperty('--site-viewport-negative-half-width', `${larguraViewport / -2}px`);
-        };
+    atualizarLarguraImagens();
+    window.addEventListener('resize', atualizarLarguraImagens);
 
-        atualizarLarguraHero();
-        window.addEventListener('resize', atualizarLarguraHero);
+    // Aplica o mesmo movimento vertical a cada imagem, variando apenas os seletores e a intensidade.
+    const aplicarParallax = (seletorMoldura, seletorImagem, propriedade, amplitude = 24, base = 0) => {
+        const moldura = document.querySelector(seletorMoldura);
+        const imagem = document.querySelector(seletorImagem);
 
-        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            let frameAgendado = false;
+        if (!moldura || !imagem || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-            const atualizarParallax = () => {
-                frameAgendado = false;
-                const limites = heroImage.getBoundingClientRect();
+        let animacaoAgendada = false;
 
-                if (limites.bottom < 0 || limites.top > window.innerHeight) return;
-
-                const deslocamento = Math.max(0, Math.min(55, window.scrollY * 0.12));
-                heroPhoto.style.setProperty('--hero-parallax-y', `${deslocamento.toFixed(1)}px`);
-            };
-
-            const agendarParallax = () => {
-                if (frameAgendado) return;
-                frameAgendado = true;
-                window.requestAnimationFrame(atualizarParallax);
-            };
-
-            window.addEventListener('scroll', agendarParallax, { passive: true });
-            window.addEventListener('resize', agendarParallax);
-            atualizarParallax();
-        }
-    }
-
-    /* ---------- Efeito parallax da imagem da página STEM ---------- */
-    const imagemStemFrame = document.querySelector('.imagem-stem-container');
-    const imagemStem = imagemStemFrame?.querySelector('.imagem-stem');
-
-    if (imagemStemFrame && imagemStem) {
-        const atualizarLarguraImagemStem = () => {
-            const larguraViewport = document.documentElement.clientWidth;
-            document.documentElement.style.setProperty('--site-viewport-width', `${larguraViewport}px`);
-            document.documentElement.style.setProperty('--site-viewport-negative-half-width', `${larguraViewport / -2}px`);
-        };
-
-        atualizarLarguraImagemStem();
-        window.addEventListener('resize', atualizarLarguraImagemStem);
-
-        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            let frameStemAgendado = false;
-
-            const atualizarParallaxStem = () => {
-                frameStemAgendado = false;
-                const limites = imagemStemFrame.getBoundingClientRect();
-
-                if (limites.bottom < 0 || limites.top > window.innerHeight) return;
-
-                const progresso = (window.innerHeight - limites.top) / (window.innerHeight + limites.height);
-                const deslocamento = (progresso - 0.5) * 24;
-                imagemStem.style.setProperty('--stem-parallax-y', `${deslocamento.toFixed(1)}px`);
-            };
-
-            const agendarParallaxStem = () => {
-                if (frameStemAgendado) return;
-                frameStemAgendado = true;
-                window.requestAnimationFrame(atualizarParallaxStem);
-            };
-
-            window.addEventListener('scroll', agendarParallaxStem, { passive: true });
-            window.addEventListener('resize', agendarParallaxStem);
-            atualizarParallaxStem();
-        }
-    }
-
-    /* ---------- Largura total das imagens editoriais ---------- */
-    if (document.querySelector('.inicio-imagem-container')) {
-        const atualizarLarguraImagensInicio = () => {
-            const larguraViewport = document.documentElement.clientWidth;
-            document.documentElement.style.setProperty('--site-viewport-width', `${larguraViewport}px`);
-            document.documentElement.style.setProperty('--site-viewport-negative-half-width', `${larguraViewport / -2}px`);
-        };
-
-        atualizarLarguraImagensInicio();
-        window.addEventListener('resize', atualizarLarguraImagensInicio);
-    }
-
-    /* ---------- Efeito parallax da imagem de apoio ---------- */
-    const imagemApoioFrame = document.querySelector('.apoio-image-container');
-    const imageApoio = imagemApoioFrame?.querySelector('.apoio-image');
-
-    if (imagemApoioFrame && imagemApoio) {
-        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            let frameApoioAgendado = false;
-
-            const atualizarParallaxApoio = () => {
-                frameApoioAgendado = false;
-                const limites = imagemApoioFrame.getBoundingClientRect();
-
-                if (limites.bottom < 0 || limites.top > window.innerHeight) return;
-
-                const progresso = (window.innerHeight - limites.top) / (window.innerHeight + limites.height);
-                const deslocamento = (progresso - 0.5) * 24;
-                imageApoio.style.setProperty('--inicio-parallax-y', `${deslocamento.toFixed(1)}px`);
-            };
-
-            const agendarParallaxApoio = () => {
-                if (frameApoioAgendado) return;
-                frameApoioAgendado = true;
-                window.requestAnimationFrame(atualizarParallaxApoio);
-            };
-
-            window.addEventListener('scroll', agendarParallaxApoio, { passive: true });
-            window.addEventListener('resize', agendarParallaxApoio);
-            atualizarParallaxApoio();
-        }
-    }
-
-    /* ---------- Parallax da imagem iniciativas-pitch ---------- */
-    const iniciativasPitchFrame = document.querySelector('.iniciativas-pitch-container');
-    const iniciativasPitchImage = iniciativasPitchFrame?.querySelector('.iniciativas-pitch');
-
-    if (iniciativasPitchFrame && iniciativasPitchImage
-        && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        let framePitchAgendado = false;
-
-        const atualizarParallaxPitch = () => {
-            framePitchAgendado = false;
-            const limites = iniciativasPitchFrame.getBoundingClientRect();
+        // Calcula a posição da imagem apenas quando a sua moldura está visível.
+        const atualizar = () => {
+            animacaoAgendada = false;
+            const limites = moldura.getBoundingClientRect();
 
             if (limites.bottom < 0 || limites.top > window.innerHeight) return;
 
             const progresso = (window.innerHeight - limites.top) / (window.innerHeight + limites.height);
-            const deslocamento = (progresso - 0.5) * 24;
-            iniciativasPitchImage.style.setProperty('--inicio-parallax-y', `${deslocamento.toFixed(1)}px`);
+            const deslocamento = base + (progresso - 0.5) * amplitude;
+            imagem.style.setProperty(propriedade, `${deslocamento.toFixed(1)}px`);
         };
 
-        const agendarParallaxPitch = () => {
-            if (framePitchAgendado) return;
-            framePitchAgendado = true;
-            window.requestAnimationFrame(atualizarParallaxPitch);
+        // Agrupa eventos de scroll no próximo frame de animação para manter o movimento suave.
+        const agendarAtualizacao = () => {
+            if (animacaoAgendada) return;
+            animacaoAgendada = true;
+            window.requestAnimationFrame(atualizar);
         };
 
-        window.addEventListener('scroll', agendarParallaxPitch, { passive: true });
-        window.addEventListener('resize', agendarParallaxPitch);
-        atualizarParallaxPitch();
-    }
+        window.addEventListener('scroll', agendarAtualizacao, { passive: true });
+        window.addEventListener('resize', agendarAtualizacao);
+        atualizar();
+    };
 
-    /* ---------- Parallax da imagem da página de entidades ---------- */
-    const entidadeImageFrame = document.querySelector('.entidade-imagem-container');
-    const entidadeImage = entidadeImageFrame?.querySelector('.entidade-imagem');
-
-    if (entidadeImageFrame && entidadeImage
-        && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        let frameEntidadeAgendado = false;
-
-        const atualizarParallaxEntidade = () => {
-            frameEntidadeAgendado = false;
-            const limites = entidadeImageFrame.getBoundingClientRect();
-
-            if (limites.bottom < 0 || limites.top > window.innerHeight) return;
-
-            const progresso = (window.innerHeight - limites.top) / (window.innerHeight + limites.height);
-            const deslocamento = (progresso - 0.5) * 24;
-            entidadeImage.style.setProperty('--inicio-parallax-y', `${deslocamento.toFixed(1)}px`);
-        };
-
-        const agendarParallaxEntidade = () => {
-            if (frameEntidadeAgendado) return;
-            frameEntidadeAgendado = true;
-            window.requestAnimationFrame(atualizarParallaxEntidade);
-        };
-
-        window.addEventListener('scroll', agendarParallaxEntidade, { passive: true });
-        window.addEventListener('resize', agendarParallaxEntidade);
-        atualizarParallaxEntidade();
-    }
+    // Cada chamada liga uma moldura, a imagem que se move e a variável CSS correspondente.
+    aplicarParallax('.hero-image', '.hero-image img.responsive', '--hero-parallax-y', 55, 27.5);
+    aplicarParallax('.imagem-stem-container', '.imagem-stem', '--stem-parallax-y');
+    aplicarParallax('.apoio-image-container', '.apoio-image', '--inicio-parallax-y');
+    aplicarParallax('.iniciativas-pitch-container', '.iniciativas-pitch', '--inicio-parallax-y');
+    aplicarParallax('.entidade-imagem-container', '.entidade-imagem', '--inicio-parallax-y');
 
     /* ---------- 1. Filtrar cidades por país ---------- */
     const pais   = document.querySelector('#pais');
