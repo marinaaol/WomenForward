@@ -21,7 +21,7 @@ if (!isset($origemCartoes)) {
     $origemCartoes = '';
 }
 
-// Associação entre entidades conhecidas e os respetivos ficheiros de logótipo.
+// Associação entre entidades conhecidas e os respetivos ficheiros de logotipo.
 $logosOportunidades = [
     '42 São Paulo' => '42-sao-paulo.png',
     '42 Porto' => '42-porto.png',
@@ -53,7 +53,7 @@ $logosOportunidades = [
     'WoMakersCode' => 'womakers-code.png',
     'Women in Tech Portugal' => 'women-in-tech-portugal.png',
 ];
-// Ajustes visuais necessários para logótipos com fundo branco na imagem original.
+// Ajustes visuais necessários para logotipos com fundo branco na imagem original.
 $logosComBranco = [
     'game-strategies.png', 'tech-ladies.png', 'tryhackme.png',
     'ladies-in-tech.png', 'roblox-creator-hub.png', 'global-women-tech-leaders.png',

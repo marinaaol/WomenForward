@@ -10,6 +10,7 @@ require __DIR__ . '/../includes/cabecalho.php';
         <div class="hero-image">
             <div class="text-block">
                 <h1>O seu caminho em tecnologia não tem de depender da sorte.</h1>
+                <a class="btn hero-cta" href="#pesquisa">Ver Oportunidades</a>
             </div>
             <div class="hero-photo">
                 <img src="assets/images/women_hero.webp"
@@ -23,52 +24,7 @@ require __DIR__ . '/../includes/cabecalho.php';
     <p>O Women Forward reúne cursos, eventos, comunidades e estágios em tecnologia num só lugar. Assim, pode encontrar oportunidades para aprender, começar, mudar de área ou avançar na carreira sem perder horas à procura.</p>
     <p>Acreditamos que, com mais informação, referências e apoio, cada mulher pode descobrir o caminho que faz sentido para si. Explore oportunidades e conheça comunidades que ajudam a abrir portas na tecnologia.</p>
     <p>Comece a pesquisar sem criar conta.</p>
-    <a class="btn" href="oportunidades.php" id="btn-pesquisar">Encontrar oportunidades</a>
-    <a class="btn secundario" href="stem.php#areas" id="btn-areas">Conhecer as áreas tech</a>
-</section>
-
-<section id="inicio" class="inicio">
-    <h2>Menos procura. Mais apoio para avançar.</h2>
-    <p>As oportunidades estão muitas vezes espalhadas por diferentes sites e redes. O Women Forward facilita a pesquisa e aproxima mulheres de cursos, eventos, comunidades e estágios — para que seja mais simples descobrir possibilidades e escolher o próximo passo.</p>
-    <div class="inicio-imagem-container apoio-image-container">
-        <img class="inicio-imagem apoio-image"
-            src="assets/images/women_stairs2.webp"
-            alt="Uma mulher mais velha ensina algo a uma mulher mais jovem num escritório.">
-    </div>
-</section>
-
-<section id="categorias" class="categorias">
-    <h1>Explore Áreas Tech</h1>
-    <article class="cartao-categoria">
-        <img src="assets/images/notebook_detail.webp" alt="Detalhe de um notebook">
-        <h3>Web</h3>
-        <p>Crie para a internet: sites, aplicações e serviços que ligam pessoas e ideias.</p>
-        <p><a class="btn secundario" href="oportunidades.php?categoria=Web">Ver oportunidades em Web</a></p>
-    </article>
-    <article class="cartao-categoria">
-        <img src="assets/images/wireframe/categoria-dados.webp" alt="Telemóvel apresenta informação meteorológica durante uma viagem">
-        <h3>Dados &amp; IA</h3>
-        <p>Descubra como os dados revelam padrões e como a inteligência artificial pode apoiar novas soluções.</p>
-        <p><a class="btn secundario" href="oportunidades.php?categoria=Dados%20%26%20IA">Ver oportunidades em Dados &amp; IA</a></p>
-    </article>
-    <article class="cartao-categoria">
-        <img src="assets/images/wireframe/categoria-jogos.webp" alt="Jovem cria um jogo no computador com rascunhos à sua frente">
-        <h3>Jogos</h3>
-        <p>Junte programação, design, narrativa e som para dar vida a experiências interativas.</p>
-        <p><a class="btn secundario" href="oportunidades.php?categoria=Jogos">Ver oportunidades em Jogos</a></p>
-    </article>
-    <article class="cartao-categoria">
-        <img src="assets/images/wireframe/categoria-ciberseguranca.webp" alt="Painéis de monitorização numa sala de controlo">
-        <h3>Cibersegurança</h3>
-        <p>Aprenda a proteger sistemas, redes e informação num mundo cada vez mais conectado.</p>
-        <p><a class="btn secundario" href="oportunidades.php?categoria=Ciberseguran%C3%A7a">Ver oportunidades em Cibersegurança</a></p>
-    </article>
-    <article class="cartao-categoria">
-        <img src="assets/images/meeting_online.webp" alt="Pessoas participam numa reunião online">
-        <h3>Carreira &amp; Liderança</h3>
-        <p>Encontre oportunidades para crescer profissionalmente, partilhar experiências e liderar em tecnologia.</p>
-        <p><a class="btn secundario" href="oportunidades.php?categoria=Carreira%20%26%20Lideran%C3%A7a">Ver oportunidades em Carreira &amp; Liderança</a></p>
-    </article>
+    <a class="btn secundario" href="#categorias" id="btn-areas">Conhecer as Áreas Tech</a>
 </section>
 
 <section id="pesquisa">
@@ -118,8 +74,77 @@ require __DIR__ . '/../includes/cabecalho.php';
             </select>
         </div>
 
-        <button type="submit">Ver oportunidades</button>
+        <button type="submit">Ver Oportunidades</button>
     </form>
+</section>
+
+<section id="inicio" class="inicio">
+    <h2>Menos procura. Mais apoio para avançar.</h2>
+    <p>As oportunidades estão muitas vezes espalhadas por diferentes sites e redes. O Women Forward facilita a pesquisa e aproxima mulheres de cursos, eventos, comunidades e estágios — para que seja mais simples descobrir possibilidades e escolher o próximo passo.</p>
+    <div class="inicio-imagem-container apoio-image-container">
+        <img class="inicio-imagem apoio-image"
+            src="assets/images/women_stairs2.webp"
+            alt="Uma mulher mais velha ensina algo a uma mulher mais jovem num escritório.">
+    </div>
+</section>
+
+<section id="categorias" class="categorias">
+    <h1>Explore Áreas Tech</h1>
+    <article class="cartao-categoria">
+        <div class="cartao-categoria-imagem">
+            <img src="assets/images/notebook_detail.webp" alt="Detalhe de um notebook">
+            <span class="cartao-categoria-etiqueta">Web</span>
+        </div>
+        <div class="cartao-categoria-conteudo">
+            <h1 class="cartao-categoria-chamada">Criar para a internet</h1>
+            <p class="cartao-categoria-descricao">Crie sites, aplicações e serviços que ligam pessoas e ideias.</p>
+            <a class="btn secundario" href="oportunidades.php?categoria=Web">Ver Oportunidades</a>
+        </div>
+    </article>
+    <article class="cartao-categoria">
+        <div class="cartao-categoria-imagem">
+            <img src="assets/images/wireframe/categoria-dados.webp" alt="Telemóvel apresenta informação meteorológica durante uma viagem">
+            <span class="cartao-categoria-etiqueta">Dados &amp; IA</span>
+        </div>
+        <div class="cartao-categoria-conteudo">
+            <h1 class="cartao-categoria-chamada">Padrões que revelam caminhos</h1>
+            <p class="cartao-categoria-descricao">Descubra como os dados e a inteligência artificial apoiam novas soluções.</p>
+            <a class="btn secundario" href="oportunidades.php?categoria=Dados%20%26%20IA">Ver Oportunidades</a>
+        </div>
+    </article>
+    <article class="cartao-categoria">
+        <div class="cartao-categoria-imagem">
+            <img src="assets/images/wireframe/categoria-jogos.webp" alt="Jovem cria um jogo no computador com rascunhos à sua frente">
+            <span class="cartao-categoria-etiqueta">Jogos</span>
+        </div>
+        <div class="cartao-categoria-conteudo">
+            <h1 class="cartao-categoria-chamada">Ideias que ganham movimento</h1>
+            <p class="cartao-categoria-descricao">Junte programação, design, narrativa e som em experiências interativas.</p>
+            <a class="btn secundario" href="oportunidades.php?categoria=Jogos">Ver Oportunidades</a>
+        </div>
+    </article>
+    <article class="cartao-categoria">
+        <div class="cartao-categoria-imagem">
+            <img src="assets/images/wireframe/categoria-ciberseguranca.webp" alt="Painéis de monitorização numa sala de controlo">
+            <span class="cartao-categoria-etiqueta">Cibersegurança</span>
+        </div>
+        <div class="cartao-categoria-conteudo">
+            <h1 class="cartao-categoria-chamada">Proteção para o mundo ligado</h1>
+            <p class="cartao-categoria-descricao">Aprenda a proteger sistemas, redes e informação num mundo conectado.</p>
+            <a class="btn secundario" href="oportunidades.php?categoria=Ciberseguran%C3%A7a">Ver Oportunidades</a>
+        </div>
+    </article>
+    <article class="cartao-categoria">
+        <div class="cartao-categoria-imagem">
+            <img src="assets/images/meeting_online.webp" alt="Pessoas participam numa reunião online">
+            <span class="cartao-categoria-etiqueta">Carreira &amp; Liderança</span>
+        </div>
+        <div class="cartao-categoria-conteudo">
+            <h1 class="cartao-categoria-chamada">Crescer com outras pessoas</h1>
+            <p class="cartao-categoria-descricao">Encontre oportunidades para crescer, partilhar experiências e liderar.</p>
+            <a class="btn secundario" href="oportunidades.php?categoria=Carreira%20%26%20Lideran%C3%A7a">Ver Oportunidades</a>
+        </div>
+    </article>
 </section>
 
 <section id="entidades" class="chamada-entidades">

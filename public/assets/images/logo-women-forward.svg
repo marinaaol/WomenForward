@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 260" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 20 530 230" role="img" aria-labelledby="title desc">
   <title id="title">Women Forward</title>
   <desc id="desc">Logótipo de linhas finas com uma rota inspirada na construção da espiral Fibonacci.</desc>
   <g fill="none" stroke="#87555C" stroke-linecap="round" stroke-linejoin="round">
@@ -7,8 +7,8 @@
     <path d="M40 212L72 148L104 212L136 148L168 212" stroke-width="3"/>
     <path d="M32 231H168M154 217L168 231L154 245" stroke-width="2.4"/>
   </g>
-  <text x="218" y="112" fill="#492D49" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="700" letter-spacing="-3">WOMEN</text>
-  <text x="222" y="160" fill="#87555C" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" letter-spacing="7">FORWARD</text>
-  <path d="M222 184H510" fill="none" stroke="#D1B68D" stroke-width="3" stroke-linecap="round"/>
-  <circle cx="526" cy="184" r="4" fill="#D1B68D"/>
+  <text x="218" y="112" fill="#492D49" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="700" textLength="250" lengthAdjust="spacing">WOMEN</text>
+  <text x="218" y="160" fill="#87555C" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" textLength="250" lengthAdjust="spacing">FORWARD</text>
+  <path d="M218 184H468" fill="none" stroke="#D1B68D" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="484" cy="184" r="4" fill="#D1B68D"/>
 </svg>

@@ -65,44 +65,42 @@ require __DIR__ . '/../includes/cabecalho.php';
     <p>Pode ter sido removida ou já não estar disponível.</p>
     <a href="<?= htmlspecialchars($voltar_url) ?>"><?= htmlspecialchars($voltar_label) ?></a>
 <?php else: ?>
-    <article class="detalhe">
-    <p><?= htmlspecialchars($op['categoria'], ENT_QUOTES, 'UTF-8') ?> · <?= htmlspecialchars(ucfirst($op['tipo']), ENT_QUOTES, 'UTF-8') ?></p>
+    <article class="detalhe detalhe-oportunidade">
+    <p class="detalhe-etiqueta"><?= htmlspecialchars($op['categoria'], ENT_QUOTES, 'UTF-8') ?> · <?= htmlspecialchars(ucfirst($op['tipo']), ENT_QUOTES, 'UTF-8') ?></p>
     <?php
         $partesTitulo = preg_split('/\s+[—-]\s+/u', $op['titulo'], 2);
         $tituloPrincipal = trim($partesTitulo[0]);
         $subtitulo = isset($partesTitulo[1]) ? trim($partesTitulo[1]) : '';
     ?>
 
-    <h1><?= htmlspecialchars($tituloPrincipal, ENT_QUOTES, 'UTF-8') ?></h1>
+    <header class="detalhe-cabecalho">
+        <h1><?= htmlspecialchars($tituloPrincipal, ENT_QUOTES, 'UTF-8') ?></h1>
 
-    <?php if ($subtitulo !== ''): ?>
-        <h2 class="subtitulo-oportunidade">
-            <?= htmlspecialchars($subtitulo, ENT_QUOTES, 'UTF-8') ?>
-        </h2>
-    <?php endif; ?>
-    <p><?= nl2br(htmlspecialchars($op['descricao'], ENT_QUOTES, 'UTF-8')) ?></p>
-
-    <dl>
-        <dt>Entidade</dt>
-        <dd><?= htmlspecialchars($op['entidade'], ENT_QUOTES, 'UTF-8') ?></dd>
-        <dt>Local</dt>
-        <dd><?= htmlspecialchars($op['pais'], ENT_QUOTES, 'UTF-8') ?><?= $op['cidade'] ? ' · ' . htmlspecialchars($op['cidade'], ENT_QUOTES, 'UTF-8') : '' ?></dd>
-        <dt>Formato</dt>
-        <dd><?= htmlspecialchars(ucfirst($op['formato']), ENT_QUOTES, 'UTF-8') ?></dd>
-        <?php if ($op['data_inicio']): ?>
-            <dt>Data de início</dt>
-            <dd><?= htmlspecialchars($op['data_inicio'], ENT_QUOTES, 'UTF-8') ?></dd>
+        <?php if ($subtitulo !== ''): ?>
+            <h2 class="subtitulo-oportunidade">
+                <?= htmlspecialchars($subtitulo, ENT_QUOTES, 'UTF-8') ?>
+            </h2>
         <?php endif; ?>
-        </dl>
+    </header>
 
-        <p>
-            <a class="botao-fonte-oficial" href="<?= htmlspecialchars($op['url'], ENT_QUOTES, 'UTF-8') ?>"
-               target="_blank" rel="noopener noreferrer">Consultar oportunidade na fonte oficial</a>
-        </p>
+    <p class="detalhe-descricao"><?= nl2br(htmlspecialchars($op['descricao'], ENT_QUOTES, 'UTF-8')) ?></p>
 
-        <p><small>Esta informação foi fornecida pela entidade responsável. Confirme requisitos, datas e condições na fonte oficial antes de se inscrever ou participar.</small></p>
+    <div class="detalhe-informacoes" aria-label="Informações da oportunidade">
+        <span class="detalhe-tag"><span class="detalhe-tag-rotulo">Entidade</span><?= htmlspecialchars($op['entidade'], ENT_QUOTES, 'UTF-8') ?></span>
+        <span class="detalhe-tag"><span class="detalhe-tag-rotulo">Local</span><?= htmlspecialchars($op['pais'], ENT_QUOTES, 'UTF-8') ?><?= $op['cidade'] ? ' · ' . htmlspecialchars($op['cidade'], ENT_QUOTES, 'UTF-8') : '' ?></span>
+        <span class="detalhe-tag"><span class="detalhe-tag-rotulo">Formato</span><?= htmlspecialchars(ucfirst($op['formato']), ENT_QUOTES, 'UTF-8') ?></span>
+        <?php if ($op['data_inicio']): ?>
+            <span class="detalhe-tag"><span class="detalhe-tag-rotulo">Data de início</span><?= htmlspecialchars($op['data_inicio'], ENT_QUOTES, 'UTF-8') ?></span>
+        <?php endif; ?>
+    </div>
 
-        <p><a href="<?= htmlspecialchars($voltar_url) ?>">← <?= htmlspecialchars($voltar_label) ?></a></p>
+    <div class="detalhe-acoes">
+        <a class="botao-fonte-oficial" href="<?= htmlspecialchars($op['url'], ENT_QUOTES, 'UTF-8') ?>"
+           target="_blank" rel="noopener noreferrer">Consultar oportunidade na fonte oficial</a>
+        <a class="detalhe-voltar" href="<?= htmlspecialchars($voltar_url) ?>">← <?= htmlspecialchars($voltar_label) ?></a>
+    </div>
+
+    <p class="detalhe-aviso"><small>Esta informação foi fornecida pela entidade responsável. Confirme requisitos, datas e condições na fonte oficial antes de se inscrever ou participar.</small></p>
     </article>
 <?php endif; ?>
 

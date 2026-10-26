@@ -162,15 +162,15 @@ require __DIR__ . '/../includes/cabecalho.php';
 
 <form method="post"
       action="oportunidade_form.php<?= $a_editar ? '?id=' . (int) $id : '' ?>"
-      class="formulario">
+      class="formulario formulario-publicar-oportunidade">
     <?php require __DIR__ . '/../includes/csrf.php'; ?>
 
-    <label for="titulo">Título
+    <label class="campo-completo" for="titulo">Título
         <input id="titulo" name="titulo" maxlength="150" required
                value="<?= htmlspecialchars($op['titulo']) ?>">
     </label>
 
-    <label for="descricao">Descrição
+    <label class="campo-completo" for="descricao">Descrição
         <textarea id="descricao" name="descricao" rows="6" required><?= htmlspecialchars($op['descricao']) ?></textarea>
     </label>
 
@@ -221,7 +221,7 @@ require __DIR__ . '/../includes/cabecalho.php';
         </select>
     </label>
 
-    <label for="url">URL oficial
+    <label class="campo-completo" for="url">URL oficial
         <input id="url" name="url" type="text" required
                placeholder="Ex.: https://exemplo.com/oportunidade"
                value="<?= htmlspecialchars($op['url']) ?>">
@@ -232,13 +232,15 @@ require __DIR__ . '/../includes/cabecalho.php';
                value="<?= htmlspecialchars($op['data_inicio'] ?? '') ?>">
     </label>
 
-    <label class="check">
+    <label class="check campo-completo">
         <input type="checkbox" name="ativo" value="1" <?= $op['ativo'] ? 'checked' : '' ?>>
         Oportunidade ativa (visível na pesquisa)
     </label>
 
-    <button type="submit"><?= $a_editar ? 'Guardar alterações' : 'Publicar oportunidade' ?></button>
-    <a href="dashboard.php">Cancelar</a>
+    <div class="formulario-oportunidades-acoes">
+        <button type="submit"><?= $a_editar ? 'Guardar alterações' : 'Publicar oportunidade' ?></button>
+        <a href="dashboard.php">Cancelar</a>
+    </div>
 </form>
 
 <?php require __DIR__ . '/../includes/rodape.php'; ?>

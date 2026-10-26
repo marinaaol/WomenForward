@@ -28,9 +28,9 @@
         </nav>
         <nav class="rodape-coluna" aria-label="Contatos">
             <h3>Contatos</h3>
-            <a href="https://www.linkedin.com/in/beatrizbarneves/">Beatriz Neves</a>
-            <a href="https://www.linkedin.com/in/marinaaol/">Marina Oliveira</a>
-            <a href="https://www.linkedin.com/in/pauloprimoo/">Paulo Primo</a>
+            <a href="https://www.linkedin.com/in/beatrizbarneves/" target="_blank" rel="noopener noreferrer">Beatriz Neves</a>
+            <a href="https://www.linkedin.com/in/marinaaol/" target="_blank" rel="noopener noreferrer">Marina Oliveira</a>
+            <a href="https://www.linkedin.com/in/pauloprimoo/" target="_blank" rel="noopener noreferrer">Paulo Primo</a>
         </nav>
     </div>
     <div class="rodape-base">
