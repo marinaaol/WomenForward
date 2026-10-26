@@ -6,7 +6,7 @@ Women Forward é o projeto de conclusão do Curso de Especialização Tecnológi
 
 O projeto nasce de pessoas que conhecem esta procura: querer avançar em tecnologia, procurar referências e oportunidades e, muitas vezes, perder-se entre informação dispersa. Women Forward reúne esses caminhos para que mais mulheres encontrem apoio, visibilidade e possibilidades reais de aprendizagem e carreira.
 
-## Problema
+## Desafio
 
 As oportunidades de estudo e progressão profissional em tecnologia estão dispersas por diferentes sites e redes. A procura exige tempo, referências e conhecimento prévio, o que dificulta a construção de percursos claros para quem inicia, muda de área ou pretende avançar.
 
