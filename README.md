@@ -64,7 +64,7 @@ config/                 Configuração da ligação à base de dados
 database/base_dados.sql Estrutura e dados de exemplo
 includes/               Componentes reutilizáveis e funções de apoio
 public/                 Páginas acessíveis no navegador
-public/assets/          Folhas de estilo, JavaScript, imagens e logótipos
+public/assets/          Folhas de estilo, JavaScript, imagens e logotipos
 ```
 
 ## Executar localmente
