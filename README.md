@@ -4,8 +4,6 @@
 
 Women Forward é o projeto de conclusão do Curso de Especialização Tecnológica em Programação e Sistemas de Informação, ofertado pelo IEFP e ministrado no ISLA Gaia. É uma plataforma web que torna cursos, eventos, comunidades e estágios em tecnologia mais fáceis de descobrir, reunindo oportunidades num só lugar.
 
-**Aceder ao site:** [women-forward.vercel.app](https://women-forward.vercel.app/)
-
 O projeto nasce de pessoas que conhecem esta procura: querer avançar em tecnologia, procurar referências e oportunidades e, muitas vezes, perder-se entre informação dispersa. Women Forward reúne esses caminhos para que mais mulheres encontrem apoio, visibilidade e possibilidades reais de aprendizagem e carreira.
 
 ## Desafio
@@ -88,8 +86,6 @@ public/assets/          Folhas de estilo, JavaScript, imagens e logotipos
 | Email | Palavra-passe |
 | --- | --- |
 | `womenforward@demo.test` | `Demo1234` |
-
-Na versão publicada, a conta de avaliação utiliza uma palavra-passe própria, disponibilizada em privado.
 
 ## Equipa
 

@@ -1,14 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Em telemóvel, apresenta os resultados após submeter os filtros.
-    const formularioOportunidades = document.querySelector('.formulario-oportunidades');
-    if (formularioOportunidades) {
-        formularioOportunidades.addEventListener('submit', () => {
-            formularioOportunidades.action = window.matchMedia('(max-width: 640px)').matches
-                ? 'oportunidades.php#resultados'
-                : 'oportunidades.php';
-        });
-    }
-
     /* ---------- Navegação móvel ---------- */
     const menuToggle = document.querySelector('.menu-toggle');
     const menuPrincipal = document.querySelector('#menu-principal');
