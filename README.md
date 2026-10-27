@@ -112,9 +112,9 @@ As visitantes podem pesquisar e consultar oportunidades sem conta. As entidades 
 
 | Pessoa | Área de trabalho |
 | --- | --- |
-| Beatriz Neves | CRUD, pesquisa, filtros, validação e testes |
-| Marina Oliveira | Interface, navegabilidade, JavaScript, páginas, formulários, acessibilidade, testes e publicação |
-| Paulo Primo | Base de dados, autenticação, sessões e controlo de acesso |
+| Beatriz Neves | Funcionalidades: CRUD, registo, login e logout, páginas de listagem e detalhe, autenticação e segurança (PDO), formulário, sessões e controlo de acesso, validação e testes. |
+| Marina Oliveira | Interface, navegabilidade, JavaScript, páginas, formulários, acessibilidade, user flow, filtros, testes e publicação |
+| Paulo Primo | Base de dados: elaboração de base_dados.sql |
 
 ## Estado do projeto
 
