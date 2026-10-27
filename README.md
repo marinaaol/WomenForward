@@ -42,7 +42,7 @@ Pessoas a partir dos 16 anos, com foco em mulheres que procuram estudar, desenvo
 
 ## Modelo de dados
 
-Categorias 1:N oportunidades - Classifica
+Categorias 1:N oportunidades - Classifica<br>
 Entidades 1:N oportunidades - Publica
 
 Cada oportunidade pertence a uma entidade e a uma categoria. Não existe uma relação direta entre entidades e categorias.
