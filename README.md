@@ -56,12 +56,33 @@ Cada oportunidade pertence a uma entidade e a uma categoria. Não existe uma rel
 
 ## Estrutura do projeto
 
+```text
 config/                 Configuração da ligação à base de dados
 database/base_dados.sql Estrutura e dados de exemplo
 includes/               Componentes reutilizáveis e funções de apoio
 public/                 Páginas acessíveis no navegador
 public/assets/          Folhas de estilo, JavaScript, imagens e logotipos
+```
 
+### Fluxo de funcionamento
+
+```mermaid
+flowchart TD
+    Inicio["Página inicial · index.php"] --> Pesquisa["Pesquisar oportunidades · oportunidades.php"]
+    Pesquisa --> Detalhe["Detalhe da oportunidade · oportunidade_ver.php"]
+    Inicio --> STEM["Mulheres na STEM · stem.php"]
+    Inicio --> Entidades["Para entidades · entidades.php"]
+    Entidades --> Registo["Criar conta · registar.php"]
+    Registo --> Login["Iniciar sessão · login.php"]
+    Entidades --> Login
+    Login --> Painel["Painel da entidade · dashboard.php"]
+    Painel --> Gestao["Criar, editar e eliminar oportunidades"]
+    Gestao --> BD[("MySQL / MariaDB")]
+    Pesquisa --> BD
+    Detalhe --> BD
+```
+
+As visitantes podem pesquisar e consultar oportunidades sem conta. As entidades usam o registo e o login para gerir as suas próprias oportunidades no painel.
 
 ## Executar localmente
 
